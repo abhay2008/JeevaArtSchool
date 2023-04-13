@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .heroButton {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#632ea8] dark:text-[#a447f1] transition-all dark:hover:border-[#f7ab0a]/40 hover:border-[#f7ab0a]/80
+  }
+  .tanjore {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#938f24] dark:text-[#c5c265] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+  .acrylic {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#f55742] dark:text-[#f55742] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+  .water {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#4542f5] dark:text-[#456dff] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+  .pencil {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#3c3d3d] dark:text-[#9fa0a5] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+  .student {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#139079] dark:text-[#64fef6] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+  .oil {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#45962d] dark:text-[#64fe6c] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+  .exam {
+    @apply px-6 py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-sm font-bold tracking-widest text-[#6429a7] dark:text-[#7664fe] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+  }
+}
