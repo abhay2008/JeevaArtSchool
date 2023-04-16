@@ -1,5 +1,8 @@
 import React from 'react'
-import {ArtWorkCard1, ArtWorkCard2, ArtWorkCard3, ArtWorkCard4} from './ArtWorkCard'
+import {ArtWorkCard1, ArtWorkCard2, ArtWorkCard3, ArtWorkCard4} from './ArtWorkCard';
+import Image from "next/image";
+import Link from 'next/link';
+import GoUp from '../assets/up.png';
 
 type Props = {}
 
@@ -13,6 +16,11 @@ export default function Acrylic({}: Props) {
       <ArtWorkCard2 />
       <ArtWorkCard3 />
       <ArtWorkCard4 />
+      <Link href="#hero" className="absolute bottom-4 right-4">
+        <button className="p-1">
+          <Image src={GoUp} alt="" width="30" height="30"/>
+        </button>
+      </Link>
     </div>
     </div>
   )

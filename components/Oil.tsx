@@ -1,5 +1,8 @@
 import React from 'react'
-import {ArtWorkCard13, ArtWorkCard14, ArtWorkCard15, ArtWorkCard16} from './ArtWorkCard'
+import {ArtWorkCard13, ArtWorkCard14, ArtWorkCard15, ArtWorkCard16} from './ArtWorkCard';
+import Image from "next/image";
+import Link from 'next/link';
+import GoUp from '../assets/up.png';
 
 type Props = {}
 
@@ -14,6 +17,11 @@ export default function Oil({}: Props) {
       <ArtWorkCard15 />
       <ArtWorkCard16 />
     </div>
+    <Link href="#hero" className="absolute bottom-4 right-4">
+      <button className="p-1">
+        <Image src={GoUp} alt="" width="30" height="30"/>
+      </button>
+    </Link>
     </div>
   )
 }

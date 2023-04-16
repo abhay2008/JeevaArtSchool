@@ -1,5 +1,8 @@
 import React from 'react'
-import {ArtWorkCard9, ArtWorkCard10, ArtWorkCard11, ArtWorkCard12} from './ArtWorkCard'
+import {ArtWorkCard9, ArtWorkCard10, ArtWorkCard11, ArtWorkCard12} from './ArtWorkCard';
+import Image from "next/image";
+import Link from 'next/link';
+import GoUp from '../assets/up.png';
 
 type Props = {}
 
@@ -14,6 +17,11 @@ export default function Tanjore({}: Props) {
       <ArtWorkCard11 />
       <ArtWorkCard12 />
     </div>
+    <Link href="#hero" className="absolute bottom-4 right-4">
+      <button className="p-1">
+        <Image src={GoUp} alt="" width="30" height="30"/>
+      </button>
+    </Link>
     </div>
   )
 }
