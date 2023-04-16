@@ -29,7 +29,7 @@ export default function About({}: Props) {
     };
   }, []);  
 
-  const shouldDisplayImage = (height !== undefined) && (width !== undefined) && height >= 820 || width >= 500;
+  const shouldDisplayImage = (height !== undefined) && height >= 820 || (width ?? 0) >= 500;
   return (
     <motion.div
       initial={{ opacity: 0 }}
