@@ -30,6 +30,7 @@ export default function About({}: Props) {
   }, []);  
 
   const shouldDisplayImage = (height !== undefined) && height >= 820 || (width ?? 0) >= 500;
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -79,7 +80,7 @@ export default function About({}: Props) {
         </p>
         <h5 className="font-bold text-cyan-700">For further details contact <span className="text-blue-700 dark:text-blue-400 underline hover:text-blue-900 dark:hover:text-blue-100 cursor-pointer" onClick={copyToClipboard}>+91 99450 67101</span>{copySuccess && <span className="text-green-500 p-5">Copied!</span>}
 </h5>
-        <Link href="#hero" className="absolute bottom-4 right-4">
+        <Link href="#hero" className="absolute bottom-20 md:bottom-40 lg:bottom-35 xl:bottom-10 right-4">
           <button className="p-1">
           <Image src={GoUp} alt="" width="30" height="30"/>
           </button>
