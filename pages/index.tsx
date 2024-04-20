@@ -9,7 +9,8 @@ import Tanjore from "@/components/Tanjore";
 import Oil from "@/components/Oil"
 import Pencil from "@/components/Pencil";
 import Students from "@/components/Students";
-import Exam from "@/components/Exam"
+import Exam from "@/components/Exam";
+import Product from "@/components/Products";
 
 
 const Home: NextPage = () => {
@@ -27,6 +28,9 @@ const Home: NextPage = () => {
       {/* About */}
       <section id="about" className="snap-center">
         <About />
+      </section>
+      <section id="product" className="snap-center">
+        <Product />
       </section>
       {/* Experience */}
       <section id="acrylic" className="snap-center">
