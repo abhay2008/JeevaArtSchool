@@ -1465,3 +1465,48 @@ export function ExamCard({}: Props) {
     </article>
   )
 }
+
+export function ProductCard({}: Props) {
+  const [showText, setShowText] = useState(true);
+  const [cardHeight, setCardHeight] = useState(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const height = window.innerHeight;
+      const width = window.innerWidth;
+      if (height < 700 && width < 700) {
+        setShowText(false);
+        setCardHeight(height/1.4);
+      } else if(height < 700 && width > 700) {
+        setShowText(false);
+        setCardHeight(height/1.4);
+      } else if(height < 1000 && width < 700) {
+        setShowText(false);
+        setCardHeight(height/1.7);
+      }
+      else {
+        setShowText(true);
+        setCardHeight(height/1.3);
+      }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return (
+    <article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 snap-center p-10 dark:bg-[#201f2d] bg-[#9ba0fd] cursor-pointer w-[90vw] transition-opacity duration-200 overflow-hidden text-center" style={{ height: cardHeight}}>
+      <article className="space-y-1 md:space-y-4 lg:space-y-7 mb-2 md:mb-5 lg:mb-7">
+        <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold dark:text-orange-300 text-orange-500">LOOKING FORWARD</h2>
+        <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold dark:text-yellow-300 text-yellow-500">TO BUY</h2>
+        <h2 className="text-xl md:text-2xl lg:text-4xl font-extrabold dark:text-cyan-300 text-cyan-500">CLASSY ARTWORK?</h2>
+      </article>
+      
+      {showText && <p className="text-lg md:text-xl mt-2 xl:text-2xl dark:text-purple-300 text-purple-700 font-bold">Invest in more than just a piece of art, bring a piece of Jeeva Art School home! Our collection offers a vibrant spectrum from classic oils and watercolors to captivating acrylics, intricate Tanjore paintings, and the bold expressions of pencil shading and charcoal. Each piece is a unique conversation starter, sparking joy and igniting your imagination. Don't just decorate your walls, elevate your space with the heart and soul of Jeeva Art School.</p>}
+      {!showText && <p className="text-lg md:text-xl mt-2 xl:text-2xl dark:text-purple-300 text-purple-700 font-bold">Own a piece of Jeeva Art School's soul! From oils to Tanjore, our art ignites imagination and sparks joy. Elevate your space with a unique conversation starter.</p>}
+      <a href="https://www.google.com/search?q=products+offered+by+jeeva+art+school+-+drawing+and+painting+classes+bangalore+bengaluru&rlz=1C5CHFA_enIN868IN868&gs_lcrp=EgZjaHJvbWUqDggCEEUYJxg7GIAEGIoFMgYIABBFGDwyCAgBEEUYJxg7Mg4IAhBFGCcYOxiABBiKBTIQCAMQLhjHARixAxjRAxiABDIPCAQQRRg5GIMBGLEDGIAEMgYIBRBFGDsyCggGEAAYsQMYgAQyBggHEEUYPdIBCDMyODdqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8&si=AKbGX_p4QjIETE_NqLQ-R7hFXjf-IWoFl9DTx0syqpOOdKQiGfcS1kQtQJ6iRJ4wSynS-CV3csB4GOoMNvj28B90Ov3mXUQspQzDR9E06hCrCfSN9zAt6AnqUq8fQ12IH3V9hBGa_4rUdZ6CGY0P8eCWWrF6wlvsBlBYTakGSgWOvwKx9J0DswPREwJk7rXqL4Zrt7XTJ1wrE_D_ttW9gp0czmuVBtNFL5HzCWYg-JN68VGjw5eCwl4%3D&ictx=1&ved=2ahUKEwiD5Kqg_tCFAxWu8DgGHaSuDuwQyNoBKAN6BAgZEAo#lpc=lpc&sbfbu=1&pi=products%20offered%20by%20jeeva%20art%20school%20-%20drawing%20and%20painting%20classes%20bangalore%20bengaluru"><button className="pt-2 pb-2 pr-10 pl-10  dark:bg-black bg-gray-300 rounded-xl dark:border-red-500 border-red-700  border-4">
+          <h1 className='bottom-4 dark:text-lime-400 text-lime-600 text-4xl md:text-6xl lg:text-8xl font-extrabold'>BUY</h1>
+      </button></a>
+    </article>
+  )
+}
