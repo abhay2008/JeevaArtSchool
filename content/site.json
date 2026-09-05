@@ -221,16 +221,62 @@
       "id": "product",
       "type": "shop",
       "enabled": true,
-      "eyebrow": "Original works",
-      "title": "Artwork for sale",
-      "highlightTitle": "Take a piece of the studio home",
+      "eyebrow": "Original Works For Sale",
+      "title": "Artwork For Sale",
+      "highlightTitle": "Take an Original Piece Home",
       "highlightLines": [
         "Looking to buy",
         "classy artwork?"
       ],
-      "body": "Invest in more than decoration. The collection spans oils, watercolours, acrylics, Tanjore paintings, pencil and charcoal. Each piece is unique — a conversation starter from Jeeva Art School.",
+      "body": "Authentic, hand-painted visual art by master artist Jeeva and studio artists. Each piece is unique, crafted with traditional pigment and seasoned canvas, and includes custom framing and studio authentication.",
       "ctaLabel": "View available works",
-      "ctaUrl": "https://www.google.com/search?q=products+offered+by+jeeva+art+school+-+drawing+and+painting+classes+bangalore+bengaluru"
+      "ctaUrl": "https://www.google.com/search?q=products+offered+by+jeeva+art+school+-+drawing+and+painting+classes+bangalore+bengaluru",
+      "items": [
+        {
+          "id": "sale-tanjore-ganesha",
+          "title": "Lord Ganesha",
+          "headline": "Traditional 22k Gold Tanjore Painting",
+          "description": "Sacred iconographic painting with 22-carat authentic gold foil, embossed relief gesso work, and fine Jaipur stones on seasoned teakwood.",
+          "image": "/uploads/tanjoreganesh.jpeg",
+          "medium": "Tanjore Painting",
+          "purpose": "sale",
+          "theme": "tanjore",
+          "price": "32,000"
+        },
+        {
+          "id": "sale-tanjore-krishna",
+          "title": "Alilai Krishna",
+          "headline": "22k Gold Embossed Relief",
+          "description": "Balakrishna resting peacefully on a sacred banyan leaf, rendered with classical south Indian ornamentation and rich gold embellishment.",
+          "image": "/uploads/tanjorekrish.jpeg",
+          "medium": "Tanjore Painting",
+          "purpose": "sale",
+          "theme": "tanjore",
+          "price": "28,500"
+        },
+        {
+          "id": "sale-acrylic-forest",
+          "title": "A Forest Scenery",
+          "headline": "Atmospheric Acrylic on Canvas",
+          "description": "Lush woodland landscape capturing sunlight dancing through canopies, misty distant mountains, and deep viridian water reflections.",
+          "image": "/uploads/acrylic.jpeg",
+          "medium": "Acrylic Painting",
+          "purpose": "sale",
+          "theme": "acrylic",
+          "price": "16,500"
+        },
+        {
+          "id": "sale-water-temple",
+          "title": "A Traditional Temple",
+          "headline": "Fine Watercolour Wash on Cotton Rag",
+          "description": "Atmospheric architectural study of ancient temple towers in fluid watercolour washes and subtle chromatic grading.",
+          "image": "/uploads/templewater.jpeg",
+          "medium": "Watercolour",
+          "purpose": "sale",
+          "theme": "water",
+          "price": "12,000"
+        }
+      ]
     },
     {
       "id": "acrylic",

@@ -31,6 +31,7 @@ export interface ArtworkItem {
   medium: string;
   purpose?: "gallery" | "sale" | "student" | "class";
   theme?: GalleryTheme;
+  price?: number | string;
 }
 
 export interface HeroButton {
