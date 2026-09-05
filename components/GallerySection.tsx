@@ -2,31 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import GalleryCarousel from "./GalleryCarousel";
 import type { GalleryTheme, SiteSection } from "../lib/types";
-import { useSite } from "../context/SiteContext";
-import { uid } from "../lib/site";
 
 export default function GallerySection({ section }: { section: SiteSection }) {
-  const { editor, updateSection, selectSection } = useSite();
   const theme = (section.theme || "acrylic") as GalleryTheme;
   const count = section.items?.length || 0;
-  const editing = editor.enabled && editor.workspace !== "studio";
-
-  const addCard = () => {
-    selectSection(section.id);
-    updateSection(section.id, {
-      items: [
-        ...(section.items || []),
-        {
-          id: uid("art"),
-          title: "Untitled painting",
-          description: "Add a short description in the editor.",
-          image: "/uploads/acrylic.jpeg",
-          medium: section.title || "Artwork",
-          purpose: "gallery",
-        },
-      ],
-    });
-  };
 
   return (
     <motion.div initial={false} animate={{ opacity: 1 }} className="py-20 px-2 sm:px-6 max-w-[90rem] mx-auto">
@@ -41,7 +20,7 @@ export default function GallerySection({ section }: { section: SiteSection }) {
           {count} {count === 1 ? "artwork" : "artworks"}
         </span>
       </div>
-      <GalleryCarousel items={section.items || []} theme={theme} editing={editing} onAdd={addCard} />
+      <GalleryCarousel items={section.items || []} theme={theme} />
     </motion.div>
   );
 }

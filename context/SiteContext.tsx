@@ -234,57 +234,8 @@ export function SiteProvider({ children }: { children: ReactNode }) {
     [previewMap]
   );
 
-  useEffect(() => {
-    fetch("/api/github")
-      .then((res) => (res.ok ? res.json() : null))
-      .then((data) => {
-        if (data?.repoUrl) {
-          setEditor((e) => ({
-            ...e,
-            repoUrl: data.repoUrl,
-            commitUrl: data.latest?.htmlUrl || e.commitUrl,
-          }));
-        }
-      })
-      .catch(() => undefined);
-  }, []);
-
-  useEffect(() => {
-    let cancelled = false;
-    const load = async () => {
-      try {
-        const res = await fetch("/api/content");
-        if (res.ok) {
-          const data = (await res.json()) as SiteContent;
-          if (!cancelled && data?.sections) {
-            setCanonicalContent(hydrateContent(data));
-            return;
-          }
-        }
-      } catch {
-        /* fall through */
-      }
-      try {
-        const cached = localStorage.getItem(STORAGE_KEY);
-        if (cached && !cancelled) {
-          setCanonicalContent(hydrateContent(JSON.parse(cached) as SiteContent));
-        }
-      } catch {
-        /* ignore */
-      }
-    };
-    load();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  const persist = useCallback((next: SiteContent) => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch {
-      /* quota */
-    }
+  const persist = useCallback((_next: SiteContent) => {
+    /* Public site is read-only. Content is published from the separate admin app. */
   }, []);
 
   const setContent = useCallback(

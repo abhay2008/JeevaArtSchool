@@ -13,7 +13,7 @@ const nextConfig = {
   transpilePackages: ["animejs"],
   async rewrites() {
     const owner = process.env.GITHUB_OWNER || "abhay2008";
-    const repo = process.env.GITHUB_REPO || "jeeva-art-school-admin";
+    const repo = process.env.GITHUB_REPO || "JeevaArtSchool";
     const branch = process.env.GITHUB_BRANCH || "main";
     return {
       fallback: [

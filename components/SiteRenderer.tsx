@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSite } from "../context/SiteContext";
-import EditableSection from "./editor/EditableSection";
 import Hero from "./Hero";
 import About from "./About";
 import ClassesGrid from "./ClassesGrid";
@@ -38,20 +37,7 @@ function RenderSection({ section }: { section: SiteSection }) {
 }
 
 export default function SiteRenderer() {
-  const { content, editor } = useSite();
-
-  useEffect(() => {
-    if (!editor.enabled || !editor.selectedId) return;
-    const preview = document.getElementById("site-preview");
-    const target = document.getElementById(editor.selectedId);
-    if (!preview || !target) return;
-    const previewRect = preview.getBoundingClientRect();
-    const targetRect = target.getBoundingClientRect();
-    preview.scrollTo({
-      top: preview.scrollTop + (targetRect.top - previewRect.top) - 56,
-      behavior: "smooth",
-    });
-  }, [editor.enabled, editor.selectedId]);
+  const { content } = useSite();
 
   return (
     <main className="relative z-10 snap-y snap-proximity">
@@ -59,9 +45,7 @@ export default function SiteRenderer() {
         .filter((section) => section.enabled !== false)
         .map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-20 snap-start">
-            <EditableSection id={section.id}>
-              <RenderSection section={section} />
-            </EditableSection>
+            <RenderSection section={section} />
           </section>
         ))}
     </main>

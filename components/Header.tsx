@@ -79,6 +79,7 @@ export default function Header() {
   }, [open]);
 
   const go = (href: string) => {
+    const delay = open ? 180 : 0;
     setOpen(false);
     window.setTimeout(() => {
       const id = href.startsWith("#") ? href.slice(1) : href;
@@ -94,7 +95,7 @@ export default function Header() {
         return;
       }
       target?.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 180);
+    }, delay);
   };
 
   return (
@@ -151,19 +152,19 @@ export default function Header() {
             </div>
           </div>
 
-          <nav className="hidden sm:flex items-center gap-0.5 text-sm font-semibold tracking-wide text-stone-800 dark:text-amber-50/90">
-            {PRIMARY_NAV.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="px-3 py-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="flex items-center gap-1.5">
+          <div className="flex items-center gap-1.5 shrink-0">
+            <nav className="hidden sm:flex items-center gap-0.5 text-sm font-semibold tracking-wide text-stone-800 dark:text-amber-50/90">
+              {PRIMARY_NAV.map((link) => (
+                <button
+                  key={link.href}
+                  type="button"
+                  onClick={() => go(link.href)}
+                  className="px-3 py-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10"
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
             {mounted ? (
               <button
                 type="button"
