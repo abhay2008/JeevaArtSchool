@@ -883,17 +883,6 @@
       "medium": "Emerging artist",
       "purpose": "student",
       "theme": "student"
-    },
-    {
-      "id": "art-9bnyoqz",
-      "title": "test",
-      "headline": "logo",
-      "description": "yessir",
-      "image": "/uploads/1788641181566-jeevalogo.jpg",
-      "medium": "Acrylic painting",
-      "purpose": "sale",
-      "theme": "acrylic",
-      "price": "67"
     }
   ]
 }
