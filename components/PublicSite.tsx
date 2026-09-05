@@ -3,6 +3,8 @@ import Header from "./Header";
 import SiteRenderer from "./SiteRenderer";
 import BrowseKeys from "./BrowseKeys";
 import { useSite } from "../context/SiteContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
   const { content } = useSite();
@@ -49,6 +51,34 @@ export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
                 {link.name}
               </a>
             ))}
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto mt-10 pt-6 border-t border-stone-300/80 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-stone-600 dark:text-stone-400">
+          <p>© 2026 {content.brand.name}. All rights reserved.</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <span>Developer:</span>
+            <span className="font-bold text-stone-800 dark:text-stone-200">Abhay Kashyap</span>
+            <span className="text-stone-400 dark:text-stone-600">·</span>
+            <a
+              href="https://www.linkedin.com/in/abhay-kashyap/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-blue-700 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5 transition-colors"
+            >
+              <FontAwesomeIcon icon={faLinkedin} className="text-sm" />
+              LinkedIn
+            </a>
+            <span className="text-stone-400 dark:text-stone-600">·</span>
+            <a
+              href="https://github.com/abhay2008"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-stone-900 dark:text-stone-100 hover:underline inline-flex items-center gap-1.5 transition-colors"
+            >
+              <FontAwesomeIcon icon={faGithub} className="text-sm" />
+              GitHub
+            </a>
           </div>
         </div>
       </footer>

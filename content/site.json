@@ -582,15 +582,6 @@
         "Free-hand drawing"
       ],
       "ageNote": "Open to age 13+"
-    },
-    {
-      "id": "studio-video",
-      "type": "video",
-      "enabled": true,
-      "eyebrow": "Watch",
-      "title": "Studio lessons on YouTube",
-      "body": "Follow demonstrations and class work on the school channel. Replace this with any YouTube or Vimeo link from the editor.",
-      "videoUrl": "https://www.youtube.com/@jeevakumari3640"
     }
   ],
   "showcase": [
