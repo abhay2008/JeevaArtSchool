@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import SiteRenderer from "./SiteRenderer";
+import BrowseKeys from "./BrowseKeys";
 import { useSite } from "../context/SiteContext";
 
 export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
@@ -8,6 +9,7 @@ export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
 
   return (
     <>
+      <BrowseKeys />
       {liveBadge ? (
         <div className="sticky top-0 z-40 flex items-center justify-center pointer-events-none py-2">
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-700 text-emerald-50 text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 shadow-lg">

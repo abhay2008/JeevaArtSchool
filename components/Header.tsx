@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faMapMarkerAlt,
+  faLocationDot,
   faSun,
   faMoon,
   faPalette,
   faBars,
   faXmark,
+  faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { faYoutube, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { useTheme } from "next-themes";
@@ -15,19 +16,22 @@ import Link from "next/link";
 import { useSite } from "../context/SiteContext";
 
 const PRIMARY_NAV = [
-  { name: "About", href: "#about" },
   { name: "Classes", href: "#classes" },
-  { name: "Artworks", href: "#acrylic" },
-  { name: "Shop", href: "#product" },
   { name: "Exams", href: "#exam" },
 ];
 
 function socialMeta(network: string) {
-  if (network === "youtube") return { icon: faYoutube, label: "YouTube", className: "text-red-600" };
-  if (network === "instagram") return { icon: faInstagram, label: "Instagram", className: "text-fuchsia-600" };
-  if (network === "whatsapp") return { icon: faWhatsapp, label: "WhatsApp", className: "text-emerald-600" };
+  if (network === "youtube") return { icon: faYoutube, label: "YouTube", className: "text-[#b42318]" };
+  if (network === "instagram") return { icon: faInstagram, label: "Instagram", className: "text-[#9d3b7a]" };
+  if (network === "whatsapp") return { icon: faWhatsapp, label: "WhatsApp", className: "text-[#2f6b4c]" };
   return { icon: faPalette, label: network, className: "text-stone-700" };
 }
+
+const iconBtn =
+  "inline-flex h-9 w-9 items-center justify-center rounded-full text-stone-700 dark:text-amber-50/90 hover:bg-black/[0.05] dark:hover:bg-white/10 transition-colors";
+
+const drawerLink =
+  "block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-800 dark:text-amber-50 hover:bg-black/5 dark:hover:bg-white/10";
 
 export default function Header() {
   const { content } = useSite();
@@ -36,6 +40,19 @@ export default function Header() {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const isDark = mounted && resolvedTheme === "dark";
+
+  const classes = useMemo(
+    () => content.sections.find((s) => s.type === "classes" && s.enabled !== false),
+    [content.sections]
+  );
+  const galleries = useMemo(
+    () => content.sections.filter((s) => s.type === "gallery" && s.enabled !== false),
+    [content.sections]
+  );
+  const about = content.sections.find((s) => s.type === "about" && s.enabled !== false);
+  const shop = content.sections.find((s) => s.type === "shop" && s.enabled !== false);
+  const exam = content.sections.find((s) => s.type === "exam" && s.enabled !== false);
 
   useEffect(() => {
     setMounted(true);
@@ -61,6 +78,25 @@ export default function Header() {
     };
   }, [open]);
 
+  const go = (href: string) => {
+    setOpen(false);
+    window.setTimeout(() => {
+      const id = href.startsWith("#") ? href.slice(1) : href;
+      const target = document.getElementById(id);
+      const preview = document.getElementById("site-preview");
+      if (target && preview) {
+        const previewRect = preview.getBoundingClientRect();
+        const targetRect = target.getBoundingClientRect();
+        preview.scrollTo({
+          top: preview.scrollTop + (targetRect.top - previewRect.top) - 56,
+          behavior: "smooth",
+        });
+        return;
+      }
+      target?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 180);
+  };
+
   return (
     <>
       <header
@@ -71,7 +107,7 @@ export default function Header() {
         }`}
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
-          <div className="flex items-center gap-2 min-w-0">
+          <div className="flex items-center gap-1.5 min-w-0">
             <Link href="#hero" className="flex items-center gap-2.5 shrink-0">
               <span className="relative h-9 w-9 overflow-hidden rounded-lg shadow-md ring-1 ring-black/10">
                 <Image
@@ -87,11 +123,9 @@ export default function Header() {
                 {content.brand.name}
               </span>
             </Link>
-            <div className="flex items-center gap-0.5 sm:gap-1">
+            <div className="flex items-center">
               {social.map((item) => {
                 const meta = socialMeta(item.network);
-                const shortLabel =
-                  item.network === "instagram" ? "Insta" : meta.label;
                 return (
                   <a
                     key={item.url}
@@ -99,19 +133,25 @@ export default function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={meta.label}
-                    className="inline-flex items-center gap-1.5 px-1.5 sm:px-2 py-1 rounded-full hover:bg-black/5 dark:hover:bg-white/10"
+                    className={iconBtn}
                   >
-                    <FontAwesomeIcon icon={meta.icon} className={`text-lg sm:text-xl opacity-90 ${meta.className}`} />
-                    <span className="hidden sm:inline text-sm font-semibold opacity-90 text-stone-800 dark:text-stone-100">
-                      {shortLabel}
-                    </span>
+                    <FontAwesomeIcon icon={meta.icon} className={`text-lg ${meta.className} dark:text-amber-50/85`} />
                   </a>
                 );
               })}
+              <a
+                href={content.brand.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Google Maps"
+                className={iconBtn}
+              >
+                <FontAwesomeIcon icon={faLocationDot} className="text-[15px] text-[#3d6178] dark:text-amber-50/85" />
+              </a>
             </div>
           </div>
 
-          <nav className="hidden lg:flex items-center gap-1 text-sm font-semibold text-stone-800/90 dark:text-stone-100/90">
+          <nav className="hidden sm:flex items-center gap-0.5 text-sm font-semibold tracking-wide text-stone-800 dark:text-amber-50/90">
             {PRIMARY_NAV.map((link) => (
               <Link
                 key={link.href}
@@ -123,29 +163,33 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <a
-              href={content.brand.maps}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-stone-900/90 text-amber-50 text-sm font-semibold tracking-wide hover:bg-stone-800"
-            >
-              <FontAwesomeIcon icon={faMapMarkerAlt} className="opacity-90" />
-              View in Google Maps
-            </a>
-            {mounted && (
+          <div className="flex items-center gap-1.5">
+            {mounted ? (
               <button
-                onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                aria-label="Toggle theme"
-                className="w-10 h-10 rounded-full border border-stone-300/80 dark:border-stone-600 bg-white/80 dark:bg-stone-800"
+                type="button"
+                onClick={() => setTheme(isDark ? "light" : "dark")}
+                aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+                className="relative h-9 w-[3.65rem] rounded-full border border-[#d4c7b4] dark:border-[#5c5348] bg-[#efe6d8] dark:bg-[#1a1714] shadow-[inset_0_1px_2px_rgba(60,40,20,0.12)]"
               >
-                <FontAwesomeIcon icon={resolvedTheme === "dark" ? faSun : faMoon} className="text-amber-500" />
+                <span
+                  className={`absolute top-[3px] left-[3px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#fbf7f1] dark:bg-[#2a241e] shadow-[0_1px_4px_rgba(40,30,20,0.18)] ring-1 ring-[#cfc3b0]/80 dark:ring-[#6b5e4e]/70 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isDark ? "translate-x-[1.55rem]" : "translate-x-0"
+                  }`}
+                >
+                  <FontAwesomeIcon
+                    icon={isDark ? faMoon : faSun}
+                    className={`text-[11px] ${isDark ? "text-[#e8d5a3]" : "text-[#8a6a32]"}`}
+                  />
+                </span>
+                <span className="sr-only">Theme</span>
               </button>
+            ) : (
+              <span className="h-9 w-[3.65rem]" />
             )}
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="w-10 h-10 rounded-full border border-stone-300/80 dark:border-stone-600 bg-white/80 dark:bg-stone-800"
+              className="w-9 h-9 rounded-full border border-[#d4c7b4] dark:border-[#5c5348] bg-[#fbf7f1] dark:bg-[#2a241e] text-stone-800 dark:text-amber-50"
             >
               <FontAwesomeIcon icon={faBars} />
             </button>
@@ -154,6 +198,7 @@ export default function Header() {
       </header>
 
       <div
+        {...(open ? { "data-nav-drawer": "true" } : {})}
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
@@ -165,12 +210,15 @@ export default function Header() {
           onClick={() => setOpen(false)}
         />
         <aside
-          className={`absolute top-0 right-0 h-full w-[min(100%,22rem)] bg-[#f7f1e8] dark:bg-[#16141f] shadow-2xl border-l border-amber-900/10 p-6 overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`absolute top-0 right-0 h-full w-[min(100%,24rem)] bg-[#f7f1e8] dark:bg-[#16141f] text-stone-800 dark:text-amber-50 shadow-2xl border-l border-amber-900/10 p-6 overflow-y-auto transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex items-center justify-between mb-8">
-            <p className="font-serif text-2xl font-semibold">Menu</p>
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-stone-500">Jeeva Art School</p>
+              <p className="font-serif text-2xl font-semibold">Explore</p>
+            </div>
             <button
               onClick={() => setOpen(false)}
               className="w-10 h-10 rounded-full bg-white/80 dark:bg-white/10"
@@ -180,45 +228,117 @@ export default function Header() {
             </button>
           </div>
 
-          <nav className="flex flex-col gap-1 text-lg font-semibold">
-            {PRIMARY_NAV.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="px-3 py-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/10"
-              >
-                {link.name}
-              </Link>
-            ))}
-          </nav>
+          <nav className="space-y-6">
+            <div>
+              <p className="px-3 mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">Visit</p>
+              <button type="button" onClick={() => go("hero")} className={`${drawerLink} w-full text-left`}>
+                Home
+              </button>
+              {about ? (
+                <button type="button" onClick={() => go(about.id)} className={`${drawerLink} w-full text-left`}>
+                  About
+                </button>
+              ) : null}
+              {shop ? (
+                <button type="button" onClick={() => go(shop.id)} className={`${drawerLink} w-full text-left`}>
+                  {shop.title || "Artwork for sale"}
+                </button>
+              ) : null}
+              {exam ? (
+                <button type="button" onClick={() => go(exam.id)} className={`${drawerLink} w-full text-left`}>
+                  {exam.title || "Exams"}
+                </button>
+              ) : null}
+            </div>
 
-          <div className="mt-8 pt-6 border-t border-amber-900/15 space-y-3">
-            {social.map((item) => {
-              const meta = socialMeta(item.network);
-              return (
-                <a
-                  key={item.url}
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-black/5 text-stone-800 dark:text-stone-100"
-                >
-                  <FontAwesomeIcon icon={meta.icon} className={`text-xl opacity-90 ${meta.className}`} />
-                  <span className="text-base font-semibold opacity-90">{meta.label}</span>
-                </a>
-              );
-            })}
-            <a
-              href={content.brand.maps}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 px-3 py-3 rounded-xl bg-stone-900 text-amber-50 font-semibold"
-            >
-              <FontAwesomeIcon icon={faMapMarkerAlt} className="opacity-90" />
-              <span className="opacity-95">View in Google Maps</span>
-            </a>
-          </div>
+            {classes ? (
+              <div>
+                <p className="px-3 mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">Classes</p>
+                <button type="button" onClick={() => go(classes.id)} className={`${drawerLink} w-full text-left`}>
+                  All classes
+                </button>
+                {(classes.classes || []).map((item) => (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => go(item.href.replace("#", ""))}
+                    className={`${drawerLink} w-full text-left`}
+                  >
+                    <span className="block">{item.title}</span>
+                    {item.description ? (
+                      <span className="block mt-0.5 text-sm font-medium text-stone-500 dark:text-stone-400 line-clamp-2">
+                        {item.description}
+                      </span>
+                    ) : null}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+
+            {galleries.length ? (
+              <div>
+                <p className="px-3 mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">Mediums & galleries</p>
+                {galleries.map((gallery) => (
+                  <button
+                    key={gallery.id}
+                    type="button"
+                    onClick={() => go(gallery.id)}
+                    className={`${drawerLink} w-full text-left`}
+                  >
+                    {gallery.title || gallery.id}
+                    {gallery.items?.length ? (
+                      <span className="ml-2 text-xs font-medium text-stone-500">
+                        {gallery.items.length}
+                      </span>
+                    ) : null}
+                  </button>
+                ))}
+              </div>
+            ) : null}
+
+            <div className="pt-4 border-t border-amber-900/15 space-y-2">
+              <p className="px-3 mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">Contact</p>
+              <a href={`tel:+${content.brand.phoneRaw}`} className={`${drawerLink} flex items-center gap-3`}>
+                <FontAwesomeIcon icon={faPhone} className="text-sm text-stone-500" />
+                {content.brand.phoneDisplay}
+              </a>
+              <a
+                href={content.brand.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${drawerLink} flex items-center gap-3`}
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className="text-lg text-[#2f6b4c]" />
+                WhatsApp
+              </a>
+              <a
+                href={content.brand.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${drawerLink} flex items-center gap-3`}
+              >
+                <FontAwesomeIcon icon={faLocationDot} className="text-[#3d6178]" />
+                Studio on Google Maps
+              </a>
+              <div className="flex items-center gap-1 px-1 pt-2">
+                {social.map((item) => {
+                  const meta = socialMeta(item.network);
+                  return (
+                    <a
+                      key={item.url}
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={meta.label}
+                      className={iconBtn}
+                    >
+                      <FontAwesomeIcon icon={meta.icon} className={`text-xl ${meta.className}`} />
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </nav>
         </aside>
       </div>
     </>

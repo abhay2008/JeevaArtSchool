@@ -29,7 +29,7 @@ export default function GallerySection({ section }: { section: SiteSection }) {
   };
 
   return (
-    <motion.div initial={false} animate={{ opacity: 1 }} className="py-20 px-2 sm:px-6 max-w-7xl mx-auto">
+    <motion.div initial={false} animate={{ opacity: 1 }} className="py-20 px-2 sm:px-6 max-w-[90rem] mx-auto">
       <div className="text-center mb-8">
         <h3 className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-stone-900 dark:text-white tracking-tight">
           {section.title}

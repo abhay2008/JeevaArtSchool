@@ -1,30 +1,51 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image, { StaticImageData } from "next/image";
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export interface ArtworkData {
+  id?: string;
   title: string;
   description?: string;
-  image: StaticImageData | string;
+  image: string;
   medium?: string;
 }
 
 interface ArtModalContextType {
   openArtwork: (artwork: ArtworkData) => void;
   closeArtwork: () => void;
+  prefetchArtwork: (src?: string) => void;
 }
 
 const ArtModalContext = createContext<ArtModalContextType | undefined>(undefined);
 
+const warmed = new Set<string>();
+const warming = new Set<string>();
+
+export function prefetchArtwork(src?: string) {
+  if (!src || typeof window === "undefined" || warmed.has(src) || warming.has(src)) return;
+  warming.add(src);
+  const img = new window.Image();
+  img.decoding = "async";
+  img.onload = () => {
+    warmed.add(src);
+    warming.delete(src);
+  };
+  img.onerror = () => warming.delete(src);
+  img.src = src;
+  if (img.complete && img.naturalWidth > 0) {
+    warmed.add(src);
+    warming.delete(src);
+  }
+}
+
 export function useArtModal() {
   const context = useContext(ArtModalContext);
   if (!context) {
-    // Return safe fallback if not wrapped in provider
     return {
       openArtwork: () => {},
       closeArtwork: () => {},
+      prefetchArtwork,
     };
   }
   return context;
@@ -32,20 +53,22 @@ export function useArtModal() {
 
 export function ArtModalProvider({ children }: { children: ReactNode }) {
   const [activeArtwork, setActiveArtwork] = useState<ArtworkData | null>(null);
+  const [ready, setReady] = useState(false);
 
-  const openArtwork = (artwork: ArtworkData) => {
+  const openArtwork = useCallback((artwork: ArtworkData) => {
+    prefetchArtwork(artwork.image);
+    setReady(warmed.has(artwork.image));
     setActiveArtwork(artwork);
-  };
+  }, []);
 
-  const closeArtwork = () => {
+  const closeArtwork = useCallback(() => {
     setActiveArtwork(null);
-  };
+    setReady(false);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        closeArtwork();
-      }
+      if (e.key === "Escape") closeArtwork();
     };
     if (activeArtwork) {
       document.body.style.overflow = "hidden";
@@ -57,10 +80,43 @@ export function ArtModalProvider({ children }: { children: ReactNode }) {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
+  }, [activeArtwork, closeArtwork]);
+
+  useEffect(() => {
+    if (!activeArtwork?.image) return;
+    let cancelled = false;
+    const src = activeArtwork.image;
+    const finish = () => {
+      if (cancelled) return;
+      warmed.add(src);
+      setReady(true);
+    };
+    const img = new window.Image();
+    img.decoding = "async";
+    img.onload = () => {
+      if (typeof img.decode === "function") {
+        img.decode().then(finish).catch(finish);
+      } else {
+        finish();
+      }
+    };
+    img.onerror = finish;
+    img.src = src;
+    if (img.complete && img.naturalWidth > 0) {
+      if (typeof img.decode === "function") {
+        img.decode().then(finish).catch(finish);
+      } else {
+        finish();
+      }
+    }
+    return () => {
+      cancelled = true;
+    };
   }, [activeArtwork]);
 
   return (
-    <ArtModalContext.Provider value={{ openArtwork, closeArtwork }}>
+    <ArtModalContext.Provider value={{ openArtwork, closeArtwork, prefetchArtwork }}>
+      <LayoutGroup>
       {children}
       <AnimatePresence>
         {activeArtwork && (
@@ -68,65 +124,89 @@ export function ArtModalProvider({ children }: { children: ReactNode }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.28 }}
             onClick={closeArtwork}
-            className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6 bg-black/80 backdrop-blur-md"
+            data-art-lightbox="true"
+            className="fixed inset-0 z-[90] flex items-center justify-center p-3 sm:p-6 bg-[#1a1410]/80 backdrop-blur-md"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              initial={{ opacity: 0, y: 18, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.98 }}
+              transition={{ type: "spring", damping: 22, stiffness: 260 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative max-w-4xl w-full bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-white/20 dark:border-white/10 overflow-hidden flex flex-col max-h-[92vh]"
+              className="relative max-w-5xl w-full bg-[#f7f1e8] dark:bg-[#16141f] rounded-2xl shadow-2xl border border-amber-900/15 overflow-hidden flex flex-col max-h-[92vh]"
             >
-              {/* Top bar with title and close button */}
-              <div className="flex items-center justify-between px-5 py-3 border-b border-slate-200 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-900/90">
-                <div className="flex items-center space-x-2">
+              <div className="flex items-center justify-between px-5 py-3 border-b border-amber-900/10">
+                <div className="flex items-center gap-2 min-w-0">
                   {activeArtwork.medium && (
-                    <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/40">
+                    <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200/80">
                       {activeArtwork.medium}
                     </span>
                   )}
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white truncate max-w-xs sm:max-w-md">
+                  <h3 className="font-serif text-lg sm:text-xl font-semibold text-stone-900 dark:text-amber-50 truncate">
                     {activeArtwork.title}
                   </h3>
                 </div>
-
                 <button
                   onClick={closeArtwork}
-                  aria-label="Close modal"
-                  className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-200/80 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                  aria-label="Close"
+                  className="w-8 h-8 rounded-full flex items-center justify-center bg-stone-200/80 dark:bg-white/10 text-stone-700 dark:text-amber-50"
                 >
                   <FontAwesomeIcon icon={faXmark} className="text-sm" />
                 </button>
               </div>
 
-              {/* Main Image View */}
-              <div className="relative flex-1 min-h-0 bg-slate-950/50 flex items-center justify-center p-3 sm:p-5 overflow-hidden">
-                <div className="relative h-[68vh] w-full">
-                  <Image
-                    src={activeArtwork.image}
-                    alt={activeArtwork.title}
-                    fill
-                    className="object-contain rounded-lg"
-                    sizes="90vw"
-                    loading="lazy"
+              <div className="relative flex-1 min-h-0 bg-[#1c1814] flex items-center justify-center p-3 sm:p-5 overflow-hidden">
+                <motion.div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-70"
+                  animate={{
+                    background: [
+                      "radial-gradient(ellipse at 30% 40%, rgba(245,158,11,0.28), transparent 55%)",
+                      "radial-gradient(ellipse at 70% 55%, rgba(244,63,94,0.22), transparent 55%)",
+                      "radial-gradient(ellipse at 30% 40%, rgba(245,158,11,0.28), transparent 55%)",
+                    ],
+                  }}
+                  transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+                />
+
+                {!ready ? (
+                  <motion.div
+                    className="absolute h-24 w-24 rounded-full border-2 border-amber-200/30 border-t-amber-400"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1.1, repeat: Infinity, ease: "linear" }}
                   />
-                </div>
+                ) : null}
+
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <motion.img
+                  key={activeArtwork.image}
+                  layoutId={activeArtwork.id ? `artwork-${activeArtwork.id}` : undefined}
+                  src={activeArtwork.image}
+                  alt={activeArtwork.title}
+                  initial={activeArtwork.id ? { opacity: 1 } : { opacity: 0, scale: 1.04, filter: "blur(16px)" }}
+                  animate={
+                    ready
+                      ? { opacity: 1, scale: 1, filter: "blur(0px)" }
+                      : { opacity: 0.35, scale: 1.03, filter: "blur(12px)" }
+                  }
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                  onLoad={() => setReady(true)}
+                  className="relative z-10 max-h-[68vh] max-w-full object-contain rounded-lg shadow-[0_20px_60px_-20px_rgba(0,0,0,0.65)]"
+                />
               </div>
 
-              {/* Bottom bar with description */}
-              {activeArtwork.description && (
-                <div className="px-5 py-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/90 dark:bg-slate-900/90 text-center sm:text-left">
-                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                    {activeArtwork.description}
-                  </p>
+              {activeArtwork.description ? (
+                <div className="px-5 py-3 border-t border-amber-900/10 text-center sm:text-left">
+                  <p className="text-sm font-medium text-stone-700 dark:text-stone-300">{activeArtwork.description}</p>
                 </div>
-              )}
+              ) : null}
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
+      </LayoutGroup>
     </ArtModalContext.Provider>
   );
 }

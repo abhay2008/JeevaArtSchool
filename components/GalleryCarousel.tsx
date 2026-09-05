@@ -1,7 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faPlus } from "@fortawesome/free-solid-svg-icons";
 import ArtworkCard from "./ArtWorkCard";
+import { prefetchArtwork } from "./ArtModal";
+import { registerBrowseCarousel } from "../lib/browseNav";
 import type { ArtworkItem, GalleryTheme } from "../lib/types";
 
 interface Props {
@@ -11,16 +13,40 @@ interface Props {
   onAdd?: () => void;
 }
 
+function cardSpacing() {
+  if (typeof window === "undefined") return 260;
+  const w = window.innerWidth;
+  if (w >= 1280) return 340;
+  if (w >= 1024) return 310;
+  if (w >= 640) return 260;
+  return 200;
+}
+
 export default function GalleryCarousel({ items, theme, editing, onAdd }: Props) {
   const [index, setIndex] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const drag = useRef({ x: 0, active: false, moved: false });
+  const stageRef = useRef<HTMLDivElement>(null);
+  const indexRef = useRef(0);
   const animeMod = useRef<typeof import("animejs") | null>(null);
+  const drag = useRef({
+    active: false,
+    locked: false,
+    moved: false,
+    startX: 0,
+    startY: 0,
+    offset: 0,
+    lastX: 0,
+    lastT: 0,
+    vx: 0,
+  });
 
   const count = items.length;
+  const countRef = useRef(count);
+  indexRef.current = index;
+  countRef.current = count;
 
-  const applyLayout = (active: number, instant = false) => {
-    const spacing = typeof window !== "undefined" && window.innerWidth < 640 ? 155 : 230;
+  const applyLayout = useCallback((active: number, extraX = 0, instant = false) => {
+    const spacing = cardSpacing();
     const anime = animeMod.current;
 
     items.forEach((_, i) => {
@@ -28,8 +54,8 @@ export default function GalleryCarousel({ items, theme, editing, onAdd }: Props)
       if (!el) return;
       const offset = i - active;
       const abs = Math.abs(offset);
-      const x = offset * spacing;
-      const rotateY = offset * -12;
+      const x = offset * spacing + extraX;
+      const rotateY = offset * -12 - extraX / 28;
       const z = abs === 0 ? 56 : -abs * 70;
       const scale = abs === 0 ? 1 : Math.max(0.86, 1 - abs * 0.06);
       const opacity = abs > 3 ? 0 : Math.max(0.42, 1 - abs * 0.16);
@@ -41,30 +67,29 @@ export default function GalleryCarousel({ items, theme, editing, onAdd }: Props)
           z,
           scale,
           opacity,
-          duration: 480,
+          duration: 420,
           ease: "out(3)",
         });
       } else {
         el.style.transform = `translateX(${x}px) translateZ(${z}px) rotateY(${rotateY}deg) scale(${scale})`;
         el.style.opacity = String(opacity);
       }
-      el.style.pointerEvents = abs === 0 || abs === 1 ? "auto" : "none";
+      el.style.pointerEvents = abs === 0 ? "none" : abs <= 3 ? "auto" : "none";
       el.style.zIndex = String(30 - abs);
     });
-  };
+  }, [items]);
 
   useEffect(() => {
     let mounted = true;
     import("animejs").then((mod) => {
       if (!mounted) return;
       animeMod.current = mod;
-      applyLayout(index);
+      applyLayout(indexRef.current);
     });
     return () => {
       mounted = false;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [applyLayout]);
 
   useEffect(() => {
     if (index >= count && count > 0) setIndex(count - 1);
@@ -72,80 +97,212 @@ export default function GalleryCarousel({ items, theme, editing, onAdd }: Props)
 
   useEffect(() => {
     applyLayout(index);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [index, items]);
+    const current = items[index];
+    prefetchArtwork(current?.image);
+    prefetchArtwork(items[(index + 1) % items.length]?.image);
+    prefetchArtwork(items[(index - 1 + items.length) % items.length]?.image);
+  }, [index, items, applyLayout]);
+
+  useEffect(() => {
+    const onResize = () => applyLayout(indexRef.current, 0, true);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [applyLayout]);
+
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+    return registerBrowseCarousel({
+      el,
+      next: () => {
+        const n = countRef.current;
+        if (!n) return;
+        setIndex((i) => (i + 1) % n);
+      },
+      prev: () => {
+        const n = countRef.current;
+        if (!n) return;
+        setIndex((i) => (i - 1 + n) % n);
+      },
+    });
+  }, []);
 
   const go = (next: number) => {
     if (count === 0) return;
     setIndex((next + count) % count);
   };
 
+  const selectCardAtPoint = (clientX: number, clientY: number) => {
+    const hits = document.elementsFromPoint(clientX, clientY);
+    for (const node of hits) {
+      const wrap = (node as HTMLElement).closest?.("[data-card-index]");
+      if (wrap instanceof HTMLElement) {
+        const next = Number(wrap.dataset.cardIndex);
+        if (!Number.isNaN(next) && next !== indexRef.current) {
+          setIndex(next);
+          return;
+        }
+        if (next === indexRef.current) return;
+      }
+    }
+    const stage = stageRef.current;
+    if (!stage || count === 0) return;
+    const rect = stage.getBoundingClientRect();
+    const x = clientX - (rect.left + rect.width / 2);
+    if (x > 72) setIndex((indexRef.current + 1) % count);
+    else if (x < -72) setIndex((indexRef.current - 1 + count) % count);
+  };
+
+  const finishDrag = (clientX?: number, clientY?: number) => {
+    const spacing = cardSpacing();
+    const { offset, vx, moved } = drag.current;
+    drag.current.active = false;
+    drag.current.locked = false;
+    const stage = stageRef.current;
+    if (stage) {
+      stage.setAttribute("data-moved", moved ? "1" : "0");
+      if (moved) window.setTimeout(() => stage.setAttribute("data-moved", "0"), 120);
+    }
+
+    if (!moved) {
+      applyLayout(indexRef.current);
+      if (typeof clientX === "number" && typeof clientY === "number") {
+        selectCardAtPoint(clientX, clientY);
+      }
+      return;
+    }
+
+    let next = indexRef.current;
+    if (offset < -spacing * 0.18 || vx < -0.55) next += 1;
+    else if (offset > spacing * 0.18 || vx > 0.55) next -= 1;
+    next = (next + count) % count;
+    if (next === indexRef.current) applyLayout(indexRef.current);
+    else setIndex(next);
+  };
+
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+
+    const onTouchMove = (event: TouchEvent) => {
+      if (!drag.current.active) return;
+      const touch = event.touches[0];
+      if (!touch) return;
+      const dx = touch.clientX - drag.current.startX;
+      const dy = touch.clientY - drag.current.startY;
+
+      if (!drag.current.locked) {
+        if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+        if (Math.abs(dx) > Math.abs(dy)) {
+          drag.current.locked = true;
+          drag.current.moved = true;
+        } else {
+          drag.current.active = false;
+          return;
+        }
+      }
+
+      event.preventDefault();
+      const now = performance.now();
+      const dt = Math.max(8, now - drag.current.lastT);
+      drag.current.vx = (touch.clientX - drag.current.lastX) / dt;
+      drag.current.lastX = touch.clientX;
+      drag.current.lastT = now;
+      drag.current.offset = dx;
+      applyLayout(indexRef.current, dx, true);
+    };
+
+    el.addEventListener("touchmove", onTouchMove, { passive: false });
+    return () => el.removeEventListener("touchmove", onTouchMove);
+  }, [applyLayout]);
+
   const onPointerDown = (event: React.PointerEvent) => {
-    drag.current = { x: event.clientX, active: true, moved: false };
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    drag.current = {
+      active: true,
+      locked: false,
+      moved: false,
+      startX: event.clientX,
+      startY: event.clientY,
+      offset: 0,
+      lastX: event.clientX,
+      lastT: performance.now(),
+      vx: 0,
+    };
   };
 
   const onPointerMove = (event: React.PointerEvent) => {
-    if (!drag.current.active) return;
-    if (Math.abs(event.clientX - drag.current.x) > 12) {
+    if (!drag.current.active || event.pointerType === "touch") return;
+    const dx = event.clientX - drag.current.startX;
+    const dy = event.clientY - drag.current.startY;
+    if (!drag.current.locked) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+      if (Math.abs(dx) <= Math.abs(dy)) return;
+      drag.current.locked = true;
       drag.current.moved = true;
+      try {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      } catch {
+        /* ignore */
+      }
     }
+    const now = performance.now();
+    const dt = Math.max(8, now - drag.current.lastT);
+    drag.current.vx = (event.clientX - drag.current.lastX) / dt;
+    drag.current.lastX = event.clientX;
+    drag.current.lastT = now;
+    drag.current.offset = dx;
+    applyLayout(indexRef.current, dx, true);
   };
 
   const onPointerUp = (event: React.PointerEvent) => {
     if (!drag.current.active) return;
-    const dx = event.clientX - drag.current.x;
-    const swiped = drag.current.moved && Math.abs(dx) > 40;
-    drag.current.active = false;
-    if (swiped) {
-      if (dx > 0) go(index - 1);
-      else go(index + 1);
-    }
+    finishDrag(event.clientX, event.clientY);
   };
 
   return (
     <div className="relative w-full">
       <div
+        ref={stageRef}
         data-gallery-stage="true"
-        className="relative mx-auto h-[430px] sm:h-[500px] max-w-5xl touch-pan-y"
-        style={{ perspective: "1200px", perspectiveOrigin: "50% 48%" }}
+        className="relative mx-auto h-[430px] sm:h-[540px] lg:h-[620px] xl:h-[700px] max-w-6xl cursor-grab active:cursor-grabbing select-none"
+        style={{
+          perspective: "1200px",
+          perspectiveOrigin: "50% 48%",
+          touchAction: "pan-y",
+        }}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
-        onPointerUp={(event) => {
-          (event.currentTarget as HTMLElement).setAttribute("data-moved", drag.current.moved ? "1" : "0");
-          onPointerUp(event);
-        }}
-        onPointerCancel={() => {
-          drag.current.active = false;
-        }}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
         onWheel={(event) => {
-          if (Math.abs(event.deltaX) < Math.abs(event.deltaY)) return;
-          if (event.deltaX > 24) go(index + 1);
-          else if (event.deltaX < -24) go(index - 1);
+          if (Math.abs(event.deltaX) <= Math.abs(event.deltaY)) return;
+          event.preventDefault();
+          if (event.deltaX > 18) go(index + 1);
+          else if (event.deltaX < -18) go(index - 1);
         }}
       >
         <div className="absolute inset-0" style={{ transformStyle: "preserve-3d" }}>
           {items.map((item, i) => (
             <div
               key={item.id}
-              ref={(el) => {
-                cardRefs.current[i] = el;
+              ref={(node) => {
+                cardRefs.current[i] = node;
               }}
-              className="absolute left-1/2 top-1/2 -ml-[130px] sm:-ml-[170px] -mt-[190px] sm:-mt-[220px] will-change-transform"
+              className="absolute left-1/2 top-1/2 -ml-[130px] sm:-ml-[170px] lg:-ml-[200px] xl:-ml-[220px] -mt-[190px] sm:-mt-[230px] lg:-mt-[270px] xl:-mt-[300px] will-change-transform"
+              data-card-index={i}
               style={{ transformStyle: "preserve-3d", transformOrigin: "center center" }}
-              onClick={(event) => {
-                if (drag.current.moved) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  return;
-                }
-                if (i !== index) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  setIndex(i);
-                }
-              }}
             >
-              <ArtworkCard item={item} theme={theme} suppressOpen={editing || i !== index} />
+              <ArtworkCard
+                item={item}
+                theme={theme}
+                isActive={i === index}
+                allowOpen={!editing}
+                onSelect={() => {
+                  if (stageRef.current?.getAttribute("data-moved") === "1") return;
+                  setIndex(i);
+                }}
+              />
             </div>
           ))}
         </div>
@@ -189,7 +346,7 @@ export default function GalleryCarousel({ items, theme, editing, onAdd }: Props)
         </div>
       ) : (
         <p className="text-center text-sm font-medium text-stone-600 dark:text-stone-400 pb-2">
-          Tap a painting to enlarge · swipe or use arrows
+          Swipe or click a card to bring it forward · click the painting to enlarge
         </p>
       )}
     </div>

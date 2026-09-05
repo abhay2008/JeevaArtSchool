@@ -11,7 +11,7 @@ type TabId = "showcase" | string;
 
 export default function AdminGalleryBrowser() {
   const { content, updateArtwork, removeArtwork, updateShowcaseItem, removeShowcaseItem } = useSite();
-  const { openArtwork } = useArtModal();
+  const { openArtwork, prefetchArtwork } = useArtModal();
   const galleries = gallerySections(content);
   const showcase = ensureShowcase(content.showcase);
   const [tab, setTab] = useState<TabId>("showcase");
@@ -29,6 +29,7 @@ export default function AdminGalleryBrowser() {
 
   const open = (item: ArtworkItem) => {
     openArtwork({
+      id: item.id,
       title: item.title,
       description: [item.headline, item.description].filter(Boolean).join(" — "),
       image: item.image,
@@ -71,7 +72,12 @@ export default function AdminGalleryBrowser() {
       <div className="mt-6 grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
         {items.map((item) => (
           <article key={item.id} className="rounded-2xl border border-amber-900/15 bg-white/80 overflow-hidden shadow-sm">
-            <button type="button" onClick={() => open(item)} className="relative block w-full aspect-square bg-[#f3eee6] group">
+            <button
+              type="button"
+              onClick={() => open(item)}
+              onPointerEnter={() => prefetchArtwork(item.image)}
+              className="relative block w-full aspect-square bg-[#f3eee6] group"
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={item.image} alt={item.title} className="h-full w-full object-contain p-3" />
               <span className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors flex items-center justify-center">

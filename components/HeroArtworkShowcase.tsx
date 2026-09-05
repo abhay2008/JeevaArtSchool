@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback, useMemo, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence, Variants } from "framer-motion";
@@ -13,6 +13,7 @@ import { useSite } from "../context/SiteContext";
 import { useArtModal } from "./ArtModal";
 import { useIntro } from "../context/IntroContext";
 import { ensureShowcase, itemsToShowcase, type ShowcaseArtwork } from "../lib/showcaseArtworks";
+import { registerBrowseCarousel } from "../lib/browseNav";
 
 export type TransitionAnim = "rollup" | "dissolve" | "swipe" | "fade";
 export type { ShowcaseArtwork };
@@ -211,7 +212,7 @@ const KNOWN_IMAGE_ORIENTATIONS: Record<string, boolean> = {
 
 export default function HeroArtworkShowcase() {
   const { content } = useSite();
-  const { openArtwork } = useArtModal();
+  const { openArtwork, prefetchArtwork } = useArtModal();
   const { isCritical } = useIntro();
 
   const [activeCategory, setActiveCategory] = useState("all");
@@ -261,6 +262,12 @@ export default function HeroArtworkShowcase() {
     setProgress(0);
   }, [filteredArtworks.length, pickRandomAnim]);
 
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const nextFn = useRef(goToNext);
+  const prevFn = useRef(goToPrev);
+  nextFn.current = goToNext;
+  prevFn.current = goToPrev;
+
   // Handle category chip click
   const handleCategorySelect = (catId: string) => {
     setActiveCategory(catId);
@@ -301,10 +308,29 @@ export default function HeroArtworkShowcase() {
   const currentArtwork = filteredArtworks[currentIndex] || allArtworks[0];
   const theme = MEDIUM_THEMES[currentArtwork?.category] || MEDIUM_THEMES.acrylic;
 
+  useEffect(() => {
+    if (!currentArtwork?.image) return;
+    prefetchArtwork(currentArtwork.image);
+    const next = filteredArtworks[(currentIndex + 1) % filteredArtworks.length];
+    prefetchArtwork(next?.image);
+  }, [currentArtwork?.image, currentIndex, filteredArtworks, prefetchArtwork]);
+
+  useEffect(() => {
+    if (!currentArtwork) return;
+    const el = rootRef.current;
+    if (!el) return;
+    return registerBrowseCarousel({
+      el,
+      next: () => nextFn.current(),
+      prev: () => prevFn.current(),
+    });
+  }, [currentArtwork]);
+
   if (!currentArtwork) return null;
 
   return (
     <div
+      ref={rootRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="w-full max-w-5xl mx-auto text-left"
@@ -321,6 +347,7 @@ export default function HeroArtworkShowcase() {
               onClick={() => {
                 if (!currentArtwork) return;
                 openArtwork({
+                  id: currentArtwork.id,
                   title: currentArtwork.title,
                   description: currentArtwork.description,
                   image: currentArtwork.image,
@@ -332,6 +359,7 @@ export default function HeroArtworkShowcase() {
                   event.preventDefault();
                   if (!currentArtwork) return;
                   openArtwork({
+                    id: currentArtwork.id,
                     title: currentArtwork.title,
                     description: currentArtwork.description,
                     image: currentArtwork.image,
