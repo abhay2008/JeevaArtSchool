@@ -312,16 +312,6 @@
           "description": "A vase filled with white flowers",
           "image": "/uploads/arcylicvase.jpeg",
           "medium": "Acrylic painting"
-        },
-        {
-          "id": "art-k4eygnm",
-          "title": "buy ts",
-          "headline": "bruh",
-          "description": "this nga",
-          "image": "/uploads/1788638199690-jeevalogo.jpg",
-          "medium": "Acrylic painting",
-          "purpose": "sale",
-          "theme": "acrylic"
         }
       ]
     },
@@ -871,16 +861,6 @@
       "medium": "Emerging artist",
       "purpose": "student",
       "theme": "student"
-    },
-    {
-      "id": "art-k4eygnm",
-      "title": "buy ts",
-      "headline": "bruh",
-      "description": "this nga",
-      "image": "/uploads/1788638199690-jeevalogo.jpg",
-      "medium": "Acrylic painting",
-      "purpose": "sale",
-      "theme": "acrylic"
     }
   ]
 }
