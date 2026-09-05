@@ -20,7 +20,7 @@ export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
       ) : null}
       <Header />
       <SiteRenderer />
-      <footer className="relative z-10 snap-start border-t border-stone-300/50 dark:border-white/10 bg-[#efe6d8]/80 dark:bg-black/20 py-10 px-6">
+      <footer className="relative z-10 border-t border-stone-300/50 dark:border-white/10 bg-[#efe6d8]/80 dark:bg-black/20 py-10 px-6">
         <div className="max-w-6xl mx-auto grid sm:grid-cols-3 gap-8 text-base">
           <div>
             <p className="font-serif text-3xl font-semibold text-stone-900 dark:text-white">{content.brand.name}</p>

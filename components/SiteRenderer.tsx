@@ -40,11 +40,11 @@ export default function SiteRenderer() {
   const { content } = useSite();
 
   return (
-    <main className="relative z-10 snap-y snap-proximity">
+    <main className="relative z-10">
       {(content.sections || [])
         .filter((section) => section.enabled !== false)
         .map((section) => (
-          <section key={section.id} id={section.id} className="scroll-mt-20 snap-start">
+          <section key={section.id} id={section.id} className="scroll-mt-20">
             <RenderSection section={section} />
           </section>
         ))}
