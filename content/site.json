@@ -275,17 +275,6 @@
           "purpose": "sale",
           "theme": "water",
           "price": "12,000"
-        },
-        {
-          "id": "art-9bnyoqz",
-          "title": "test",
-          "headline": "logo",
-          "description": "yessir",
-          "image": "/uploads/1788641181566-jeevalogo.jpg",
-          "medium": "Acrylic painting",
-          "purpose": "sale",
-          "theme": "acrylic",
-          "price": "67"
         }
       ]
     },
@@ -323,17 +312,6 @@
           "description": "A vase filled with white flowers",
           "image": "/uploads/arcylicvase.jpeg",
           "medium": "Acrylic painting"
-        },
-        {
-          "id": "art-9bnyoqz",
-          "title": "test",
-          "headline": "logo",
-          "description": "yessir",
-          "image": "/uploads/1788641181566-jeevalogo.jpg",
-          "medium": "Acrylic painting",
-          "purpose": "sale",
-          "theme": "acrylic",
-          "price": "67"
         }
       ]
     },
@@ -582,6 +560,15 @@
         "Free-hand drawing"
       ],
       "ageNote": "Open to age 13+"
+    },
+    {
+      "id": "studio-video",
+      "type": "video",
+      "enabled": true,
+      "eyebrow": "Watch",
+      "title": "Studio lessons on YouTube",
+      "body": "Follow demonstrations and class work on the school channel. Replace this with any YouTube or Vimeo link from the editor.",
+      "videoUrl": "https://www.youtube.com/@jeevakumari3640"
     }
   ],
   "showcase": [
