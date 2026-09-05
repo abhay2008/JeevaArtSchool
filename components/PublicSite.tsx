@@ -61,7 +61,7 @@ export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
             <span className="font-bold text-stone-800 dark:text-stone-200">Abhay Kashyap</span>
             <span className="text-stone-400 dark:text-stone-600">·</span>
             <a
-              href="https://www.linkedin.com/in/abhay-kashyap/"
+              href="https://www.linkedin.com/in/abhay-kashyap-54929a238/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-semibold text-blue-700 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5 transition-colors"
