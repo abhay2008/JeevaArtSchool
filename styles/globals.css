@@ -2,45 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .heroButton {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#632ea8] dark:text-[#a447f1] transition-all dark:hover:border-[#f7ab0a]/40 hover:border-[#f7ab0a]/80
-  }
-  .tanjore {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#938f24] dark:text-[#c5c265] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
-  }
-  .acrylic {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#f55742] dark:text-[#f55742] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
-  }
-  .water {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#4542f5] dark:text-[#456dff] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
-  }
-  .pencil {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#3c3d3d] dark:text-[#9fa0a5] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
-  }
-  .student {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#139079] dark:text-[#64fef6] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
-  }
-  .oil {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#45962d] dark:text-[#64fe6c] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
-  }
-  .exam {
-    @apply px-6 py-2 md:py-3 border border-[#bbd8fa] dark:border-[#243447] rounded-full uppercase text-xs md:text-sm font-bold tracking-widest text-[#6429a7] dark:text-[#7664fe] transition-all dark:hover:border-[#5efff7]/40 hover:border-[#085452]/50
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4.5rem;
+    -webkit-tap-highlight-color: transparent;
   }
 
+  /* next-themes hides the body until JS mounts; never leave the site blank if hydration is slow. */
+  body,
+  body[style] {
+    display: block !important;
+  }
+
+  body {
+    @apply transition-colors duration-300 bg-[#f4eee4] text-stone-800 antialiased text-[17px] sm:text-lg font-medium;
+    background-image:
+      radial-gradient(ellipse at top, rgba(212, 175, 110, 0.12), transparent 42%),
+      linear-gradient(180deg, #f7f1e8 0%, #f4eee4 40%, #efe6d8 100%);
+  }
+
+  h1, h2, h3 {
+    @apply font-semibold tracking-tight;
+  }
+
+  input,
+  textarea,
+  select {
+    color: #1c1917;
+    background-color: #faf6f0;
+    border-color: #cfc6b8;
+    caret-color: #1c1917;
+    color-scheme: light;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #78716c;
+    opacity: 1;
+  }
+
+  .dark input,
+  .dark textarea,
+  .dark select {
+    color: #f5f0e8;
+    background-color: #1c1917;
+    border-color: #57534e;
+    caret-color: #f5f0e8;
+    color-scheme: dark;
+  }
+
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #a8a29e;
+  }
 }
 
-/* Lock orientation to portrait mode on mobile devices */
-@media screen and (max-width: 767px) {
-  html {
-    max-height: 100vh;
-    overflow-y: scroll;
+@layer components {
+  .heroButton {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-purple-300/80 dark:border-purple-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#5c24a6] dark:text-[#c47bfb] shadow-sm hover:shadow-md transition-all duration-300 hover:border-purple-500 dark:hover:border-purple-400 hover:scale-105 active:scale-95;
   }
-  body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+  .tanjore {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-amber-300/80 dark:border-amber-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#85790d] dark:text-[#f3eb65] shadow-sm hover:shadow-md transition-all duration-300 hover:border-amber-500 dark:hover:border-amber-400 hover:scale-105 active:scale-95;
   }
+  .acrylic {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-orange-300/80 dark:border-orange-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#d9441a] dark:text-[#ff7e60] shadow-sm hover:shadow-md transition-all duration-300 hover:border-orange-500 dark:hover:border-orange-400 hover:scale-105 active:scale-95;
+  }
+  .water {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-blue-300/80 dark:border-blue-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#2351db] dark:text-[#6a95ff] shadow-sm hover:shadow-md transition-all duration-300 hover:border-blue-500 dark:hover:border-blue-400 hover:scale-105 active:scale-95;
+  }
+  .pencil {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-slate-300/80 dark:border-slate-600/40 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-slate-700 dark:text-slate-300 shadow-sm hover:shadow-md transition-all duration-300 hover:border-slate-500 dark:hover:border-slate-400 hover:scale-105 active:scale-95;
+  }
+  .student {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-teal-300/80 dark:border-teal-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#0e7464] dark:text-[#42edd4] shadow-sm hover:shadow-md transition-all duration-300 hover:border-teal-500 dark:hover:border-teal-400 hover:scale-105 active:scale-95;
+  }
+  .oil {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-emerald-300/80 dark:border-emerald-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#15803d] dark:text-[#52e783] shadow-sm hover:shadow-md transition-all duration-300 hover:border-emerald-500 dark:hover:border-emerald-400 hover:scale-105 active:scale-95;
+  }
+  .exam {
+    @apply px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3 border border-indigo-300/80 dark:border-indigo-500/30 bg-white/70 dark:bg-slate-900/60 backdrop-blur-md rounded-full uppercase text-[11px] sm:text-xs md:text-sm font-bold tracking-widest text-[#532688] dark:text-[#9c82ff] shadow-sm hover:shadow-md transition-all duration-300 hover:border-indigo-500 dark:hover:border-indigo-400 hover:scale-105 active:scale-95;
+  }
+}
+
+/* Custom scrollbar styling for gallery containers */
+.gallery-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.gallery-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.gallery-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.35);
+  border-radius: 9999px;
+}
+
+.gallery-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.6);
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

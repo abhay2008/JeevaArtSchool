@@ -1,61 +1,52 @@
-import About from "../components/About";
+import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import Head from 'next/head';
-import Header from "../components/Header";
-import Hero from "../components/Hero";
-import Acrylic from "@/components/Acrylic";
-import Water from "@/components/WaterColour";
-import Tanjore from "@/components/Tanjore";
-import Oil from "@/components/Oil"
-import Pencil from "@/components/Pencil";
-import Students from "@/components/Students";
-import Exam from "@/components/Exam";
-import Product from "@/components/Products";
-
+import Head from "next/head";
+import PublicSite from "../components/PublicSite";
+import { useSite } from "../context/SiteContext";
+import { IntroProvider } from "../context/IntroContext";
+import IntroLoader from "../components/IntroLoader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const Home: NextPage = () => {
+  const { content, setEditMode } = useSite();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    setEditMode(false);
+  }, [setEditMode]);
+
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="bg-[rgba(115,176,250,0.5)] text-black-900 dark:bg-[#243447] dark:text-white h-screen snap-y snap-mandatory overflow-scroll z-0">
-      <Head>
-        <title>Jeeva Art School</title>
-      </Head>
-      {/* Header */}
-      <Header/>
-      {/* Hero */}
-      <section id="hero" className="snap-center">
-      <Hero />
-      </section>
-      {/* About */}
-      <section id="about" className="snap-center">
-        <About />
-      </section>
-      <section id="product" className="snap-center">
-        <Product />
-      </section>
-      {/* Experience */}
-      <section id="acrylic" className="snap-center">
-        <Acrylic />
-      </section>
-      <section id="water" className="snap-center">
-        <Water />
-      </section>
-      <section id="tanjore" className="snap-center">
-        <Tanjore />
-      </section>
-      <section id="oil" className="snap-center">
-        <Oil />
-      </section>
-      <section id="pencil" className="snap-center">
-        <Pencil />
-      </section>
-      <section id="students" className="snap-center">
-        <Students />
-      </section>
-      <section id="exam" className="snap-center">
-        <Exam />
-      </section>
-    </div>
-  )
-}
+    <IntroProvider skip={false}>
+      <IntroLoader />
+      <div className="bg-[#f4eee4] text-stone-800 dark:bg-[#0f1218] dark:text-stone-100 relative min-h-screen overflow-x-clip selection:bg-violet-500 selection:text-white">
+        <Head>
+          <title>{content.meta.title}</title>
+          <meta name="description" content={content.meta.description} />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+          <link rel="icon" href={content.meta.favicon} />
+        </Head>
+
+        <PublicSite />
+
+        {showScrollTop && (
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            aria-label="Scroll back to top"
+            className="fixed bottom-8 left-5 z-40 w-11 h-11 rounded-full bg-stone-900 text-white dark:bg-amber-100 dark:text-stone-900 shadow-2xl"
+          >
+            <FontAwesomeIcon icon={faArrowUp} />
+          </button>
+        )}
+      </div>
+    </IntroProvider>
+  );
+};
 
 export default Home;

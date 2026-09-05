@@ -1,0 +1,820 @@
+{
+  "meta": {
+    "title": "Jeeva Art School | Drawing & Painting Classes in Bengaluru",
+    "description": "Learn acrylic, watercolour, Tanjore, oil, pencil and charcoal with Jeeva Kumari. Coaching for Karnataka Secondary Board Drawing Exams in Bengaluru since 2005.",
+    "favicon": "/favicon.png"
+  },
+  "brand": {
+    "name": "Jeeva Art School",
+    "tagline": "Nurturing artistic expression since 2005",
+    "phoneDisplay": "+91 99450 67101",
+    "phoneRaw": "919945067101",
+    "whatsapp": "https://wa.me/919945067101",
+    "maps": "https://goo.gl/maps/EJr4xqwJZS1abiPf9",
+    "locationLabel": "Bengaluru",
+    "since": "2005"
+  },
+  "social": [
+    {
+      "network": "youtube",
+      "url": "https://www.youtube.com/@jeevakumari3640",
+      "color": "red"
+    },
+    {
+      "network": "instagram",
+      "url": "https://www.instagram.com/jeevasri12",
+      "color": "violet"
+    },
+    {
+      "network": "whatsapp",
+      "url": "https://wa.me/919945067101",
+      "color": "green"
+    }
+  ],
+  "nav": [
+    {
+      "name": "About",
+      "href": "#about"
+    },
+    {
+      "name": "Classes",
+      "href": "#classes"
+    },
+    {
+      "name": "Acrylic",
+      "href": "#acrylic"
+    },
+    {
+      "name": "Watercolours",
+      "href": "#water"
+    },
+    {
+      "name": "Tanjore",
+      "href": "#tanjore"
+    },
+    {
+      "name": "Oil",
+      "href": "#oil"
+    },
+    {
+      "name": "Pencil",
+      "href": "#pencil"
+    },
+    {
+      "name": "Students",
+      "href": "#students"
+    },
+    {
+      "name": "Exams",
+      "href": "#exam"
+    },
+    {
+      "name": "Shop",
+      "href": "#product"
+    }
+  ],
+  "footer": {
+    "note": "Drawing and painting classes in Bengaluru. All ages welcome.",
+    "links": [
+      {
+        "name": "WhatsApp",
+        "href": "https://wa.me/919945067101"
+      },
+      {
+        "name": "Location",
+        "href": "https://goo.gl/maps/EJr4xqwJZS1abiPf9"
+      },
+      {
+        "name": "YouTube",
+        "href": "https://www.youtube.com/@jeevakumari3640"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "type": "hero",
+      "enabled": true,
+      "title": "Jeeva Art School",
+      "subtitle": "Drawing & painting classes in Bengaluru",
+      "body": "Learn at your own pace with personal guidance — from first sketches to exam-ready work.",
+      "profileImage": "/uploads/mainimage.jpeg",
+      "profileAlt": "Jeeva Kumari, art teacher",
+      "words": [
+        "Learn every medium of art",
+        "Pencil shading",
+        "Watercolour painting",
+        "Acrylic painting",
+        "Oil painting",
+        "Tanjore painting",
+        "Charcoal shading"
+      ],
+      "buttons": [
+        {
+          "label": "About the teacher",
+          "href": "#about",
+          "style": "heroButton"
+        },
+        {
+          "label": "Acrylic",
+          "href": "#acrylic",
+          "style": "acrylic"
+        },
+        {
+          "label": "Watercolours",
+          "href": "#water",
+          "style": "water"
+        },
+        {
+          "label": "Tanjore",
+          "href": "#tanjore",
+          "style": "tanjore"
+        },
+        {
+          "label": "Oil painting",
+          "href": "#oil",
+          "style": "oil"
+        },
+        {
+          "label": "Pencil shading",
+          "href": "#pencil",
+          "style": "pencil"
+        },
+        {
+          "label": "Emerging artists",
+          "href": "#students",
+          "style": "student"
+        },
+        {
+          "label": "Drawing exams",
+          "href": "#exam",
+          "style": "exam"
+        }
+      ],
+      "eyebrow": "hey "
+    },
+    {
+      "id": "about",
+      "type": "about",
+      "enabled": true,
+      "eyebrow": "The teacher",
+      "title": "A little background",
+      "body": "I am Jeeva Kumari, an art teacher since 2005. I teach painting, drawing and sketching to students of all ages, with patient, hands-on guidance. I also coach for drawing exams conducted by the Karnataka Secondary Education Examination Board.",
+      "quote": "You do not need natural talent to master art. With guidance and practice, anyone can excel.",
+      "image": "/uploads/pallete.png",
+      "imageAlt": "Artist palette",
+      "contactLabel": "For classes and enquiries"
+    },
+    {
+      "id": "classes",
+      "type": "classes",
+      "enabled": true,
+      "eyebrow": "What you can learn",
+      "title": "Mediums taught in the studio",
+      "subtitle": "Pick a path that interests you — or try several. Classes are tailored to your level.",
+      "classes": [
+        {
+          "id": "c-acrylic",
+          "title": "Acrylic",
+          "description": "Bold colour, layering and texture on canvas.",
+          "href": "#acrylic",
+          "accent": "acrylic"
+        },
+        {
+          "id": "c-water",
+          "title": "Watercolour",
+          "description": "Transparent washes, florals, landscapes and portraits.",
+          "href": "#water",
+          "accent": "water"
+        },
+        {
+          "id": "c-tanjore",
+          "title": "Tanjore",
+          "description": "Traditional gold-leaf work and classical iconography.",
+          "href": "#tanjore",
+          "accent": "tanjore"
+        },
+        {
+          "id": "c-oil",
+          "title": "Oil painting",
+          "description": "Rich tones, blending and landscape studies.",
+          "href": "#oil",
+          "accent": "oil"
+        },
+        {
+          "id": "c-pencil",
+          "title": "Pencil & charcoal",
+          "description": "Portraits, still life and tonal shading.",
+          "href": "#pencil",
+          "accent": "pencil"
+        },
+        {
+          "id": "c-exam",
+          "title": "Board exam coaching",
+          "description": "Six-month programme for Karnataka drawing exams.",
+          "href": "#exam",
+          "accent": "exam"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "type": "shop",
+      "enabled": true,
+      "eyebrow": "Original works",
+      "title": "Artwork for sale",
+      "highlightTitle": "Take a piece of the studio home",
+      "highlightLines": [
+        "Looking to buy",
+        "classy artwork?"
+      ],
+      "body": "Invest in more than decoration. The collection spans oils, watercolours, acrylics, Tanjore paintings, pencil and charcoal. Each piece is unique — a conversation starter from Jeeva Art School.",
+      "ctaLabel": "View available works",
+      "ctaUrl": "https://www.google.com/search?q=products+offered+by+jeeva+art+school+-+drawing+and+painting+classes+bangalore+bengaluru"
+    },
+    {
+      "id": "acrylic",
+      "type": "gallery",
+      "enabled": true,
+      "title": "Acrylic painting",
+      "theme": "acrylic",
+      "items": [
+        {
+          "id": "ac-1",
+          "title": "A forest scenery",
+          "description": "A forest lake with animals and trees",
+          "image": "/uploads/acrylic.jpeg",
+          "medium": "Acrylic painting"
+        },
+        {
+          "id": "ac-2",
+          "title": "An ocean view",
+          "description": "Turquoise water and sailboats",
+          "image": "/uploads/acrylicboat.jpeg",
+          "medium": "Acrylic painting"
+        },
+        {
+          "id": "ac-3",
+          "title": "A horse",
+          "description": "Study of a brown horse",
+          "image": "/uploads/horse.jpeg",
+          "medium": "Acrylic painting"
+        },
+        {
+          "id": "ac-4",
+          "title": "A flower vase",
+          "description": "A vase filled with white flowers",
+          "image": "/uploads/arcylicvase.jpeg",
+          "medium": "Acrylic painting"
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "type": "gallery",
+      "enabled": true,
+      "title": "Watercolour painting",
+      "theme": "water",
+      "items": [
+        {
+          "id": "w-1",
+          "title": "Peonies",
+          "description": "Crimson peonies",
+          "image": "/uploads/water.jpeg",
+          "medium": "Watercolour"
+        },
+        {
+          "id": "w-2",
+          "title": "A coconut village",
+          "description": "A village among coconut trees",
+          "image": "/uploads/coconut.jpeg",
+          "medium": "Watercolour"
+        },
+        {
+          "id": "w-3",
+          "title": "A traditional temple",
+          "description": "A quiet temple study",
+          "image": "/uploads/templewater.jpeg",
+          "medium": "Watercolour"
+        },
+        {
+          "id": "w-4",
+          "title": "A portrait",
+          "description": "A child wearing a British hat",
+          "image": "/uploads/loafwater.jpeg",
+          "medium": "Watercolour"
+        }
+      ]
+    },
+    {
+      "id": "tanjore",
+      "type": "gallery",
+      "enabled": true,
+      "title": "Tanjore painting",
+      "theme": "tanjore",
+      "items": [
+        {
+          "id": "t-1",
+          "title": "Goddess Lakshmi",
+          "description": "Tanjore painting of the goddess of wealth",
+          "image": "/uploads/tanjore.jpeg",
+          "medium": "Tanjore painting"
+        },
+        {
+          "id": "t-2",
+          "title": "Alilai Krishna",
+          "description": "Lord Krishna on a lotus leaf",
+          "image": "/uploads/tanjorekrish.jpeg",
+          "medium": "Tanjore painting"
+        },
+        {
+          "id": "t-3",
+          "title": "Lord Ganesha",
+          "description": "Tanjore painting of Lord Ganesha",
+          "image": "/uploads/tanjoreganesh.jpeg",
+          "medium": "Tanjore painting"
+        },
+        {
+          "id": "t-4",
+          "title": "Lord Krishna",
+          "description": "Baby Krishna",
+          "image": "/uploads/tanjorekrishna.jpeg",
+          "medium": "Tanjore painting"
+        }
+      ]
+    },
+    {
+      "id": "oil",
+      "type": "gallery",
+      "enabled": true,
+      "title": "Oil painting",
+      "theme": "oil",
+      "items": [
+        {
+          "id": "o-1",
+          "title": "Smooth mountains",
+          "description": "A lake with mountains beyond",
+          "image": "/uploads/oil1.jpeg",
+          "medium": "Oil painting"
+        },
+        {
+          "id": "o-2",
+          "title": "Alpine scenery",
+          "description": "Mountains, a pond and trees",
+          "image": "/uploads/oil2.jpeg",
+          "medium": "Oil painting"
+        },
+        {
+          "id": "o-3",
+          "title": "Serene river",
+          "description": "A calm river lined with trees",
+          "image": "/uploads/oil3.jpeg",
+          "medium": "Oil painting"
+        },
+        {
+          "id": "o-4",
+          "title": "Colourful contrast",
+          "description": "Ladybirds on white",
+          "image": "/uploads/oil4.jpeg",
+          "medium": "Oil painting"
+        }
+      ]
+    },
+    {
+      "id": "pencil",
+      "type": "gallery",
+      "enabled": true,
+      "title": "Pencil & charcoal shading",
+      "theme": "pencil",
+      "items": [
+        {
+          "id": "p-1",
+          "title": "An elephant",
+          "description": "Pencil shading of an elephant",
+          "image": "/uploads/pencil1.jpeg",
+          "medium": "Pencil shading"
+        },
+        {
+          "id": "p-2",
+          "title": "An old man",
+          "description": "Portrait with careful wrinkles and tone",
+          "image": "/uploads/pencil2.jpeg",
+          "medium": "Pencil shading"
+        },
+        {
+          "id": "p-3",
+          "title": "An old woman",
+          "description": "Pencil portrait study",
+          "image": "/uploads/pencil3.jpeg",
+          "medium": "Pencil shading"
+        },
+        {
+          "id": "p-4",
+          "title": "A young woman",
+          "description": "Pencil portrait",
+          "image": "/uploads/pencil4.jpeg",
+          "medium": "Pencil shading"
+        },
+        {
+          "id": "p-5",
+          "title": "Charcoal portrait",
+          "description": "Charcoal portraiture and tonal study",
+          "image": "/uploads/charcoal.jpeg",
+          "medium": "Charcoal shading"
+        },
+        {
+          "id": "p-6",
+          "title": "Marilyn Monroe",
+          "description": "Charcoal portrait",
+          "image": "/uploads/charcoal2.jpeg",
+          "medium": "Charcoal shading"
+        },
+        {
+          "id": "p-7",
+          "title": "Shading portrait",
+          "description": "Intricate portrait shading study",
+          "image": "/uploads/charcoal3.jpeg",
+          "medium": "Charcoal shading"
+        }
+      ]
+    },
+    {
+      "id": "students",
+      "type": "gallery",
+      "enabled": true,
+      "title": "Emerging artists",
+      "subtitle": "Work by students of Jeeva Art School",
+      "theme": "student",
+      "items": [
+        {
+          "id": "s-1",
+          "title": "Vasanth",
+          "description": "Acrylic painting",
+          "image": "/uploads/studentvasant.jpeg",
+          "medium": "Emerging artist"
+        },
+        {
+          "id": "s-2",
+          "title": "Abhay",
+          "description": "Oil painting",
+          "image": "/uploads/studentabhay2.jpeg",
+          "medium": "Emerging artist"
+        },
+        {
+          "id": "s-3",
+          "title": "Abhay",
+          "description": "Oil painting",
+          "image": "/uploads/studentabhay3.jpeg",
+          "medium": "Emerging artist"
+        },
+        {
+          "id": "s-4",
+          "title": "Abhay",
+          "description": "Acrylic painting",
+          "image": "/uploads/studentabhay.jpeg",
+          "medium": "Emerging artist"
+        },
+        {
+          "id": "s-5",
+          "title": "Abhinav",
+          "description": "Acrylic painting",
+          "image": "/uploads/studentabhinav.jpeg",
+          "medium": "Emerging artist"
+        },
+        {
+          "id": "s-6",
+          "title": "Sinchana",
+          "description": "Oil painting",
+          "image": "/uploads/studentsinchana.jpeg",
+          "medium": "Emerging artist"
+        },
+        {
+          "id": "s-7",
+          "title": "Charu",
+          "description": "Pencil and charcoal shading",
+          "image": "/uploads/studentcharu.jpeg",
+          "medium": "Emerging artist"
+        }
+      ]
+    },
+    {
+      "id": "exam",
+      "type": "exam",
+      "enabled": true,
+      "eyebrow": "Government-accredited coaching",
+      "title": "Karnataka Secondary Board drawing exams",
+      "body": "A focused six-month coaching programme covering the full exam syllabus. Open to children aged 13 and above. Build skill, confidence and exam technique with structured practice.",
+      "badge": "6-month programme",
+      "subjects": [
+        "Object drawing",
+        "Memory drawing",
+        "Nature colouring",
+        "Geometry",
+        "Design & colouring",
+        "Free-hand drawing"
+      ],
+      "ageNote": "Open to age 13+"
+    },
+    {
+      "id": "studio-video",
+      "type": "video",
+      "enabled": true,
+      "eyebrow": "Watch",
+      "title": "Studio lessons on YouTube",
+      "body": "Follow demonstrations and class work on the school channel. Replace this with any YouTube or Vimeo link from the editor.",
+      "videoUrl": "https://www.youtube.com/@jeevakumari3640"
+    }
+  ],
+  "showcase": [
+    {
+      "id": "tanjore-lakshmi",
+      "title": "Goddess Lakshmi",
+      "headline": "Tanjore painting",
+      "description": "Classical Thanjavur iconography adorned with 22k embossed gold foil and semi-precious stones.",
+      "image": "/uploads/tanjore.jpeg",
+      "medium": "Tanjore painting",
+      "purpose": "gallery",
+      "theme": "tanjore"
+    },
+    {
+      "id": "acrylic-forest",
+      "title": "A Forest Scenery",
+      "headline": "Acrylic painting",
+      "description": "Lush green trees and winding sunlit forest path on textured canvas.",
+      "image": "/uploads/acrylic.jpeg",
+      "medium": "Acrylic painting",
+      "purpose": "gallery",
+      "theme": "acrylic"
+    },
+    {
+      "id": "water-peonies",
+      "title": "Peonies in Bloom",
+      "headline": "Watercolour",
+      "description": "Layered wet-on-wet washes capturing gentle botanical transparency.",
+      "image": "/uploads/water.jpeg",
+      "medium": "Watercolour",
+      "purpose": "gallery",
+      "theme": "water"
+    },
+    {
+      "id": "oil-mountains",
+      "title": "Smooth Mountains",
+      "headline": "Oil painting",
+      "description": "Misty mountain ridges blended with rich oil glazes and subtle atmospheric depth.",
+      "image": "/uploads/oil1.jpeg",
+      "medium": "Oil painting",
+      "purpose": "gallery",
+      "theme": "oil"
+    },
+    {
+      "id": "charcoal-marilyn",
+      "title": "Marilyn Monroe",
+      "headline": "Charcoal shading",
+      "description": "Dramatic cinematic portrait created with compressed and vine charcoal tonal gradation.",
+      "image": "/uploads/charcoal2.jpeg",
+      "medium": "Charcoal shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "student-vasanth",
+      "title": "Vasanth",
+      "headline": "Emerging artist",
+      "description": "Original student work developed with individualized studio guidance.",
+      "image": "/uploads/studentvasant.jpeg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student"
+    },
+    {
+      "id": "pencil-elephant",
+      "title": "An Elephant",
+      "headline": "Pencil shading",
+      "description": "Hyper-detailed graphite study with realistic skin texture and light modeling.",
+      "image": "/uploads/pencil1.jpeg",
+      "medium": "Pencil shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "acrylic-boat",
+      "title": "An Ocean View",
+      "headline": "Acrylic painting",
+      "description": "Calm sea waters and coastal boat rendered with expressive acrylic palette.",
+      "image": "/uploads/acrylicboat.jpeg",
+      "medium": "Acrylic painting",
+      "purpose": "gallery",
+      "theme": "acrylic"
+    },
+    {
+      "id": "tanjore-krish",
+      "title": "Alilai Krishna",
+      "headline": "Tanjore painting",
+      "description": "Balakrishna resting on a banyan leaf with 22k embossed relief work.",
+      "image": "/uploads/tanjorekrish.jpeg",
+      "medium": "Tanjore painting",
+      "purpose": "gallery",
+      "theme": "tanjore"
+    },
+    {
+      "id": "water-temple",
+      "title": "A Traditional Temple",
+      "headline": "Watercolour",
+      "description": "Atmospheric architectural study of ancient temple towers in watercolour wash.",
+      "image": "/uploads/templewater.jpeg",
+      "medium": "Watercolour",
+      "purpose": "gallery",
+      "theme": "water"
+    },
+    {
+      "id": "oil-alpine",
+      "title": "Alpine Scenery",
+      "headline": "Oil painting",
+      "description": "Snow-covered peaks and evergreen forest executed in rich oil impasto.",
+      "image": "/uploads/oil2.jpeg",
+      "medium": "Oil painting",
+      "purpose": "gallery",
+      "theme": "oil"
+    },
+    {
+      "id": "student-abhay2",
+      "title": "Abhay",
+      "headline": "Emerging artist",
+      "description": "Advanced foundation coursework demonstrating mastery of line and tone.",
+      "image": "/uploads/studentabhay2.jpeg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student"
+    },
+    {
+      "id": "pencil-oldman",
+      "title": "An Old Man",
+      "headline": "Pencil shading",
+      "description": "Empathetic aged character portrait emphasizing cross-hatching and contour depth.",
+      "image": "/uploads/pencil2.jpeg",
+      "medium": "Pencil shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "tanjore-ganesha",
+      "title": "Lord Ganesha",
+      "headline": "Tanjore painting",
+      "description": "Sacred iconographic painting with 22-carat gold leaves and traditional embellishments.",
+      "image": "/uploads/tanjoreganesh.jpeg",
+      "medium": "Tanjore painting",
+      "purpose": "gallery",
+      "theme": "tanjore"
+    },
+    {
+      "id": "acrylic-horse",
+      "title": "A Noble Horse",
+      "headline": "Acrylic painting",
+      "description": "Dynamic equine study capturing grace, muscle tone, and fiery spirit.",
+      "image": "/uploads/horse.jpeg",
+      "medium": "Acrylic painting",
+      "purpose": "gallery",
+      "theme": "acrylic"
+    },
+    {
+      "id": "water-coconut",
+      "title": "A Coconut Village",
+      "headline": "Watercolour",
+      "description": "Peaceful South Indian coastal village with swaying palms in warm morning hues.",
+      "image": "/uploads/coconut.jpeg",
+      "medium": "Watercolour",
+      "purpose": "gallery",
+      "theme": "water"
+    },
+    {
+      "id": "oil-river",
+      "title": "Serene River",
+      "headline": "Oil painting",
+      "description": "Reflections of evening light skimming across tranquil slow-moving waters.",
+      "image": "/uploads/oil3.jpeg",
+      "medium": "Oil painting",
+      "purpose": "gallery",
+      "theme": "oil"
+    },
+    {
+      "id": "charcoal-portrait",
+      "title": "Charcoal Portrait",
+      "headline": "Charcoal shading",
+      "description": "Intense chiaroscuro lighting exploring expressive facial features.",
+      "image": "/uploads/charcoal.jpeg",
+      "medium": "Charcoal shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "student-abhinav",
+      "title": "Abhinav",
+      "headline": "Emerging artist",
+      "description": "Dedicated studio practice developing acute observational drawing skills.",
+      "image": "/uploads/studentabhinav.jpeg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student"
+    },
+    {
+      "id": "pencil-youngwoman",
+      "title": "A Young Woman",
+      "headline": "Pencil shading",
+      "description": "Delicate tonal transitions and fine graphite pencil feathering.",
+      "image": "/uploads/pencil4.jpeg",
+      "medium": "Pencil shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "tanjore-krishna",
+      "title": "Lord Krishna",
+      "headline": "Tanjore painting",
+      "description": "Devotional painting with gold filigree patterns and hand-carved gesso work.",
+      "image": "/uploads/tanjorekrishna.jpeg",
+      "medium": "Tanjore painting",
+      "purpose": "gallery",
+      "theme": "tanjore"
+    },
+    {
+      "id": "oil-contrast",
+      "title": "Colourful Contrast",
+      "headline": "Oil painting",
+      "description": "Expressive palette knife work and vibrant pigment contrast on canvas.",
+      "image": "/uploads/oil4.jpeg",
+      "medium": "Oil painting",
+      "purpose": "gallery",
+      "theme": "oil"
+    },
+    {
+      "id": "acrylic-vase",
+      "title": "A Flower Vase",
+      "headline": "Acrylic painting",
+      "description": "Rich still life capturing textures of ceramic glaze and layered petals.",
+      "image": "/uploads/arcylicvase.jpeg",
+      "medium": "Acrylic painting",
+      "purpose": "gallery",
+      "theme": "acrylic"
+    },
+    {
+      "id": "charcoal-shading",
+      "title": "Shading Portrait",
+      "headline": "Charcoal shading",
+      "description": "Smudged and erased highlights creating sculptural cheekbone contours.",
+      "image": "/uploads/charcoal3.jpeg",
+      "medium": "Charcoal shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "student-sinchana",
+      "title": "Sinchana",
+      "headline": "Emerging artist",
+      "description": "Expressive color study highlighting confident personal voice.",
+      "image": "/uploads/studentsinchana.jpeg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student"
+    },
+    {
+      "id": "pencil-oldwoman",
+      "title": "An Old Woman",
+      "headline": "Pencil shading",
+      "description": "Tender portraiture with sensitive shading around eyes and silver hair.",
+      "image": "/uploads/pencil3.jpeg",
+      "medium": "Pencil shading",
+      "purpose": "gallery",
+      "theme": "pencil"
+    },
+    {
+      "id": "student-charu",
+      "title": "Charu",
+      "headline": "Emerging artist",
+      "description": "Exam-ready portfolio submission demonstrating mastery of composition.",
+      "image": "/uploads/studentcharu.jpeg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student"
+    },
+    {
+      "id": "water-portrait",
+      "title": "A Portrait",
+      "headline": "Watercolour",
+      "description": "Subtle skin tones and spontaneous fluid edges on cold-press paper.",
+      "image": "/uploads/loafwater.jpeg",
+      "medium": "Watercolour",
+      "purpose": "gallery",
+      "theme": "water"
+    },
+    {
+      "id": "student-abhay-landscape",
+      "title": "Abhay (Landscape)",
+      "headline": "Emerging artist",
+      "description": "Atmospheric landscape balancing perspective, value structure, and chromatic harmony.",
+      "image": "/uploads/studentabhay3.jpeg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student"
+    }
+  ]
+}
