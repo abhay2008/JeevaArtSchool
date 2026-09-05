@@ -10,7 +10,7 @@
     "phoneDisplay": "+91 99450 67101",
     "phoneRaw": "919945067101",
     "whatsapp": "https://wa.me/919945067101",
-    "maps": "https://goo.gl/maps/EJr4xqwJZS1abiPf9",
+    "maps": "https://www.google.com/maps/search/?api=1&query=Jeeva+Art+School+-+Drawing+and+Painting+Classes+Bangalore",
     "locationLabel": "Bengaluru",
     "since": "2005"
   },
@@ -82,7 +82,7 @@
       },
       {
         "name": "Location",
-        "href": "https://goo.gl/maps/EJr4xqwJZS1abiPf9"
+        "href": "https://www.google.com/maps/search/?api=1&query=Jeeva+Art+School+-+Drawing+and+Painting+Classes+Bangalore"
       },
       {
         "name": "YouTube",

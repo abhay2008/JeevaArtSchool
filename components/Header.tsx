@@ -28,7 +28,7 @@ function socialMeta(network: string) {
 }
 
 const iconBtn =
-  "inline-flex h-9 w-9 items-center justify-center rounded-full text-stone-700 dark:text-amber-50/90 hover:bg-black/[0.05] dark:hover:bg-white/10 transition-colors";
+  "inline-flex h-7 w-7 sm:h-9 sm:w-9 items-center justify-center rounded-full text-stone-700 dark:text-amber-50/90 hover:bg-black/[0.05] dark:hover:bg-white/10 transition-colors shrink-0";
 
 const drawerLink =
   "block px-3 py-2.5 rounded-xl text-base font-semibold text-stone-800 dark:text-amber-50 hover:bg-black/5 dark:hover:bg-white/10";
@@ -107,24 +107,24 @@ export default function Header() {
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
-          <div className="flex items-center gap-1.5 min-w-0">
-            <Link href="#hero" className="flex items-center gap-2.5 shrink-0">
-              <span className="relative h-9 w-9 overflow-hidden rounded-lg shadow-md ring-1 ring-black/10">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-3 sm:px-6 py-2 sm:py-3">
+          <div className="flex items-center gap-1 sm:gap-1.5 min-w-0">
+            <Link href="#hero" className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
+              <span className="relative h-7 w-7 sm:h-9 sm:w-9 overflow-hidden rounded-md sm:rounded-lg shadow-md ring-1 ring-black/10 shrink-0">
                 <Image
                   src="/jeevalogo.jpg"
                   alt={content.brand.name}
                   fill
                   className="object-cover"
-                  sizes="36px"
+                  sizes="(max-width: 640px) 28px, 36px"
                   priority
                 />
               </span>
-              <span className="font-serif text-xl sm:text-2xl font-semibold text-stone-900 dark:text-amber-50 tracking-tight">
+              <span className="font-serif text-[15px] sm:text-2xl font-semibold text-stone-900 dark:text-amber-50 tracking-tight whitespace-nowrap">
                 {content.brand.name}
               </span>
             </Link>
-            <div className="flex items-center">
+            <div className="flex items-center shrink-0">
               {social.map((item) => {
                 const meta = socialMeta(item.network);
                 return (
@@ -136,7 +136,7 @@ export default function Header() {
                     aria-label={meta.label}
                     className={iconBtn}
                   >
-                    <FontAwesomeIcon icon={meta.icon} className={`text-lg ${meta.className} dark:text-amber-50/85`} />
+                    <FontAwesomeIcon icon={meta.icon} className={`text-sm sm:text-lg ${meta.className} dark:text-amber-50/85`} />
                   </a>
                 );
               })}
@@ -147,7 +147,7 @@ export default function Header() {
                 aria-label="Google Maps"
                 className={iconBtn}
               >
-                <FontAwesomeIcon icon={faLocationDot} className="text-[15px] text-[#3d6178] dark:text-amber-50/85" />
+                <FontAwesomeIcon icon={faLocationDot} className="text-xs sm:text-[15px] text-[#3d6178] dark:text-amber-50/85" />
               </a>
             </div>
           </div>
@@ -170,27 +170,27 @@ export default function Header() {
                 type="button"
                 onClick={() => setTheme(isDark ? "light" : "dark")}
                 aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-                className="relative h-9 w-[3.65rem] rounded-full border border-[#d4c7b4] dark:border-[#5c5348] bg-[#efe6d8] dark:bg-[#1a1714] shadow-[inset_0_1px_2px_rgba(60,40,20,0.12)]"
+                className="relative h-7 w-12 sm:h-9 sm:w-[3.65rem] rounded-full border border-[#d4c7b4] dark:border-[#5c5348] bg-[#efe6d8] dark:bg-[#1a1714] shadow-[inset_0_1px_2px_rgba(60,40,20,0.12)]"
               >
                 <span
-                  className={`absolute top-[3px] left-[3px] flex h-[30px] w-[30px] items-center justify-center rounded-full bg-[#fbf7f1] dark:bg-[#2a241e] shadow-[0_1px_4px_rgba(40,30,20,0.18)] ring-1 ring-[#cfc3b0]/80 dark:ring-[#6b5e4e]/70 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    isDark ? "translate-x-[1.55rem]" : "translate-x-0"
+                  className={`absolute top-[3px] left-[3px] flex h-[22px] w-[22px] sm:h-[30px] sm:w-[30px] items-center justify-center rounded-full bg-[#fbf7f1] dark:bg-[#2a241e] shadow-[0_1px_4px_rgba(40,30,20,0.18)] ring-1 ring-[#cfc3b0]/80 dark:ring-[#6b5e4e]/70 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isDark ? "translate-x-5 sm:translate-x-[1.55rem]" : "translate-x-0"
                   }`}
                 >
                   <FontAwesomeIcon
                     icon={isDark ? faMoon : faSun}
-                    className={`text-[11px] ${isDark ? "text-[#e8d5a3]" : "text-[#8a6a32]"}`}
+                    className={`text-[9px] sm:text-[11px] ${isDark ? "text-[#e8d5a3]" : "text-[#8a6a32]"}`}
                   />
                 </span>
                 <span className="sr-only">Theme</span>
               </button>
             ) : (
-              <span className="h-9 w-[3.65rem]" />
+              <span className="h-7 w-12 sm:h-9 sm:w-[3.65rem]" />
             )}
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="w-9 h-9 rounded-full border border-[#d4c7b4] dark:border-[#5c5348] bg-[#fbf7f1] dark:bg-[#2a241e] text-stone-800 dark:text-amber-50"
+              className="w-7 h-7 sm:w-9 sm:h-9 flex items-center justify-center text-xs sm:text-base rounded-full border border-[#d4c7b4] dark:border-[#5c5348] bg-[#fbf7f1] dark:bg-[#2a241e] text-stone-800 dark:text-amber-50"
             >
               <FontAwesomeIcon icon={faBars} />
             </button>

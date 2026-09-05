@@ -40,15 +40,15 @@ export default function Hero({ section }: { section: SiteSection }) {
       </div>
 
       <div className="z-10 max-w-3xl space-y-1 sm:space-y-1">
-        <p className="uppercase tracking-[0.28em] text-sm font-semibold text-stone-700 dark:text-amber-100">
+        <p className="uppercase tracking-[0.22em] sm:tracking-[0.28em] text-xs sm:text-sm font-semibold text-stone-700 dark:text-amber-100">
           {section.title}
         </p>
-        <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-stone-900 dark:text-white min-h-[3rem] flex items-center justify-center tracking-tight">
+        <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-semibold text-stone-900 dark:text-white min-h-[2.75rem] sm:min-h-[3rem] flex items-center justify-center tracking-tight">
           <span className="mr-2">{text}</span>
           <Cursor cursorColor="#c2410c" />
         </h1>
         {section.subtitle ? (
-          <p className="text-stone-600 dark:text-stone-300 text-sm sm:text-sm">{section.subtitle}</p>
+          <p className="text-stone-600 dark:text-stone-300 text-xs sm:text-sm">{section.subtitle}</p>
         ) : null}
         {section.body ? (
           <p className="text-stone-500 dark:text-stone-400 text-xs sm:text-sm max-w-md mx-auto leading-normal hidden sm:block">
@@ -76,23 +76,23 @@ export default function Hero({ section }: { section: SiteSection }) {
             href={content.brand.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold tracking-wide bg-[#e7f1ea] text-[#1e4a36] border border-[#b7cfc2] hover:bg-[#dcebe2] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-[#e7f1ea] text-[#1e4a36] border border-[#b7cfc2] hover:bg-[#dcebe2] transition-colors"
           >
             <span>Message on</span>
-            <FontAwesomeIcon icon={faWhatsapp} className="text-base text-[#2f6b4c]" />
+            <FontAwesomeIcon icon={faWhatsapp} className="text-sm sm:text-base text-[#2f6b4c]" />
             <span>WhatsApp</span>
           </a>
           <motion.a
             href={`tel:+${content.brand.phoneRaw}`}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold tracking-wide bg-[#ebe6df] text-[#3d3832] border border-[#c9c1b4] hover:bg-[#e3dcd3] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-[#ebe6df] text-[#3d3832] border border-[#c9c1b4] hover:bg-[#e3dcd3] transition-colors"
           >
-            <FontAwesomeIcon icon={faPhone} className="text-xs text-[#5c564e]" />
+            <FontAwesomeIcon icon={faPhone} className="text-[10px] sm:text-xs text-[#5c564e]" />
             <span>Call</span>
           </motion.a>
           <Link
             href="#product"
-            className="px-4 py-2 rounded-full text-sm font-semibold tracking-wide text-[#5c3534] border border-[#d4b8b4] bg-[#f1e6e3] hover:bg-[#eadad6] transition-colors"
+            className="px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-[#5c3534] border border-[#d4b8b4] bg-[#f1e6e3] hover:bg-[#eadad6] transition-colors"
           >
             View artworks for sale
           </Link>
@@ -100,10 +100,10 @@ export default function Hero({ section }: { section: SiteSection }) {
             href={content.brand.maps}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold tracking-wide text-[#2a4556] border border-[#b7c7d2] bg-[#e6eef3] hover:bg-[#dce7ee] transition-colors"
+            className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide text-[#2a4556] border border-[#b7c7d2] bg-[#e6eef3] hover:bg-[#dce7ee] transition-colors"
           >
-            <FontAwesomeIcon icon={faLocationDot} className="text-xs text-[#3d6178]" />
-            <span>View on maps</span>
+            <FontAwesomeIcon icon={faLocationDot} className="text-[10px] sm:text-xs text-[#3d6178]" />
+            <span>Open in maps</span>
           </a>
         </div>
       </div>
