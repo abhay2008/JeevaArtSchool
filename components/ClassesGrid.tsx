@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -511,6 +512,11 @@ const iconMap: Record<string, any> = {
 
 export default function ClassesGrid({ section }: { section: SiteSection }) {
   const [selectedMediumKey, setSelectedMediumKey] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Close modal on Escape key
   useEffect(() => {
@@ -596,201 +602,217 @@ export default function ClassesGrid({ section }: { section: SiteSection }) {
         })}
       </div>
 
-      {/* Enlarged Studio Approach & Roadmap Modal */}
-      <AnimatePresence>
-        {activeMedium && (
-          <div
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 md:p-6"
-            onClick={() => setSelectedMediumKey(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 15 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.94, y: 15 }}
-              transition={{ duration: 0.22, ease: "easeOut" }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-3xl max-h-[92vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-white/15 shadow-2xl p-4 sm:p-7 md:p-8 scrollbar-thin"
-            >
-              {/* Close Button */}
-              <button
-                type="button"
+      {/* Enlarged Studio Approach & Roadmap Modal via Portal */}
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {activeMedium && (
+              <div
+                className="fixed inset-0 z-[100] bg-black/75 backdrop-blur-md flex items-start sm:items-center justify-center pt-20 sm:pt-6 pb-6 px-3 sm:px-6 overflow-y-auto"
                 onClick={() => setSelectedMediumKey(null)}
-                aria-label="Close details"
-                className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-stone-100 dark:bg-white/10 hover:bg-stone-200 dark:hover:bg-white/20 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-white flex items-center justify-center transition-colors"
               >
-                <FontAwesomeIcon icon={faXmark} className="text-sm sm:text-base" />
-              </button>
-
-              {/* Header */}
-              <div className="pr-8 mb-5 sm:mb-6">
-                <div className="flex flex-wrap items-center gap-2 mb-2 sm:mb-3">
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border ${activeMedium.badgeBg}`}
-                  >
-                    <FontAwesomeIcon icon={activeMedium.icon} className="text-[10px]" />
-                    {activeMedium.badge}
-                  </span>
-                  <span className="text-[11px] font-mono text-stone-600 dark:text-stone-400">
-                    Jeeva Art Studio Curriculum
-                  </span>
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-stone-900 dark:text-white tracking-tight leading-tight">
-                  {activeMedium.title}
-                </h3>
-                <p className="text-xs sm:text-sm font-medium text-stone-600 dark:text-stone-400 mt-1">
-                  {activeMedium.subtitle}
-                </p>
-              </div>
-
-              {/* Studio Approach Philosophy Card */}
-              <div className="rounded-xl sm:rounded-2xl p-3.5 sm:p-5 bg-stone-50 dark:bg-white/5 border border-stone-200/80 dark:border-white/10 mb-5 sm:mb-6">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <FontAwesomeIcon icon={faCompass} className="text-xs text-amber-600 dark:text-amber-400" />
-                  <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-900 dark:text-white">
-                    Our Studio Teaching Approach
-                  </h4>
-                </div>
-                <p className="text-xs sm:text-sm font-normal text-stone-700 dark:text-stone-300 leading-relaxed">
-                  {activeMedium.philosophy}
-                </p>
-              </div>
-
-              {/* 3 Core Method Pillars */}
-              <div className="mb-6 sm:mb-8">
-                <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 mb-3">
-                  Core Pedagogical Pillars
-                </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
-                  {activeMedium.pillars.map((pillar, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3 sm:p-4 rounded-xl border border-stone-200/70 dark:border-white/10 bg-white dark:bg-stone-800/60 flex flex-col justify-start"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-xs mb-2">
-                        <FontAwesomeIcon icon={pillar.icon} />
-                      </div>
-                      <p className="text-xs sm:text-sm font-semibold text-stone-900 dark:text-white mb-1 leading-snug">
-                        {pillar.title}
-                      </p>
-                      <p className="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-                        {pillar.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* 5-Step Curriculum & Mastery Roadmap */}
-              <div className="mb-6 sm:mb-8">
-                <div className="flex items-center justify-between mb-3">
-                  <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400">
-                    Step-by-Step Mastery Roadmap
-                  </h4>
-                  <span className="text-[10px] font-mono text-stone-600 dark:text-stone-400">5 Progression Phases</span>
-                </div>
-                <div className="space-y-2 sm:space-y-2.5">
-                  {activeMedium.roadmap.map((step) => (
-                    <div
-                      key={step.step}
-                      className="flex items-start gap-3 p-2.5 sm:p-3.5 rounded-xl border border-stone-200/70 dark:border-white/10 bg-stone-50/60 dark:bg-white/5 hover:bg-stone-100/70 dark:hover:bg-white/10 transition-colors"
-                    >
-                      <div className="shrink-0 w-8 h-8 rounded-lg bg-stone-900 dark:bg-white text-white dark:text-stone-900 flex items-center justify-center text-xs font-bold font-mono">
-                        {step.step}
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-stone-200/80 dark:bg-white/10 text-stone-700 dark:text-stone-300">
-                            {step.phase}
-                          </span>
-                          <h5 className="font-serif text-xs sm:text-sm md:text-base font-semibold text-stone-900 dark:text-white">
-                            {step.title}
-                          </h5>
-                        </div>
-                        <p className="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
-                          {step.description}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Class Specs Grid & Takeaways */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mb-6 pt-2 border-t border-stone-200/60 dark:border-white/10">
-                <div className="p-3.5 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10">
-                  <h5 className="text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 mb-2">
-                    Class Format & Logistics
-                  </h5>
-                  <ul className="space-y-1.5 text-xs text-stone-700 dark:text-stone-300">
-                    <li className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faCompass} className="text-stone-600 text-[10px]" />
-                      <span><strong>Skill Level:</strong> {activeMedium.specs.level}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faUserGroup} className="text-stone-600 text-[10px]" />
-                      <span><strong>Ages:</strong> {activeMedium.specs.ageGroup}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faClock} className="text-stone-600 text-[10px]" />
-                      <span><strong>Sessions:</strong> {activeMedium.specs.duration}</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faBookOpen} className="text-stone-600 text-[10px]" />
-                      <span><strong>Instruction:</strong> {activeMedium.specs.attention}</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10">
-                  <h5 className="text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 mb-2">
-                    Key Mastery Takeaways
-                  </h5>
-                  <ul className="space-y-1.5 text-xs text-stone-700 dark:text-stone-300">
-                    {activeMedium.takeaways.map((takeaway, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <FontAwesomeIcon icon={faCircleCheck} className="text-emerald-600 text-xs mt-0.5 shrink-0" />
-                        <span>{takeaway}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-4 border-t border-stone-200/80 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-                <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
-                  <a
-                    href={`https://wa.me/919945067101?text=${encodeURIComponent(
-                      `Hello Jeeva Art School, I am interested in learning ${activeMedium.title}. Could you share the class schedule, batches, and enrollment details?`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all"
-                  >
-                    <FontAwesomeIcon icon={faWhatsapp} className="text-sm" />
-                    <span>Inquire via WhatsApp</span>
-                  </a>
-                  <a
-                    href="tel:+919945067101"
-                    className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-white/20 hover:bg-stone-100 dark:hover:bg-white/10 text-stone-800 dark:text-stone-200 font-semibold text-xs sm:text-sm transition-all"
-                  >
-                    <FontAwesomeIcon icon={faPhone} className="text-xs text-stone-500" />
-                    <span>Call Studio</span>
-                  </a>
-                </div>
-
-                <a
-                  href={activeMedium.galleryHash}
-                  onClick={() => setSelectedMediumKey(null)}
-                  className="text-xs font-semibold text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white underline underline-offset-4 transition-colors"
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.94, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.94, y: 15 }}
+                  transition={{ duration: 0.22, ease: "easeOut" }}
+                  onClick={(e) => e.stopPropagation()}
+                  className="relative w-full max-w-3xl max-h-[88vh] overflow-y-auto rounded-2xl sm:rounded-3xl bg-white dark:bg-stone-900 border border-stone-200 dark:border-white/15 shadow-2xl p-4 sm:p-7 md:p-8 scrollbar-thin"
                 >
-                  View paintings in this gallery &rarr;
-                </a>
+                  {/* Sticky Top Header Bar with Dedicated Close Button */}
+                  <div className="sticky top-0 z-20 -mx-4 -mt-4 sm:-mx-7 sm:-mt-7 md:-mx-8 md:-mt-8 px-4 py-3 sm:px-7 sm:py-3.5 md:px-8 md:py-4 bg-white/95 dark:bg-stone-900/95 backdrop-blur-md border-b border-stone-200/80 dark:border-white/10 flex items-center justify-between gap-3 mb-5 sm:mb-6 rounded-t-2xl sm:rounded-t-3xl shadow-sm">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <span
+                        className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider border ${activeMedium.badgeBg}`}
+                      >
+                        <FontAwesomeIcon icon={activeMedium.icon} className="text-[10px]" />
+                        {activeMedium.badge}
+                      </span>
+                      <span className="text-[11px] font-mono text-stone-500 dark:text-stone-400 truncate hidden xs:inline">
+                        Studio Curriculum
+                      </span>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={() => setSelectedMediumKey(null)}
+                      aria-label="Close details"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-stone-100 hover:bg-stone-200 dark:bg-white/10 dark:hover:bg-white/20 text-stone-700 dark:text-stone-200 hover:text-stone-900 dark:hover:text-white text-xs font-bold shadow-sm transition-all active:scale-95 shrink-0"
+                    >
+                      <span>Close</span>
+                      <FontAwesomeIcon icon={faXmark} className="text-xs sm:text-sm" />
+                    </button>
+                  </div>
+
+                  {/* Title & Overview */}
+                  <div className="mb-5 sm:mb-6">
+                    <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-semibold text-stone-900 dark:text-white tracking-tight leading-tight">
+                      {activeMedium.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-stone-600 dark:text-stone-400 mt-1">
+                      {activeMedium.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Studio Approach Philosophy Card */}
+                  <div className="rounded-xl sm:rounded-2xl p-3.5 sm:p-5 bg-stone-50 dark:bg-white/5 border border-stone-200/80 dark:border-white/10 mb-5 sm:mb-6">
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <FontAwesomeIcon icon={faCompass} className="text-xs text-amber-600 dark:text-amber-400" />
+                      <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-stone-900 dark:text-white">
+                        Our Studio Teaching Approach
+                      </h4>
+                    </div>
+                    <p className="text-xs sm:text-sm font-normal text-stone-700 dark:text-stone-300 leading-relaxed">
+                      {activeMedium.philosophy}
+                    </p>
+                  </div>
+
+                  {/* 3 Core Method Pillars */}
+                  <div className="mb-6 sm:mb-8">
+                    <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 mb-3">
+                      Core Pedagogical Pillars
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                      {activeMedium.pillars.map((pillar, idx) => (
+                        <div
+                          key={idx}
+                          className="p-3 sm:p-4 rounded-xl border border-stone-200/70 dark:border-white/10 bg-white dark:bg-stone-800/60 flex flex-col justify-start"
+                        >
+                          <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 flex items-center justify-center text-xs mb-2">
+                            <FontAwesomeIcon icon={pillar.icon} />
+                          </div>
+                          <p className="text-xs sm:text-sm font-semibold text-stone-900 dark:text-white mb-1 leading-snug">
+                            {pillar.title}
+                          </p>
+                          <p className="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                            {pillar.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 5-Step Curriculum & Mastery Roadmap */}
+                  <div className="mb-6 sm:mb-8">
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400">
+                        Step-by-Step Mastery Roadmap
+                      </h4>
+                      <span className="text-[10px] font-mono text-stone-600 dark:text-stone-400">5 Progression Phases</span>
+                    </div>
+                    <div className="space-y-2 sm:space-y-2.5">
+                      {activeMedium.roadmap.map((step) => (
+                        <div
+                          key={step.step}
+                          className="flex items-start gap-3 p-2.5 sm:p-3.5 rounded-xl border border-stone-200/70 dark:border-white/10 bg-stone-50/60 dark:bg-white/5 hover:bg-stone-100/70 dark:hover:bg-white/10 transition-colors"
+                        >
+                          <div className="shrink-0 w-8 h-8 rounded-lg bg-stone-900 dark:bg-white text-white dark:text-stone-900 flex items-center justify-center text-xs font-bold font-mono">
+                            {step.step}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-0.5">
+                              <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 rounded bg-stone-200/80 dark:bg-white/10 text-stone-700 dark:text-stone-300">
+                                {step.phase}
+                              </span>
+                              <h5 className="font-serif text-xs sm:text-sm md:text-base font-semibold text-stone-900 dark:text-white">
+                                {step.title}
+                              </h5>
+                            </div>
+                            <p className="text-[11px] sm:text-xs text-stone-600 dark:text-stone-400 leading-relaxed">
+                              {step.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Class Specs Grid & Takeaways */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 mb-6 pt-2 border-t border-stone-200/60 dark:border-white/10">
+                    <div className="p-3.5 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10">
+                      <h5 className="text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 mb-2">
+                        Class Format & Logistics
+                      </h5>
+                      <ul className="space-y-1.5 text-xs text-stone-700 dark:text-stone-300">
+                        <li className="flex items-center gap-2">
+                          <FontAwesomeIcon icon={faCompass} className="text-stone-600 text-[10px]" />
+                          <span><strong>Skill Level:</strong> {activeMedium.specs.level}</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <FontAwesomeIcon icon={faUserGroup} className="text-stone-600 text-[10px]" />
+                          <span><strong>Ages:</strong> {activeMedium.specs.ageGroup}</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <FontAwesomeIcon icon={faClock} className="text-stone-600 text-[10px]" />
+                          <span><strong>Sessions:</strong> {activeMedium.specs.duration}</span>
+                        </li>
+                        <li className="flex items-center gap-2">
+                          <FontAwesomeIcon icon={faBookOpen} className="text-stone-600 text-[10px]" />
+                          <span><strong>Instruction:</strong> {activeMedium.specs.attention}</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="p-3.5 rounded-xl bg-stone-50 dark:bg-white/5 border border-stone-200/60 dark:border-white/10">
+                      <h5 className="text-[10px] font-bold uppercase tracking-widest text-stone-600 dark:text-stone-400 mb-2">
+                        Key Mastery Takeaways
+                      </h5>
+                      <ul className="space-y-1.5 text-xs text-stone-700 dark:text-stone-300">
+                        {activeMedium.takeaways.map((takeaway, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <FontAwesomeIcon icon={faCircleCheck} className="text-emerald-600 text-xs mt-0.5 shrink-0" />
+                            <span>{takeaway}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="pt-4 border-t border-stone-200/80 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
+                      <a
+                        href={`https://wa.me/919945067101?text=${encodeURIComponent(
+                          `Hello Jeeva Art School, I am interested in learning ${activeMedium.title}. Could you share the class schedule, batches, and enrollment details?`
+                        )}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md hover:shadow-lg transition-all"
+                      >
+                        <FontAwesomeIcon icon={faWhatsapp} className="text-sm" />
+                        <span>Inquire via WhatsApp</span>
+                      </a>
+                      <a
+                        href="tel:+919945067101"
+                        className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-white/20 hover:bg-stone-100 dark:hover:bg-white/10 text-stone-800 dark:text-stone-200 font-semibold text-xs sm:text-sm transition-all"
+                      >
+                        <FontAwesomeIcon icon={faPhone} className="text-xs text-stone-500" />
+                        <span>Call Studio</span>
+                      </a>
+                      <button
+                        type="button"
+                        onClick={() => setSelectedMediumKey(null)}
+                        className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-stone-200 dark:border-white/15 hover:bg-stone-100 dark:hover:bg-white/10 text-stone-600 dark:text-stone-300 font-semibold text-xs sm:text-sm transition-all"
+                      >
+                        <FontAwesomeIcon icon={faXmark} className="text-xs text-stone-400" />
+                        <span>Close</span>
+                      </button>
+                    </div>
+
+                    <a
+                      href={activeMedium.galleryHash}
+                      onClick={() => setSelectedMediumKey(null)}
+                      className="text-xs font-semibold text-stone-600 hover:text-stone-900 dark:text-stone-400 dark:hover:text-white underline underline-offset-4 transition-colors"
+                    >
+                      View paintings in this gallery &rarr;
+                    </a>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </section>
   );
 }
