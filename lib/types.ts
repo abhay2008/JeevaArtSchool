@@ -60,6 +60,7 @@ export interface SiteSection {
   subtitle?: string;
   eyebrow?: string;
   body?: string;
+  extendedBody?: string;
   quote?: string;
   image?: string;
   imageAlt?: string;

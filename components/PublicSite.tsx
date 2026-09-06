@@ -3,11 +3,13 @@ import Header from "./Header";
 import SiteRenderer from "./SiteRenderer";
 import BrowseKeys from "./BrowseKeys";
 import { useSite } from "../context/SiteContext";
+import { useToast } from "../context/ToastContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
   const { content } = useSite();
+  const { handleCall } = useToast();
 
   return (
     <>
@@ -34,7 +36,7 @@ export default function PublicSite({ liveBadge }: { liveBadge?: boolean }) {
             <a href={content.brand.maps} target="_blank" rel="noopener noreferrer" className="block hover:underline font-semibold text-stone-800 dark:text-stone-200">
               View in Google Maps
             </a>
-            <a href={`tel:+${content.brand.phoneRaw}`} className="block mt-1 hover:underline font-semibold text-stone-800 dark:text-stone-200">
+            <a href={`tel:+${content.brand.phoneRaw}`} onClick={handleCall} className="block mt-1 hover:underline font-semibold text-stone-800 dark:text-stone-200">
               {content.brand.phoneDisplay}
             </a>
           </div>

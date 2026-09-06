@@ -20,6 +20,7 @@ import {
   faBookOpen,
 } from "@fortawesome/free-solid-svg-icons";
 import type { SiteSection } from "../lib/types";
+import { useToast } from "../context/ToastContext";
 
 interface MediumApproach {
   key: string;
@@ -644,6 +645,7 @@ const iconMap: Record<string, any> = {
 export default function ClassesGrid({ section }: { section: SiteSection }) {
   const [selectedMediumKey, setSelectedMediumKey] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const { handleCall } = useToast();
 
   useEffect(() => {
     setMounted(true);
@@ -915,6 +917,7 @@ export default function ClassesGrid({ section }: { section: SiteSection }) {
                       </a>
                       <a
                         href="tel:+919945067101"
+                        onClick={handleCall}
                         className="inline-flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-stone-300 dark:border-white/20 hover:bg-stone-100 dark:hover:bg-white/10 text-stone-800 dark:text-stone-200 font-semibold text-xs sm:text-sm transition-all"
                       >
                         <FontAwesomeIcon icon={faPhone} className="text-xs text-stone-500" />

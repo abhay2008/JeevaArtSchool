@@ -16,6 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useSite } from "../context/SiteContext";
 import { useArtModal } from "./ArtModal";
+import { useToast } from "../context/ToastContext";
 import type { SiteSection, ArtworkItem } from "../lib/types";
 
 // Default signature collection if none are tagged yet
@@ -78,6 +79,7 @@ function formatRupees(price?: number | string): string {
 export default function Shop({ section }: { section: SiteSection }) {
   const { content } = useSite();
   const { openArtwork } = useArtModal();
+  const { handleCall } = useToast();
 
   const phoneRaw = content?.brand?.phoneRaw || "919945067101";
   const phoneDisplay = content?.brand?.phoneDisplay || "+91 99450 67101";
@@ -312,6 +314,7 @@ export default function Shop({ section }: { section: SiteSection }) {
               {/* Call Studio Button */}
               <a
                 href={callUrl}
+                onClick={handleCall}
                 className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-2xl border border-stone-300 dark:border-white/20 hover:border-stone-900 dark:hover:border-white text-stone-900 dark:text-white font-semibold text-sm transition-all hover:bg-stone-50 dark:hover:bg-white/5 active:scale-[0.98]"
               >
                 <FontAwesomeIcon icon={faPhone} className="text-xs text-emerald-600 dark:text-emerald-400" />

@@ -4,6 +4,7 @@ import { ThemeProvider } from "next-themes";
 import { Cormorant_Garamond, Outfit } from "@next/font/google";
 import { ArtModalProvider } from "../components/ArtModal";
 import { SiteProvider } from "../context/SiteContext";
+import { ToastProvider } from "../context/ToastContext";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
@@ -25,11 +26,13 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} enableColorScheme={false}>
       <SiteProvider>
-        <ArtModalProvider>
-        <div className={`${outfit.variable} ${display.variable} font-sans`}>
-          <Component {...pageProps} />
-        </div>
-        </ArtModalProvider>
+        <ToastProvider>
+          <ArtModalProvider>
+            <div className={`${outfit.variable} ${display.variable} font-sans`}>
+              <Component {...pageProps} />
+            </div>
+          </ArtModalProvider>
+        </ToastProvider>
       </SiteProvider>
     </ThemeProvider>
   );

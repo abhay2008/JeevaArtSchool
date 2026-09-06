@@ -8,12 +8,15 @@ import {
   faBars,
   faXmark,
   faPhone,
+  faCopy,
+  faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { faYoutube, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import { useSite } from "../context/SiteContext";
+import { useToast } from "../context/ToastContext";
 
 const PRIMARY_NAV = [
   { name: "Classes", href: "#classes" },
@@ -41,6 +44,14 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const isDark = mounted && resolvedTheme === "dark";
+  const { handleCall } = useToast();
+  const [copiedDrawerPhone, setCopiedDrawerPhone] = useState(false);
+
+  const copyDrawerPhone = (e?: React.MouseEvent) => {
+    handleCall(e);
+    setCopiedDrawerPhone(true);
+    setTimeout(() => setCopiedDrawerPhone(false), 2200);
+  };
 
   const classes = useMemo(
     () => content.sections.find((s) => s.type === "classes" && s.enabled !== false),
@@ -229,6 +240,64 @@ export default function Header() {
             </button>
           </div>
 
+          {/* Top Direct Contact Card (Copiable & Direct Call) */}
+          <div className="mb-6 p-4 rounded-2xl bg-amber-500/10 dark:bg-amber-400/10 border border-amber-900/15 dark:border-amber-400/20 shadow-sm">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-amber-900 dark:text-amber-300">
+                Direct Studio Contact
+              </span>
+              {copiedDrawerPhone && (
+                <span className="text-[11px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-300 dark:border-emerald-800">
+                  ✓ Copied!
+                </span>
+              )}
+            </div>
+            <div className="flex items-center justify-between gap-2 bg-white/90 dark:bg-stone-900/90 rounded-xl p-2.5 border border-amber-900/10 dark:border-stone-800">
+              <a
+                href={`tel:+${content.brand.phoneRaw}`}
+                onClick={copyDrawerPhone}
+                className="flex items-center gap-2.5 font-bold text-sm text-stone-900 dark:text-white hover:text-amber-700 dark:hover:text-amber-300 transition-colors flex-1 min-w-0"
+              >
+                <div className="w-8 h-8 rounded-full bg-amber-600/15 flex items-center justify-center text-amber-800 dark:text-amber-300 flex-shrink-0">
+                  <FontAwesomeIcon icon={faPhone} className="text-xs" />
+                </div>
+                <span className="truncate">{content.brand.phoneDisplay}</span>
+              </a>
+              <button
+                type="button"
+                onClick={copyDrawerPhone}
+                className="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-stone-100 dark:bg-stone-800 hover:bg-amber-100 dark:hover:bg-amber-900/40 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700 flex items-center gap-1.5 transition-colors flex-shrink-0"
+                title="Copy phone number"
+              >
+                <FontAwesomeIcon
+                  icon={copiedDrawerPhone ? faCheck : faCopy}
+                  className={`text-xs ${copiedDrawerPhone ? "text-emerald-600 dark:text-emerald-400" : "text-amber-700 dark:text-amber-400"}`}
+                />
+                <span>{copiedDrawerPhone ? "Copied" : "Copy"}</span>
+              </button>
+            </div>
+            <div className="grid grid-cols-2 gap-2 mt-2.5">
+              <a
+                href={content.brand.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-emerald-600/15 hover:bg-emerald-600/25 text-emerald-800 dark:text-emerald-300 border border-emerald-600/30 text-xs font-bold transition-colors"
+              >
+                <FontAwesomeIcon icon={faWhatsapp} className="text-sm text-emerald-600 dark:text-emerald-400" />
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href={content.brand.maps}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-sky-600/15 hover:bg-sky-600/25 text-sky-800 dark:text-sky-300 border border-sky-600/30 text-xs font-bold transition-colors"
+              >
+                <FontAwesomeIcon icon={faLocationDot} className="text-xs text-sky-600 dark:text-sky-400" />
+                <span>Directions</span>
+              </a>
+            </div>
+          </div>
+
           <nav className="space-y-6">
             <div>
               <p className="px-3 mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">Visit</p>
@@ -299,7 +368,7 @@ export default function Header() {
 
             <div className="pt-4 border-t border-amber-900/15 space-y-2">
               <p className="px-3 mb-1 text-[11px] font-bold uppercase tracking-[0.2em] text-stone-500">Contact</p>
-              <a href={`tel:+${content.brand.phoneRaw}`} className={`${drawerLink} flex items-center gap-3`}>
+              <a href={`tel:+${content.brand.phoneRaw}`} onClick={copyDrawerPhone} className={`${drawerLink} flex items-center gap-3`}>
                 <FontAwesomeIcon icon={faPhone} className="text-sm text-stone-500" />
                 {content.brand.phoneDisplay}
               </a>

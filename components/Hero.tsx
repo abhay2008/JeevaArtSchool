@@ -9,12 +9,14 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import type { SiteSection } from "../lib/types";
 import { useSite } from "../context/SiteContext";
 import { useIntro } from "../context/IntroContext";
+import { useToast } from "../context/ToastContext";
 import HeroArtworkShowcase from "./HeroArtworkShowcase";
 import HeroPortrait from "./HeroPortrait";
 
 export default function Hero({ section }: { section: SiteSection }) {
   const { content } = useSite();
   const { landed, skip } = useIntro();
+  const { handleCall } = useToast();
     const words = section.words?.filter(Boolean).length
       ? section.words
       : [section.title || content.brand.name || "Jeeva Art School"];
@@ -84,6 +86,7 @@ export default function Hero({ section }: { section: SiteSection }) {
           </a>
           <motion.a
             href={`tel:+${content.brand.phoneRaw}`}
+            onClick={handleCall}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-[#ebe6df] text-[#3d3832] border border-[#c9c1b4] hover:bg-[#e3dcd3] transition-colors"
           >
