@@ -633,16 +633,6 @@
       "theme": "student"
     },
     {
-      "id": "pencil-elephant",
-      "title": "An Elephant",
-      "headline": "Pencil shading",
-      "description": "Hyper-detailed graphite study with realistic skin texture and light modeling.",
-      "image": "/uploads/pencil1.jpeg",
-      "medium": "Pencil shading",
-      "purpose": "gallery",
-      "theme": "pencil"
-    },
-    {
       "id": "acrylic-boat",
       "title": "An Ocean View",
       "headline": "Acrylic painting",
