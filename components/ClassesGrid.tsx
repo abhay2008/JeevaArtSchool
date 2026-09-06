@@ -52,143 +52,78 @@ interface MediumApproach {
 }
 
 const MEDIUM_APPROACHES: Record<string, MediumApproach> = {
-  acrylic: {
-    key: "acrylic",
-    title: "Acrylic Painting",
-    subtitle: "Dynamic Textures, Color Harmony & Modern Expression",
-    badge: "Contemporary & Expressive",
-    icon: faPalette,
-    accent: "from-orange-500 to-rose-500",
-    badgeBg: "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20",
+  water: {
+    key: "water",
+    title: "Watercolour Painting",
+    subtitle: "Washes, Blending, Landscapes, Florals, Sculptures & Classical Portraits",
+    badge: "Luminous Transparency",
+    icon: faWater,
+    accent: "from-sky-400 to-blue-600",
+    badgeBg: "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
     philosophy:
-      "Acrylic is loved for its vibrant brilliance and rapid drying time, making it ideal for both luminous glazing and sculptural palette-knife impasto. Master Jeeva Kumari guides students through tonal control, brush dynamics, and color temperature, liberating each student to translate imagination onto canvas without the fear of mistakes.",
+      "Watercolour is the poetry of pigment breathing across wet cotton rag. Master Jeeva Kumari trains students from foundational wash and blending techniques to majestic compositions across landscapes, florals, historical monuments, three-dimensional sculptures, and expressive portraits—harnessing the spontaneous beauty of pigment on cold-pressed cotton rag.",
     pillars: [
       {
-        title: "Palette Dynamics & Tonal Values",
-        description: "Mastering warm vs cool bias, color mixing without muddying, and establishing light-to-dark value hierarchy.",
-        icon: faPalette,
+        title: "Washes & Seamless Blending",
+        description:
+          "Perfecting flat, graded, variegated, and wet-into-wet washes with precise pigment-to-water ratio intuition.",
+        icon: faWater,
       },
       {
-        title: "Knife & Brush Dynamics",
-        description: "Executing smooth gradients, wet-into-wet blending, dry brushing, and tactile palette knife impasto textures.",
+        title: "Landscapes, Flora & Architecture",
+        description:
+          "Painting atmospheric skyscapes, vibrant floral petals, intricate Indian monuments, and stone sculptures.",
+        icon: faCompass,
+      },
+      {
+        title: "Classical Portraits & Negative Space",
+        description:
+          "Preserving glowing paper highlights while sculpting realistic facial tones, delicate features, and organic textures.",
         icon: faBrush,
-      },
-      {
-        title: "Signature Composition",
-        description: "Moving from photo reference studies to personal storytelling, atmospheric depth, and focal-point harmony.",
-        icon: faLayerGroup,
       },
     ],
     roadmap: [
       {
         step: "01",
         phase: "Groundwork",
-        title: "Canvas Preparation & Tonal Layout",
-        description: "Stretching canvas, applying gesso grounds, and establishing geometric proportions with neutral burnt umber washes.",
+        title: "Paper Stretching & Wash Fundamentals",
+        description:
+          "Pre-soaking heavyweight 300 GSM cotton rag, moisture control (tea to butter consistency), flat washes, and graded wet-on-wet blending.",
       },
       {
         step: "02",
-        phase: "Structure",
-        title: "Underpainting & Value Block-in",
-        description: "Mapping core shadows and midtones with fluid acrylic washes to lock in value hierarchy before color application.",
+        phase: "Techniques",
+        title: "Washes & Blending Mastery",
+        description:
+          "Executing seamless edge blending, variegated colour transitions, dry brushing, and preserving luminous negative white paper highlights.",
       },
       {
         step: "03",
-        phase: "Color Body",
-        title: "Chromatic Layering & Modulation",
-        description: "Applying opaque body colors, atmospheric gradients, and wet-into-wet blending for luminous depth.",
+        phase: "Nature",
+        title: "Florals & Natural Landscapes",
+        description:
+          "Painting vibrant botanical florals, atmospheric mountain vistas, seasonal tree foliage, and tranquil reflective lake waters.",
       },
       {
         step: "04",
-        phase: "Tactile Finish",
-        title: "Impasto & Palette Knife Accents",
-        description: "Sculpting tactile highlights, floral petals, architectural stonework, and dynamic water reflections.",
+        phase: "Heritage",
+        title: "Monuments & Classical Sculptures",
+        description:
+          "Mastering linear perspective, weathered stone monument masonry, ornate temple pillars, and sculptural light-shade relief.",
       },
       {
         step: "05",
-        phase: "Preservation",
-        title: "Archival Isolation & UV Varnishing",
-        description: "Protecting the completed canvas with a clear isolation coat and satin UV varnish for museum-grade permanence.",
+        phase: "Mastery",
+        title: "Classical Portraits & Conservation",
+        description:
+          "Modelling lifelike facial features, delicate skin undertone blending, dry-brush details, and archival museum-grade mounting.",
       },
     ],
     takeaways: [
-      "Impasto & palette knife techniques",
-      "Color temperature & chromatic harmony",
-      "Speed & wet-edge blending control",
-      "Canvas preservation & varnishing",
-    ],
-    specs: {
-      level: "Beginner to Advanced",
-      ageGroup: "Ages 7 to Adults",
-      duration: "Flexible 2-hr sessions",
-      attention: "Individual 1-on-1 guidance",
-    },
-    galleryHash: "#acrylic",
-  },
-  water: {
-    key: "water",
-    title: "Watercolour Painting",
-    subtitle: "Luminous Washes, Flow & Chromatic Transparency",
-    badge: "Classical Fluidity",
-    icon: faWater,
-    accent: "from-sky-400 to-blue-600",
-    badgeBg: "bg-sky-500/10 text-sky-700 dark:text-sky-400 border-sky-500/20",
-    philosophy:
-      "Watercolour is the poetry of pigment breathing across wet cotton rag. Our studio approach teaches patience, pigment-to-water ratio intuition, and negative painting—transforming the unpredictability of water into deliberate, luminous grace.",
-    pillars: [
-      {
-        title: "Water Intuition & Paper Control",
-        description: "Mastering moisture states (tea, milk, cream, butter) and preparing 300 GSM 100% cold-pressed cotton paper.",
-        icon: faWater,
-      },
-      {
-        title: "Negative Space Preservation",
-        description: "Preserving the pristine white of the paper for brilliant natural radiance rather than relying on opaque white paint.",
-        icon: faCompass,
-      },
-      {
-        title: "Edge Control & Transparency",
-        description: "Navigating lost-and-found edges, seamless variegated washes, and granulating pigment textures.",
-        icon: faBrush,
-      },
-    ],
-    roadmap: [
-      {
-        step: "01",
-        phase: "Preparation",
-        title: "Paper Stretching & Wetting",
-        description: "Pre-soaking heavyweight cotton sheets and taping to eliminate paper buckling during wet-on-wet washes.",
-      },
-      {
-        step: "02",
-        phase: "Foundation",
-        title: "Wash Mastery & Value Scales",
-        description: "Executing flat, graded, and wet-on-wet atmospheric washes with squirrel and mop brushes.",
-      },
-      {
-        step: "03",
-        phase: "Glazing",
-        title: "Form Building & Transparency",
-        description: "Applying transparent chromatic glazes while keeping earlier layers crisp, clean, and un-disturbed.",
-      },
-      {
-        step: "04",
-        phase: "Detailing",
-        title: "Dry-brushing & Organic Textures",
-        description: "Rendering tree bark, water ripples, delicate petals, and architecture with dry synthetic rounds.",
-      },
-      {
-        step: "05",
-        phase: "Final Polish",
-        title: "Lifting Highlights & Matting",
-        description: "Scraping, lifting pigment highlights, and mounting with acid-free archival museum board.",
-      },
-    ],
-    takeaways: [
-      "Pigment-to-water ratio intuition",
-      "Wet-on-wet & dry-brush dexterity",
-      "Preserving radiant negative whites",
-      "Botanical, landscape & portrait washes",
+      "Wet-on-wet, graded & variegated washes",
+      "Seamless pigment blending techniques",
+      "Atmospheric landscape & floral studies",
+      "Historic monuments, sculptures & portraits",
     ],
     specs: {
       level: "Beginner to Advanced",
@@ -198,70 +133,321 @@ const MEDIUM_APPROACHES: Record<string, MediumApproach> = {
     },
     galleryHash: "#water",
   },
-  tanjore: {
-    key: "tanjore",
-    title: "Tanjore Painting",
-    subtitle: "Traditional 22k Gold Foil & Sacred Relief Art",
-    badge: "Centuries-Old Heritage",
-    icon: faGem,
-    accent: "from-amber-400 to-yellow-600",
-    badgeBg: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
+  acrylic: {
+    key: "acrylic",
+    title: "Acrylic Painting",
+    subtitle: "Blending Techniques, Landscapes, Still Life, Foliage & Bird Studies",
+    badge: "Contemporary & Vibrant",
+    icon: faPalette,
+    accent: "from-orange-500 to-rose-500",
+    badgeBg: "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20",
     philosophy:
-      "One of South India's greatest classical sacred art traditions. Master Jeeva passes down generations of authentic Thanjavur pedagogy using seasoned teakwood boards, limestone relief muck-work, pure 22-carat gold foil, and semi-precious Jaipur gemstones.",
+      "Acrylic offers unmatched versatility, luminous body, and expressive tactile freedom. Master Jeeva Kumari trains students in modern blending techniques and layering—moving from foundational color mixing to picturesque landscapes, luminous still life, rich forest foliage, and realistic bird studies with palette-knife textures.",
     pillars: [
       {
-        title: "Authentic Substrate Crafting",
-        description: "Preparing the traditional wooden plank with fine unbleached cotton, chalk paste, and natural Arabic gum binder.",
+        title: "Advanced Blending Techniques",
+        description:
+          "Controlling wet-edge blending, feathered gradients, glazing glazes, and smooth value transitions without muddying.",
+        icon: faPalette,
+      },
+      {
+        title: "Landscapes & Foliage Dynamics",
+        description:
+          "Sculpting organic leaf canopies, forest lighting, textured tree barks, and atmospheric mountain horizons.",
         icon: faLayerGroup,
       },
       {
-        title: "Embossed Relief Gesso (Muck-work)",
-        description: "Sculpting pillars, ornate arches, crowns, and jewelry using traditional limestone paste piped through cones.",
-        icon: faGem,
-      },
-      {
-        title: "22k Gold Foil Gilding & Inlay",
-        description: "Gilding pure 22-carat gold leaf over relief contours, burnishing to an opulent temple glow.",
+        title: "Still Life & Avian Studies",
+        description:
+          "Balancing light sources across reflective still life arrangements and capturing iridescent plumage on birds.",
         icon: faBrush,
       },
     ],
     roadmap: [
       {
         step: "01",
-        phase: "Plank Base",
-        title: "Teak Board & Cloth Mounting",
-        description: "Seasoning the teakwood board, adhering fine cotton cloth, and applying multiple sanded chalk gesso layers.",
+        phase: "Foundation",
+        title: "Underpainting & Blending Mechanics",
+        description:
+          "Value mapping with fluid acrylic washes, practicing slow-drying mediums, and perfecting wet-into-wet blending.",
       },
       {
         step: "02",
-        phase: "Iconography",
-        title: "Sacred Proportions & Drawing",
-        description: "Tracing classical iconographic proportions (dhyana shlokas) for deities, thrones, and sacred motifs.",
+        phase: "Form",
+        title: "Still Life & Light Logic",
+        description:
+          "Painting pottery, fruits, glassware, and drapery with accurate cast shadows, core shadows, and specular reflections.",
       },
       {
         step: "03",
-        phase: "Relief Work",
-        title: "Muck-work & Gem Setting",
-        description: "Squeezing raised relief paste for crowns and ornamentation, and setting sparkling Jaipur stones.",
+        phase: "Environment",
+        title: "Scenic Landscapes & Horizon Depth",
+        description:
+          "Building atmospheric perspective, cloud formations, water ripples, and layered distant mountain ridges.",
       },
       {
         step: "04",
-        phase: "Gilding",
-        title: "22-Carat Gold Foil Application",
-        description: "Delicately placing authentic 22k gold leaf, pressing into intricate grooves, and burnishing smooth surfaces.",
+        phase: "Organic Life",
+        title: "Foliage Texturing & Forest Studies",
+        description:
+          "Dappled sunlight through dense botanical foliage, negative leaf painting, and organic brush stroke rhythms.",
       },
       {
         step: "05",
-        phase: "Icon Painting",
-        title: "Sacred Deities & Facial Features",
-        description: "Rendering the serene expressions, luminous skin tones, and rich silk drapery with opaque pigments.",
+        phase: "Realism",
+        title: "Realistic Birds & Impasto Finishing",
+        description:
+          "Rendering delicate feather barbs, glistening bird eyes, textural palette knife accents, and protective UV varnishing.",
       },
     ],
     takeaways: [
-      "Authentic 22k gold leaf gilding",
-      "Traditional limestone relief muck-work",
-      "Semi-precious Jaipur stone setting",
-      "Classical South Indian iconography",
+      "Smooth & wet-into-wet blending techniques",
+      "Scenic landscapes & atmospheric perspective",
+      "Lush botanical foliage & forest light",
+      "Lifelike birds, still life & impasto finishes",
+    ],
+    specs: {
+      level: "Beginner to Advanced",
+      ageGroup: "Ages 7 to Adults",
+      duration: "Flexible 2-hr sessions",
+      attention: "Individual 1-on-1 guidance",
+    },
+    galleryHash: "#acrylic",
+  },
+  pencil: {
+    key: "pencil",
+    title: "Pencil Shading & Charcoal Paintings",
+    subtitle: "Blending Techniques, Landscapes, Birds, Animals, Monuments, Sculptures, Still Life & Portraits",
+    badge: "The Foundation of Art",
+    icon: faPencil,
+    accent: "from-stone-500 to-zinc-800",
+    badgeBg: "bg-stone-500/10 text-stone-700 dark:text-stone-300 border-stone-500/20",
+    philosophy:
+      "Drawing and tonal shading are the fundamental grammar of all visual art. Students master graphite grades (2H to 8B) and rich willow/compressed charcoal, developing flawless blending techniques across diverse subjects: still life, scenic landscapes, birds, wildlife animals, historic monuments, classical sculptures, and realistic portraits.",
+    pillars: [
+      {
+        title: "Blending Techniques & Value Spectrum",
+        description:
+          "Seamless tortillon stump, tissue, and brush blending across the complete 9-step tonal scale from pure highlights to pitch blacks.",
+        icon: faPencil,
+      },
+      {
+        title: "Still Life, Monuments & Sculptures",
+        description:
+          "Constructing 3D volume, perspective lines on monumental architecture, and chiselled marble sculpture contours.",
+        icon: faCompass,
+      },
+      {
+        title: "Wildlife, Birds & Expressive Portraits",
+        description:
+          "Rendering fine animal coats, soft feather textures, and anatomical facial proportions with lifelike realism.",
+        icon: faLayerGroup,
+      },
+    ],
+    roadmap: [
+      {
+        step: "01",
+        phase: "Calibration",
+        title: "Graphite Calibration & Blending",
+        description:
+          "Exploring pencil grades (2H–8B), stump blending, cross-hatching, pressure control, and charcoal burnishing.",
+      },
+      {
+        step: "02",
+        phase: "Structure",
+        title: "Still Life & Geometric Volume",
+        description:
+          "Shading spheres, cylinders, glass vessels, and draped fabrics with accurate core shadows and reflected light.",
+      },
+      {
+        step: "03",
+        phase: "Heritage",
+        title: "Landscapes & Historic Monuments",
+        description:
+          "Architectural perspective, temple arches, stone monument textures, and dramatic atmospheric sky shading.",
+      },
+      {
+        step: "04",
+        phase: "Living Form",
+        title: "Birds & Wildlife Animals",
+        description:
+          "Texturing soft avian feathers, animal fur, whiskers, and realistic animal eyes using fine mono-zero precision erasers.",
+      },
+      {
+        step: "05",
+        phase: "Academic Art",
+        title: "Sculptures & Human Portraits",
+        description:
+          "Shading classical stone sculptures, facial bone structure, lip/eye anatomy, and sealing with archival spray fixative.",
+      },
+    ],
+    takeaways: [
+      "Tortillon, tissue & brush blending techniques",
+      "Still life, drapery & geometric volume",
+      "Historic monuments & classical sculptures",
+      "Detailed birds, wildlife animals & portraits",
+    ],
+    specs: {
+      level: "All Levels (Kids to Adults)",
+      ageGroup: "Ages 6 to Adults",
+      duration: "Flexible 2-hr sessions",
+      attention: "Individual 1-on-1 guidance",
+    },
+    galleryHash: "#pencil",
+  },
+  pastel: {
+    key: "pastel",
+    title: "Oil Pastel & Colour Pencil Paintings",
+    subtitle: "Rich Pigment Blending, Layering, Burnishing & Vibrant Realistic Studies",
+    badge: "Vibrant Pigments",
+    icon: faBrush,
+    accent: "from-rose-400 to-pink-600",
+    badgeBg: "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/20",
+    philosophy:
+      "Oil pastels and professional coloured pencils provide rich pigment density, tactile vibrancy, and immediate painterly control without brushes. Students learn professional pigment layering, solvent underwashes, burnishing, sgraffito, and seamless color blending to create breathtakingly realistic still life, florals, landscapes, and wildlife studies.",
+    pillars: [
+      {
+        title: "Pigment Blending & Temperature Harmony",
+        description:
+          "Blending oil pastels with blending stumps and mineral oils for smooth, buttery transitions and saturated hues.",
+        icon: faBrush,
+      },
+      {
+        title: "Layering & Burnishing Techniques",
+        description:
+          "Stacking light-to-dark colored pencil layers on heavy-tooth paper, finishing with colorless blender burnishing.",
+        icon: faLayerGroup,
+      },
+      {
+        title: "Realistic Textures & Sgraffito",
+        description:
+          "Etching fine details, animal whiskers, crisp floral petals, and reflective glass surfaces.",
+        icon: faPalette,
+      },
+    ],
+    roadmap: [
+      {
+        step: "01",
+        phase: "Fundamentals",
+        title: "Paper Tooth & Pigment Properties",
+        description:
+          "Swatching oil pastels and wax/oil colour pencils on sanded and heavyweight papers to test tooth capacity.",
+      },
+      {
+        step: "02",
+        phase: "Layering",
+        title: "Multi-Layering & Tonal Gradients",
+        description:
+          "Laying down gentle base tones, cross-hatching, and feathering colored pencil gradients without wax bloom.",
+      },
+      {
+        step: "03",
+        phase: "Blending",
+        title: "Oil Pastel Blending & Solvent Washes",
+        description:
+          "Applying opaque pastels, blending with light baby oil/mineral spirits, and achieving paint-like smoothness.",
+      },
+      {
+        step: "04",
+        phase: "Detail",
+        title: "Sgraffito & Fine Detailing",
+        description:
+          "Scratching into thick pigment layers to expose bright under-layers for highlights, feathers, and botanical veins.",
+      },
+      {
+        step: "05",
+        phase: "Mastery",
+        title: "Burnishing & Archival Preservation",
+        description:
+          "Polishing surfaces with heavy burnishing for glassy depth, applying protective fixative, and matting.",
+      },
+    ],
+    takeaways: [
+      "Rich oil pastel blending & solvent smoothing",
+      "Colour pencil multi-layering & burnishing",
+      "Vibrant realistic still life & floral studies",
+      "Sgraffito texturing & archival protection",
+    ],
+    specs: {
+      level: "Beginner to Advanced",
+      ageGroup: "Ages 6 to Adults",
+      duration: "Flexible 2-hr sessions",
+      attention: "Individual 1-on-1 guidance",
+    },
+    galleryHash: "#classes",
+  },
+  tanjore: {
+    key: "tanjore",
+    title: "Tanjore, Folk & Fabric Art",
+    subtitle: "22k Gold Tanjore, Madhubani, Warli & Fabric Art on Sarees, Blouses, Dupattas & Kurtas",
+    badge: "Centuries-Old Heritage",
+    icon: faGem,
+    accent: "from-amber-400 to-yellow-600",
+    badgeBg: "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20",
+    philosophy:
+      "A rich immersion into India's sacred and folk art heritage. Master Jeeva Kumari trains students in classical 22k gold foil Tanjore painting on teak boards, authentic Madhubani folk art, Warli tribal motifs, and beautiful fabric painting on blouses, sarees, dupattas, and kurtas—preserving traditional relief techniques, gem setting, and durable textile artistry.",
+    pillars: [
+      {
+        title: "Traditional 22k Gold Tanjore",
+        description:
+          "Crafting authentic teakwood boards, limestone relief muck-work, Jaipur gemstone setting, and 22-carat gold foil gilding.",
+        icon: faGem,
+      },
+      {
+        title: "Folk Heritage (Madhubani & Warli)",
+        description:
+          "Traditional line work of Mithila Madhubani and sacred rhythmic geometric circles of Maharashtra's Warli art.",
+        icon: faCompass,
+      },
+      {
+        title: "Wearable Fabric Art on Apparel",
+        description:
+          "Hand-painting traditional motifs on blouses, sarees, dupattas, and kurtas with colorfast, wash-resistant pigments.",
+        icon: faBrush,
+      },
+    ],
+    roadmap: [
+      {
+        step: "01",
+        phase: "Plank & Line Base",
+        title: "Plank Mounting & Folk Line Fundamentals",
+        description:
+          "Preparing teakwood with cotton fabric and gesso, alongside Madhubani borders and Warli stick figures.",
+      },
+      {
+        step: "02",
+        phase: "Relief Work",
+        title: "Relief Muck-work & Gem Setting",
+        description:
+          "Coning traditional limestone relief paste for intricate crowns, arches, and pillars; inlaying sparkling Jaipur stones.",
+      },
+      {
+        step: "03",
+        phase: "Gilding",
+        title: "22k Gold Leaf Gilding",
+        description:
+          "Sizing and applying genuine 22-carat gold foil over relief work, burnishing smooth surfaces for brilliant temple shine.",
+      },
+      {
+        step: "04",
+        phase: "Deity Painting",
+        title: "Icon Painting & Divine Expressions",
+        description:
+          "Painting classical deities with serene eyes, luminous skin tones, and rich silk garments using fine brushes.",
+      },
+      {
+        step: "05",
+        phase: "Wearable Art",
+        title: "Fabric Painting on Apparel",
+        description:
+          "Transferring designs onto blouses, sarees, dupattas, and kurtas; blending fabric acrylics and heat-curing for washability.",
+      },
+    ],
+    takeaways: [
+      "Authentic 22k gold foil Tanjore painting",
+      "Limestone relief muck-work & Jaipur stones",
+      "Traditional Madhubani & Warli folk art",
+      "Fabric painting on blouses, sarees, dupattas & kurtas",
     ],
     specs: {
       level: "Zero prior experience needed",
@@ -284,17 +470,20 @@ const MEDIUM_APPROACHES: Record<string, MediumApproach> = {
     pillars: [
       {
         title: "Medium Dynamics & Chemistry",
-        description: "Balancing linseed oil, odorless mineral spirits, and drying mediums for smooth blending and permanent adhesion.",
+        description:
+          "Balancing linseed oil, odorless mineral spirits, and drying mediums for smooth blending and permanent adhesion.",
         icon: faCompass,
       },
       {
         title: "Edge Control & Softening",
-        description: "Creating lost, soft, and crisp hard edges with filbert and fan brushes for striking 3D optical realism.",
+        description:
+          "Creating lost, soft, and crisp hard edges with filbert and fan brushes for striking 3D optical realism.",
         icon: faBrush,
       },
       {
         title: "Glazing & Optical Color Mixing",
-        description: "Achieving glowing luminosity by floating transparent glazes over cured grisaille underpaintings.",
+        description:
+          "Achieving glowing luminosity by floating transparent glazes over cured grisaille underpaintings.",
         icon: faLayerGroup,
       },
     ],
@@ -303,31 +492,36 @@ const MEDIUM_APPROACHES: Record<string, MediumApproach> = {
         step: "01",
         phase: "Toning",
         title: "Imprimatura & Sight-Size Layout",
-        description: "Toning canvas with transparent raw umber and establishing proportion using the sight-size measurement method.",
+        description:
+          "Toning canvas with transparent raw umber and establishing proportion using the sight-size measurement method.",
       },
       {
         step: "02",
         phase: "Value Study",
         title: "Monochromatic Grisaille",
-        description: "Sculpting 3D light and shadow using single-pigment value studies before introducing color.",
+        description:
+          "Sculpting 3D light and shadow using single-pigment value studies before introducing color.",
       },
       {
         step: "03",
         phase: "Lean Base",
         title: "Lean Block-in & Color Matching",
-        description: "Blocking mass shapes with low-oil pigment diluted with mineral spirits for fast, solid adhesion.",
+        description:
+          "Blocking mass shapes with low-oil pigment diluted with mineral spirits for fast, solid adhesion.",
       },
       {
         step: "04",
         phase: "Fat Layers",
         title: "Fat Layering & Edge Softening",
-        description: "Increasing oil content in upper layers, blending portrait skin tones and clouds with buttery textures.",
+        description:
+          "Increasing oil content in upper layers, blending portrait skin tones and clouds with buttery textures.",
       },
       {
         step: "05",
         phase: "Finishing",
         title: "Impasto Highlights & Damar Varnish",
-        description: "Placing crisp specular highlights and applying archival protective varnish after thorough curing.",
+        description:
+          "Placing crisp specular highlights and applying archival protective varnish after thorough curing.",
       },
     ],
     takeaways: [
@@ -344,103 +538,33 @@ const MEDIUM_APPROACHES: Record<string, MediumApproach> = {
     },
     galleryHash: "#oil",
   },
-  pencil: {
-    key: "pencil",
-    title: "Pencil & Charcoal Sketching",
-    subtitle: "Tonal Depth, Academic Anatomy & Value Control",
-    badge: "The Foundation of Art",
-    icon: faPencil,
-    accent: "from-stone-500 to-zinc-800",
-    badgeBg: "bg-stone-500/10 text-stone-700 dark:text-stone-300 border-stone-500/20",
-    philosophy:
-      "Drawing is the essential spine of all visual art. We train students to observe like a master artist—dissecting light direction, core shadows, reflected light, and anatomical proportion through graphite grades (2H to 8B) and deep willow charcoal.",
-    pillars: [
-      {
-        title: "Seeing Value & Light Spheres",
-        description: "Mapping the 9-step value scale from pure white highlights to deep velvety 8B graphite blacks.",
-        icon: faCompass,
-      },
-      {
-        title: "Academic Shading Techniques",
-        description: "Mastering cross-hatching, directional contour strokes, tortillon stump blending, and kneaded eraser sculpting.",
-        icon: faPencil,
-      },
-      {
-        title: "Proportion, Perspective & Anatomy",
-        description: "Sight-size measurement, facial feature placement, still life ellipses, and multi-point vanishing perspective.",
-        icon: faLayerGroup,
-      },
-    ],
-    roadmap: [
-      {
-        step: "01",
-        phase: "Calibration",
-        title: "Pencil Holding & Line Weight",
-        description: "Overhand vs tripod grips, varying line pressure, and hand-eye coordination calibration exercises.",
-      },
-      {
-        step: "02",
-        phase: "Volume",
-        title: "Geometric Solids & Light Theory",
-        description: "Rendering spheres, cylinders, and cubes to master light source, terminator lines, and cast shadows.",
-      },
-      {
-        step: "03",
-        phase: "Texture",
-        title: "Still Life & Textural Shading",
-        description: "Capturing glass transparency, drapery folds, metal sheen, and wood grain through controlled hatching.",
-      },
-      {
-        step: "04",
-        phase: "Anatomy",
-        title: "Charcoal & Portrait Anatomy",
-        description: "Using willow charcoal, compressed charcoal, and white pastel on toned paper for dramatic portraits.",
-      },
-      {
-        step: "05",
-        phase: "Finalization",
-        title: "Specular Highlights & Fixative",
-        description: "Carving razor-sharp highlights with mono-zero erasers and sealing sheets with archival spray fixative.",
-      },
-    ],
-    takeaways: [
-      "The full 9-step tonal value scale",
-      "Full graphite range (2H to 8B)",
-      "Portrait anatomy & still life perspective",
-      "Willow charcoal & archival fixatives",
-    ],
-    specs: {
-      level: "All Levels (Kids to Adults)",
-      ageGroup: "Ages 6 to Adults",
-      duration: "Flexible 2-hr sessions",
-      attention: "Individual 1-on-1 guidance",
-    },
-    galleryHash: "#pencil",
-  },
   exam: {
     key: "exam",
-    title: "Board Exam Coaching",
-    subtitle: "Karnataka Secondary Education Board Drawing Examinations",
+    title: "Karnataka Board Drawing Exam Coaching",
+    subtitle: "Coaching for Lower & Higher Grade Drawing Exams Conducted by Karnataka Secondary Board",
     badge: "100% Pass Rate Track Record",
     icon: faGraduationCap,
     accent: "from-indigo-500 to-violet-700",
     badgeBg: "bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border-indigo-500/20",
     philosophy:
-      "Jeeva Art School is an accredited, highly respected training centre with a stellar track record of 100% first-class pass rates in Karnataka Lower & Higher Drawing Examinations. Our structured 6-month programme prepares students for official government-recognized certification.",
+      "Jeeva Art School is an accredited, highly acclaimed coaching institution for the official Lower and Higher Grade Drawing Examinations conducted by the Karnataka Secondary Education Examination Board (KSEEB). Maintaining a proven 100% first-class pass track record, our 6-month intensive programme thoroughly trains students through all 6 official papers with rigorous timed mock exams.",
     pillars: [
       {
-        title: "Comprehensive Syllabus Coverage",
-        description: "Complete preparation for Object Drawing, Memory Drawing, Nature Study, Geometric & Scale Drawing, and Design.",
+        title: "Complete 6-Paper Syllabus Coverage",
+        description:
+          "In-depth coaching for Object Drawing, Memory Drawing, Nature Study, Geometrical Drawing, and Applied Design.",
         icon: faBookOpen,
       },
       {
         title: "Timed Mock Exam Drills",
-        description: "Rigorous simulated exam sessions adhering to official board timing, paper dimensions, and scoring criteria.",
+        description:
+          "Full-length simulated exam sessions adhering to official board timing, paper dimensions, and grading criteria.",
         icon: faClock,
       },
       {
         title: "Government-Recognized Credential",
-        description: "State board certification recognized across India for fine arts college admissions and teacher appointments.",
+        description:
+          "State-certified qualification valuable for fine arts degree/diploma admissions, teaching posts, and credentials.",
         icon: faGraduationCap,
       },
     ],
@@ -449,64 +573,71 @@ const MEDIUM_APPROACHES: Record<string, MediumApproach> = {
         step: "01",
         phase: "Paper 1",
         title: "Object & Model Drawing",
-        description: "Freehand drawing of daily objects, brass pots, and fabric drapery in accurate perspective and light-shade.",
+        description:
+          "Freehand drawing of daily objects, brass pots, and drapery in accurate perspective and value shading.",
       },
       {
         step: "02",
         phase: "Paper 2",
         title: "Memory Drawing & Composition",
-        description: "Visualizing everyday Indian scenes—busy markets, temple fairs, sports—with multi-figure proportions.",
+        description:
+          "Visualizing Indian daily life scenes (marketplaces, village festivals, sports) with proper multi-figure proportions.",
       },
       {
         step: "03",
         phase: "Paper 3",
         title: "Nature & Botanical Study",
-        description: "Scientific and artistic rendering of plants, leaves, and flowers with fluid watercolour washes.",
+        description:
+          "Detailed observational rendering of foliage, flower anatomy, and plants with translucent watercolour washes.",
       },
       {
         step: "04",
         phase: "Paper 4",
-        title: "Geometric & Scale Drawing",
-        description: "Scale construction, geometric elevations, sectional views, and isometric projection using precision instruments.",
+        title: "Geometrical & Scale Drawing",
+        description:
+          "Instrumental geometry, scale reductions, angles, tangents, elevations, and sectional architectural views.",
       },
       {
         step: "05",
-        phase: "Paper 5 & 6",
-        title: "Applied Design & 3 Full Mocks",
-        description: "Decorative repeat patterns, color harmony, border designs, followed by 3 comprehensive evaluated mock exams.",
+        phase: "Papers 5 & 6",
+        title: "Applied Design & 3 Full Mock Exams",
+        description:
+          "Decorative patterns, colour harmony, border designs, followed by 3 evaluated mock exam simulations.",
       },
     ],
     takeaways: [
-      "Karnataka Board Lower & Higher Certification",
-      "100% first-class student pass record",
-      "Complete mock exam drills under board timing",
-      "Government-recognized arts credential",
+      "Karnataka Board Lower & Higher Grade Certification",
+      "100% first-class student pass track record",
+      "Complete 6-paper syllabus mastery & timed mocks",
+      "Government-recognized credential for arts careers",
     ],
     specs: {
-      level: "Students aged 10+",
+      level: "Students aged 10+ and Adults",
       ageGroup: "School students, Teens & Adults",
       duration: "6-Month Structured Cohort",
-      attention: "Rigorous evaluation & mock tests",
+      attention: "Individual mock evaluations & scoring",
     },
     galleryHash: "#exam",
   },
 };
 
 const accents: Record<string, string> = {
-  acrylic: "from-orange-400 to-rose-500",
   water: "from-sky-400 to-blue-600",
+  acrylic: "from-orange-400 to-rose-500",
+  pencil: "from-stone-400 to-zinc-700",
+  pastel: "from-rose-400 to-pink-600",
   tanjore: "from-amber-400 to-yellow-600",
   oil: "from-emerald-400 to-green-700",
-  pencil: "from-stone-400 to-zinc-700",
   exam: "from-indigo-400 to-violet-700",
 };
 
 const iconMap: Record<string, any> = {
-  acrylic: faPalette,
   water: faWater,
+  acrylic: faPalette,
+  pencil: faPencil,
+  pastel: faBrush,
   tanjore: faGem,
   oil: faBrush,
-  pencil: faPencil,
   exam: faGraduationCap,
 };
 

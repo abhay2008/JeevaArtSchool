@@ -174,44 +174,51 @@
       "subtitle": "Pick a path that interests you — or try several. Classes are tailored to your level.",
       "classes": [
         {
-          "id": "c-acrylic",
-          "title": "Acrylic",
-          "description": "Bold colour, layering and texture on canvas.",
-          "href": "#acrylic",
-          "accent": "acrylic"
-        },
-        {
           "id": "c-water",
           "title": "Watercolour",
-          "description": "Transparent washes, florals, landscapes and portraits.",
+          "description": "Washes, blending, landscapes, florals, sculptures, monuments & portraits.",
           "href": "#water",
           "accent": "water"
         },
         {
+          "id": "c-acrylic",
+          "title": "Acrylic",
+          "description": "Blending techniques, landscapes, still life, foliage & birds.",
+          "href": "#acrylic",
+          "accent": "acrylic"
+        },
+        {
+          "id": "c-pencil",
+          "title": "Pencil & Charcoal",
+          "description": "Blending techniques, landscapes, birds, animals, monuments, sculptures, still life & portraits.",
+          "href": "#pencil",
+          "accent": "pencil"
+        },
+        {
+          "id": "c-pastel",
+          "title": "Oil Pastel & Colour Pencil",
+          "description": "Rich pigment blending, layering, burnishing & vibrant realistic studies.",
+          "href": "#classes",
+          "accent": "pastel"
+        },
+        {
           "id": "c-tanjore",
-          "title": "Tanjore",
-          "description": "Traditional gold-leaf work and classical iconography.",
+          "title": "Tanjore, Folk & Fabric Art",
+          "description": "22k gold Tanjore, Madhubani, Warli & fabric painting on sarees, blouses, dupattas & kurtas.",
           "href": "#tanjore",
           "accent": "tanjore"
         },
         {
           "id": "c-oil",
-          "title": "Oil painting",
-          "description": "Rich tones, blending and landscape studies.",
+          "title": "Oil Painting",
+          "description": "Classical realism, fat-over-lean layering, landscapes & portraiture.",
           "href": "#oil",
           "accent": "oil"
         },
         {
-          "id": "c-pencil",
-          "title": "Pencil & charcoal",
-          "description": "Portraits, still life and tonal shading.",
-          "href": "#pencil",
-          "accent": "pencil"
-        },
-        {
           "id": "c-exam",
-          "title": "Board exam coaching",
-          "description": "Six-month programme for Karnataka drawing exams.",
+          "title": "Karnataka Board Drawing Exams",
+          "description": "Coaching for Lower & Higher Grade Drawing Exams conducted by Karnataka Secondary Board.",
           "href": "#exam",
           "accent": "exam"
         }
@@ -514,28 +521,19 @@
       "id": "exam",
       "type": "exam",
       "enabled": true,
-      "eyebrow": "Government-accredited coaching",
-      "title": "Karnataka Secondary Board drawing exams",
-      "body": "A focused six-month coaching programme covering the full exam syllabus. Open to children aged 13 and above. Build skill, confidence and exam technique with structured practice.",
-      "badge": "6-month programme",
+      "eyebrow": "Government-Accredited Certification",
+      "title": "Karnataka Secondary Board Drawing Exams",
+      "body": "A focused six-month coaching programme for Lower and Higher Grade Drawing Examinations conducted by the Karnataka Secondary Education Examination Board (KSEEB). Open to students aged 10+ and adults. Build skill, confidence, and exam technique with structured mock practice.",
+      "badge": "100% First-Class Pass Track Record",
       "subjects": [
-        "Object drawing",
-        "Memory drawing",
-        "Nature colouring",
-        "Geometry",
-        "Design & colouring",
-        "Free-hand drawing"
+        "Object & Model Drawing",
+        "Memory Drawing & Composition",
+        "Nature & Botanical Study",
+        "Geometrical & Scale Drawing",
+        "Applied Design & Colour Harmony",
+        "Free-hand Drawing"
       ],
-      "ageNote": "Open to age 13+"
-    },
-    {
-      "id": "studio-video",
-      "type": "video",
-      "enabled": true,
-      "eyebrow": "Watch",
-      "title": "Studio lessons on YouTube",
-      "body": "Follow demonstrations and class work on the school channel. Replace this with any YouTube or Vimeo link from the editor.",
-      "videoUrl": "https://www.youtube.com/@jeevakumari3640"
+      "ageNote": "Open to students aged 10+ and adults"
     }
   ],
   "showcase": [
