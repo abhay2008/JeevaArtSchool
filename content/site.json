@@ -253,17 +253,6 @@
           "purpose": "sale",
           "theme": "acrylic",
           "price": "16,500"
-        },
-        {
-          "id": "sale-water-temple",
-          "title": "A Traditional Temple",
-          "headline": "Fine Watercolour Wash on Cotton Rag",
-          "description": "Atmospheric architectural study of ancient temple towers in fluid watercolour washes and subtle chromatic grading.",
-          "image": "/uploads/templewater.jpeg",
-          "medium": "Watercolour",
-          "purpose": "sale",
-          "theme": "water",
-          "price": "12,000"
         }
       ]
     },
