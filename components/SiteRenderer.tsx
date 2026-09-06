@@ -42,7 +42,12 @@ export default function SiteRenderer() {
   return (
     <main className="relative z-10">
       {(content.sections || [])
-        .filter((section) => section.enabled !== false)
+        .filter(
+          (section) =>
+            section.enabled !== false &&
+            section.id !== "studio-video" &&
+            section.type !== "video"
+        )
         .map((section) => (
           <section key={section.id} id={section.id} className="scroll-mt-20">
             <RenderSection section={section} />

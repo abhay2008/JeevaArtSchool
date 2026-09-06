@@ -14,7 +14,14 @@ import { STORAGE_KEY, cloneContent, createEmptySection } from "../lib/site";
 import { ensureShowcase } from "../lib/showcaseArtworks";
 
 function hydrateContent(raw: SiteContent): SiteContent {
-  return { ...raw, showcase: ensureShowcase(raw.showcase) };
+  const filteredSections = (raw.sections || []).filter(
+    (s) => s.id !== "studio-video" && s.type !== "video"
+  );
+  return {
+    ...raw,
+    sections: filteredSections,
+    showcase: ensureShowcase(raw.showcase),
+  };
 }
 
 interface EditorState {
