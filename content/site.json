@@ -241,18 +241,7 @@
           "medium": "Tanjore Painting",
           "purpose": "sale",
           "theme": "tanjore",
-          "price": "28,500"
-        },
-        {
-          "id": "sale-acrylic-forest",
-          "title": "A Forest Scenery",
-          "headline": "Atmospheric Acrylic on Canvas",
-          "description": "Lush woodland landscape capturing sunlight dancing through canopies, misty distant mountains, and deep viridian water reflections.",
-          "image": "/uploads/acrylic.jpeg",
-          "medium": "Acrylic Painting",
-          "purpose": "sale",
-          "theme": "acrylic",
-          "price": "16,500"
+          "price": "15,000"
         }
       ]
     },
