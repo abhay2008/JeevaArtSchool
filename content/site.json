@@ -286,6 +286,42 @@
           "description": "A vase filled with white flowers",
           "image": "/uploads/arcylicvase.jpeg",
           "medium": "Acrylic painting"
+        },
+        {
+          "id": "s-1",
+          "title": "Vasanth",
+          "description": "Acrylic painting",
+          "image": "/uploads/studentvasant.jpeg",
+          "medium": "Acrylic painting",
+          "theme": "acrylic",
+          "studentName": "Vasanth",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
+        },
+        {
+          "id": "s-4",
+          "title": "Abhay",
+          "description": "Acrylic painting",
+          "image": "/uploads/studentabhay.jpeg",
+          "medium": "Acrylic painting",
+          "theme": "acrylic",
+          "studentName": "Abhay",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
+        },
+        {
+          "id": "s-5",
+          "title": "Abhinav",
+          "description": "Acrylic painting",
+          "image": "/uploads/studentabhinav.jpeg",
+          "medium": "Acrylic painting",
+          "theme": "acrylic",
+          "studentName": "Abhinav",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         }
       ]
     },
@@ -397,6 +433,42 @@
           "description": "Ladybirds on white",
           "image": "/uploads/oil4.jpeg",
           "medium": "Oil painting"
+        },
+        {
+          "id": "s-2",
+          "title": "Abhay",
+          "description": "Oil painting",
+          "image": "/uploads/studentabhay2.jpeg",
+          "medium": "Oil painting",
+          "theme": "oil",
+          "studentName": "Abhay",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
+        },
+        {
+          "id": "s-3",
+          "title": "Abhay (Landscape)",
+          "description": "Oil painting",
+          "image": "/uploads/studentabhay3.jpeg",
+          "medium": "Oil painting",
+          "theme": "oil",
+          "studentName": "Abhay",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
+        },
+        {
+          "id": "s-6",
+          "title": "Sinchana",
+          "description": "Oil painting",
+          "image": "/uploads/studentsinchana.jpeg",
+          "medium": "Oil painting",
+          "theme": "oil",
+          "studentName": "Sinchana",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         }
       ]
     },
@@ -455,6 +527,18 @@
           "description": "Intricate portrait shading study",
           "image": "/uploads/charcoal3.jpeg",
           "medium": "Charcoal shading"
+        },
+        {
+          "id": "s-7",
+          "title": "Charu",
+          "description": "Pencil and charcoal shading",
+          "image": "/uploads/studentcharu.jpeg",
+          "medium": "Pencil shading",
+          "theme": "pencil",
+          "studentName": "Charu",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         }
       ]
     },
@@ -471,49 +555,84 @@
           "title": "Vasanth",
           "description": "Acrylic painting",
           "image": "/uploads/studentvasant.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Acrylic painting",
+          "theme": "acrylic",
+          "studentName": "Vasanth",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         },
         {
           "id": "s-2",
           "title": "Abhay",
           "description": "Oil painting",
           "image": "/uploads/studentabhay2.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Oil painting",
+          "theme": "oil",
+          "studentName": "Abhay",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         },
         {
           "id": "s-3",
-          "title": "Abhay",
+          "title": "Abhay (Landscape)",
           "description": "Oil painting",
           "image": "/uploads/studentabhay3.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Oil painting",
+          "theme": "oil",
+          "studentName": "Abhay",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         },
         {
           "id": "s-4",
           "title": "Abhay",
           "description": "Acrylic painting",
           "image": "/uploads/studentabhay.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Acrylic painting",
+          "theme": "acrylic",
+          "studentName": "Abhay",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         },
         {
           "id": "s-5",
           "title": "Abhinav",
           "description": "Acrylic painting",
           "image": "/uploads/studentabhinav.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Acrylic painting",
+          "theme": "acrylic",
+          "studentName": "Abhinav",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         },
         {
           "id": "s-6",
           "title": "Sinchana",
           "description": "Oil painting",
           "image": "/uploads/studentsinchana.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Oil painting",
+          "theme": "oil",
+          "studentName": "Sinchana",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         },
         {
           "id": "s-7",
           "title": "Charu",
           "description": "Pencil and charcoal shading",
           "image": "/uploads/studentcharu.jpeg",
-          "medium": "Emerging artist"
+          "medium": "Pencil shading",
+          "theme": "pencil",
+          "studentName": "Charu",
+          "isStudentWork": true,
+          "showInMediumGallery": true,
+          "showInEmergingArtists": true
         }
       ]
     },
@@ -593,9 +712,11 @@
       "headline": "Emerging artist",
       "description": "Original student work developed with individualized studio guidance.",
       "image": "/uploads/studentvasant.jpeg",
-      "medium": "Emerging artist",
+      "medium": "Acrylic painting",
       "purpose": "student",
-      "theme": "student"
+      "theme": "acrylic",
+      "studentName": "Vasanth",
+      "isStudentWork": true
     },
     {
       "id": "acrylic-boat",
@@ -643,9 +764,11 @@
       "headline": "Emerging artist",
       "description": "Advanced foundation coursework demonstrating mastery of line and tone.",
       "image": "/uploads/studentabhay2.jpeg",
-      "medium": "Emerging artist",
+      "medium": "Oil painting",
       "purpose": "student",
-      "theme": "student"
+      "theme": "oil",
+      "studentName": "Abhay",
+      "isStudentWork": true
     },
     {
       "id": "pencil-oldman",
@@ -713,9 +836,11 @@
       "headline": "Emerging artist",
       "description": "Dedicated studio practice developing acute observational drawing skills.",
       "image": "/uploads/studentabhinav.jpeg",
-      "medium": "Emerging artist",
+      "medium": "Acrylic painting",
       "purpose": "student",
-      "theme": "student"
+      "theme": "acrylic",
+      "studentName": "Abhinav",
+      "isStudentWork": true
     },
     {
       "id": "pencil-youngwoman",
@@ -773,9 +898,11 @@
       "headline": "Emerging artist",
       "description": "Expressive color study highlighting confident personal voice.",
       "image": "/uploads/studentsinchana.jpeg",
-      "medium": "Emerging artist",
+      "medium": "Oil painting",
       "purpose": "student",
-      "theme": "student"
+      "theme": "oil",
+      "studentName": "Sinchana",
+      "isStudentWork": true
     },
     {
       "id": "pencil-oldwoman",
@@ -793,9 +920,11 @@
       "headline": "Emerging artist",
       "description": "Exam-ready portfolio submission demonstrating mastery of composition.",
       "image": "/uploads/studentcharu.jpeg",
-      "medium": "Emerging artist",
+      "medium": "Pencil shading",
       "purpose": "student",
-      "theme": "student"
+      "theme": "pencil",
+      "studentName": "Charu",
+      "isStudentWork": true
     },
     {
       "id": "water-portrait",
@@ -813,9 +942,23 @@
       "headline": "Emerging artist",
       "description": "Atmospheric landscape balancing perspective, value structure, and chromatic harmony.",
       "image": "/uploads/studentabhay3.jpeg",
-      "medium": "Emerging artist",
+      "medium": "Oil painting",
       "purpose": "student",
-      "theme": "student"
+      "theme": "oil",
+      "studentName": "Abhay",
+      "isStudentWork": true
+    },
+    {
+      "id": "student-abhay-acrylic",
+      "title": "Abhay",
+      "headline": "Acrylic painting",
+      "description": "Original student work developed with individualized studio guidance.",
+      "image": "/uploads/studentabhay.jpeg",
+      "medium": "Acrylic painting",
+      "purpose": "student",
+      "theme": "acrylic",
+      "isStudentWork": true,
+      "studentName": "Abhay"
     }
   ]
 }

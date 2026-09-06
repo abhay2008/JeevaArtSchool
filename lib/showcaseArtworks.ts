@@ -8,6 +8,8 @@ export interface ShowcaseArtwork {
   image: string;
   description: string;
   href: string;
+  studentName?: string;
+  isStudentWork?: boolean;
 }
 
 // All 30 artwork images from public/uploads beautifully interleaved across mediums
@@ -308,18 +310,20 @@ export function defaultShowcaseItems(): ArtworkItem[] {
 }
 
 export function showcaseCategoryFromItem(item: ArtworkItem): ShowcaseArtwork["category"] {
+  if (item.theme === "water") return "watercolour";
+  if (item.theme === "tanjore") return "tanjore";
+  if (item.theme === "oil") return "oil";
+  if (item.theme === "pencil") return "pencil";
+  if (item.theme === "acrylic") return "acrylic";
+
   const medium = (item.medium || "").toLowerCase();
   if (medium.includes("tanjore")) return "tanjore";
   if (medium.includes("water")) return "watercolour";
   if (medium.includes("oil")) return "oil";
   if (medium.includes("charcoal")) return "charcoal";
   if (medium.includes("pencil")) return "pencil";
-  if (medium.includes("student") || medium.includes("emerging") || item.purpose === "student") return "student";
-  if (item.theme === "water") return "watercolour";
-  if (item.theme === "tanjore") return "tanjore";
-  if (item.theme === "oil") return "oil";
-  if (item.theme === "pencil") return "pencil";
-  if (item.theme === "student") return "student";
+  if (medium.includes("acrylic")) return "acrylic";
+  if (medium.includes("student") || medium.includes("emerging") || item.purpose === "student" || item.theme === "student") return "student";
   return "acrylic";
 }
 
@@ -331,6 +335,12 @@ export function itemsToShowcase(items: ArtworkItem[]): ShowcaseArtwork[] {
       category === "charcoal" || category === "pencil" ? "#pencil" :
       category === "student" ? "#students" :
       `#${category}`;
+    const isStudent = Boolean(
+      item.isStudentWork ||
+      item.purpose === "student" ||
+      item.studentName?.trim() ||
+      item.medium?.toLowerCase().includes("emerging")
+    );
     return {
       id: item.id,
       title: item.title,
@@ -339,6 +349,8 @@ export function itemsToShowcase(items: ArtworkItem[]): ShowcaseArtwork[] {
       image: item.image,
       description: item.description,
       href,
+      studentName: item.studentName,
+      isStudentWork: isStudent,
     };
   });
 }

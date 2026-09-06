@@ -228,6 +228,11 @@ export default function HeroArtworkShowcase() {
         (a) => a.category === "pencil" || a.category === "charcoal"
       );
     }
+    if (activeCategory === "student") {
+      return allArtworks.filter(
+        (a) => a.category === "student" || a.isStudentWork
+      );
+    }
     return allArtworks.filter((a) => a.category === activeCategory);
   }, [activeCategory, allArtworks]);
 
@@ -400,10 +405,17 @@ export default function HeroArtworkShowcase() {
 
           <div className="col-span-full md:col-span-6 flex flex-col justify-between gap-3">
             <div>
-              <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-500">
-                {currentArtwork.medium}
-              </p>
-              <h2 className="font-serif text-2xl md:text-3xl text-stone-900 dark:text-white font-semibold mt-1 leading-tight">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-stone-500">
+                  {currentArtwork.medium}
+                </p>
+                {currentArtwork.studentName && (
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/25">
+                    Student: {currentArtwork.studentName}
+                  </span>
+                )}
+              </div>
+              <h2 className="font-serif text-2xl md:text-3xl text-stone-900 dark:text-white font-semibold leading-tight">
                 {currentArtwork.title}
               </h2>
               <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed mt-2 line-clamp-2">

@@ -48,9 +48,20 @@ export default function ArtworkCard({
         isActive ? "pointer-events-none" : ""
       } ${themeStyles[theme]}`}
     >
-      <span className="pointer-events-auto text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300 mb-1">
-        {item.medium}
-      </span>
+      <div className="pointer-events-auto flex items-center gap-1.5 flex-wrap justify-center mb-1">
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600 dark:text-slate-300">
+          {item.medium}
+        </span>
+        {item.studentName ? (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/25">
+            Student: {item.studentName}
+          </span>
+        ) : (item.isStudentWork || item.purpose === "student") ? (
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold uppercase tracking-wider border border-emerald-500/25">
+            Student Work
+          </span>
+        ) : null}
+      </div>
       <h2 className="pointer-events-auto font-serif text-2xl sm:text-3xl lg:text-4xl text-slate-900 dark:text-white mb-1 text-center">
         {item.title}
       </h2>
@@ -76,6 +87,8 @@ export default function ArtworkCard({
             description: [item.headline, item.description].filter(Boolean).join(" — "),
             image: item.image,
             medium: item.medium,
+            studentName: item.studentName,
+            isStudentWork: Boolean(item.isStudentWork || item.purpose === "student" || item.studentName),
           });
         }}
         onKeyDown={(event) => {
@@ -90,6 +103,8 @@ export default function ArtworkCard({
             description: [item.headline, item.description].filter(Boolean).join(" — "),
             image: item.image,
             medium: item.medium,
+            studentName: item.studentName,
+            isStudentWork: Boolean(item.isStudentWork || item.purpose === "student" || item.studentName),
           });
         }}
         onPointerEnter={() => prefetchArtwork(item.image)}

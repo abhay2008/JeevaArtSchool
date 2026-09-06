@@ -9,6 +9,8 @@ export interface ArtworkData {
   description?: string;
   image: string;
   medium?: string;
+  studentName?: string;
+  isStudentWork?: boolean;
 }
 
 interface ArtModalContextType {
@@ -138,10 +140,15 @@ export function ArtModalProvider({ children }: { children: ReactNode }) {
               className="relative max-w-5xl w-full bg-[#f7f1e8] dark:bg-[#16141f] rounded-2xl shadow-2xl border border-amber-900/15 overflow-hidden flex flex-col max-h-[92vh]"
             >
               <div className="flex items-center justify-between px-5 py-3 border-b border-amber-900/10">
-                <div className="flex items-center gap-2 min-w-0">
+                <div className="flex items-center gap-2 min-w-0 flex-wrap">
                   {activeArtwork.medium && (
                     <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-200/80">
                       {activeArtwork.medium}
+                    </span>
+                  )}
+                  {activeArtwork.studentName && (
+                    <span className="shrink-0 text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                      Student: {activeArtwork.studentName}
                     </span>
                   )}
                   <h3 className="font-serif text-lg sm:text-xl font-semibold text-stone-900 dark:text-amber-50 truncate">

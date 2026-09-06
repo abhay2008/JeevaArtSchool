@@ -32,6 +32,10 @@ export interface ArtworkItem {
   purpose?: "gallery" | "sale" | "student" | "class";
   theme?: GalleryTheme;
   price?: number | string;
+  isStudentWork?: boolean;
+  studentName?: string;
+  showInMediumGallery?: boolean;
+  showInEmergingArtists?: boolean;
 }
 
 export interface HeroButton {
