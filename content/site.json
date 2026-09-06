@@ -233,17 +233,6 @@
       "ctaUrl": "https://www.google.com/search?q=products+offered+by+jeeva+art+school+-+drawing+and+painting+classes+bangalore+bengaluru",
       "items": [
         {
-          "id": "sale-tanjore-ganesha",
-          "title": "Lord Ganesha",
-          "headline": "Traditional 22k Gold Tanjore Painting",
-          "description": "Sacred iconographic painting with 22-carat authentic gold foil, embossed relief gesso work, and fine Jaipur stones on seasoned teakwood.",
-          "image": "/uploads/tanjoreganesh.jpeg",
-          "medium": "Tanjore Painting",
-          "purpose": "sale",
-          "theme": "tanjore",
-          "price": "32,000"
-        },
-        {
           "id": "sale-tanjore-krishna",
           "title": "Alilai Krishna",
           "headline": "22k Gold Embossed Relief",
@@ -435,7 +424,7 @@
       "items": [
         {
           "id": "p-1",
-          "title": "An elephant",
+          "title": "A big elephant",
           "description": "Pencil shading of an elephant",
           "image": "/uploads/pencil1.jpeg",
           "medium": "Pencil shading"
