@@ -269,13 +269,6 @@
           "medium": "Acrylic painting"
         },
         {
-          "id": "ac-2",
-          "title": "An ocean view",
-          "description": "Turquoise water and sailboats",
-          "image": "/uploads/acrylicboat.jpeg",
-          "medium": "Acrylic painting"
-        },
-        {
           "id": "ac-3",
           "title": "A horse",
           "description": "Study of a brown horse",
@@ -312,6 +305,13 @@
           "isStudentWork": true,
           "showInMediumGallery": true,
           "showInEmergingArtists": true
+        },
+        {
+          "id": "ac-2",
+          "title": "An ocean view",
+          "description": "Turquoise water and sailboats",
+          "image": "/uploads/acrylicboat.jpeg",
+          "medium": "Acrylic painting"
         }
       ]
     },
