@@ -302,18 +302,6 @@
           "showInEmergingArtists": true
         },
         {
-          "id": "s-4",
-          "title": "Abhay",
-          "description": "Acrylic painting",
-          "image": "/uploads/studentabhay.jpeg",
-          "medium": "Acrylic painting",
-          "theme": "acrylic",
-          "studentName": "Abhay",
-          "isStudentWork": true,
-          "showInMediumGallery": true,
-          "showInEmergingArtists": true
-        },
-        {
           "id": "s-5",
           "title": "Abhinav",
           "description": "Acrylic painting",
@@ -448,18 +436,6 @@
           "medium": "Oil painting"
         },
         {
-          "id": "s-2",
-          "title": "Abhay",
-          "description": "Oil painting",
-          "image": "/uploads/studentabhay2.jpeg",
-          "medium": "Oil painting",
-          "theme": "oil",
-          "studentName": "Abhay",
-          "isStudentWork": true,
-          "showInMediumGallery": true,
-          "showInEmergingArtists": true
-        },
-        {
           "id": "s-3",
           "title": "Abhay (Landscape)",
           "description": "Oil painting",
@@ -587,36 +563,12 @@
           "showInEmergingArtists": true
         },
         {
-          "id": "s-2",
-          "title": "Abhay",
-          "description": "Oil painting",
-          "image": "/uploads/studentabhay2.jpeg",
-          "medium": "Oil painting",
-          "theme": "oil",
-          "studentName": "Abhay",
-          "isStudentWork": true,
-          "showInMediumGallery": true,
-          "showInEmergingArtists": true
-        },
-        {
           "id": "s-3",
           "title": "Abhay (Landscape)",
           "description": "Oil painting",
           "image": "/uploads/studentabhay3.jpeg",
           "medium": "Oil painting",
           "theme": "oil",
-          "studentName": "Abhay",
-          "isStudentWork": true,
-          "showInMediumGallery": true,
-          "showInEmergingArtists": true
-        },
-        {
-          "id": "s-4",
-          "title": "Abhay",
-          "description": "Acrylic painting",
-          "image": "/uploads/studentabhay.jpeg",
-          "medium": "Acrylic painting",
-          "theme": "acrylic",
           "studentName": "Abhay",
           "isStudentWork": true,
           "showInMediumGallery": true,
@@ -680,17 +632,6 @@
     }
   ],
   "showcase": [
-    {
-      "id": "art-0fvy6w1",
-      "title": "Fishes & coral reef",
-      "headline": "",
-      "description": "Beautiful depiction of the ocean floor",
-      "image": "/uploads/1788884797709-1000023835.jpg",
-      "medium": "Watercolour",
-      "purpose": "student",
-      "theme": "water",
-      "isStudentWork": true
-    },
     {
       "id": "tanjore-lakshmi",
       "title": "Goddess Lakshmi",
@@ -792,18 +733,6 @@
       "medium": "Oil painting",
       "purpose": "gallery",
       "theme": "oil"
-    },
-    {
-      "id": "student-abhay2",
-      "title": "Abhay",
-      "headline": "Emerging artist",
-      "description": "Advanced foundation coursework demonstrating mastery of line and tone.",
-      "image": "/uploads/studentabhay2.jpeg",
-      "medium": "Oil painting",
-      "purpose": "student",
-      "theme": "oil",
-      "studentName": "Abhay",
-      "isStudentWork": true
     },
     {
       "id": "pencil-oldman",
@@ -984,16 +913,15 @@
       "isStudentWork": true
     },
     {
-      "id": "student-abhay-acrylic",
-      "title": "Abhay",
-      "headline": "Acrylic painting",
-      "description": "Original student work developed with individualized studio guidance.",
-      "image": "/uploads/studentabhay.jpeg",
-      "medium": "Acrylic painting",
+      "id": "art-0fvy6w1",
+      "title": "Fishes & coral reef",
+      "headline": "",
+      "description": "Beautiful depiction of the ocean floor",
+      "image": "/uploads/1788884797709-1000023835.jpg",
+      "medium": "Watercolour",
       "purpose": "student",
-      "theme": "acrylic",
-      "isStudentWork": true,
-      "studentName": "Abhay"
+      "theme": "water",
+      "isStudentWork": true
     }
   ]
 }
