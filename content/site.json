@@ -323,17 +323,6 @@
       "theme": "water",
       "items": [
         {
-          "id": "art-0fvy6w1",
-          "title": "Fishes & coral reef",
-          "headline": "",
-          "description": "Beautiful depiction of the ocean floor",
-          "image": "/uploads/1788884797709-1000023835.jpg",
-          "medium": "Watercolour",
-          "purpose": "student",
-          "theme": "water",
-          "isStudentWork": true
-        },
-        {
           "id": "w-1",
           "title": "Peonies",
           "description": "Crimson peonies",
@@ -346,6 +335,17 @@
           "description": "A village among coconut trees",
           "image": "/uploads/coconut.jpeg",
           "medium": "Watercolour"
+        },
+        {
+          "id": "art-0fvy6w1",
+          "title": "Fishes & coral reef",
+          "headline": "",
+          "description": "Beautiful depiction of the ocean floor",
+          "image": "/uploads/1788884797709-1000023835.jpg",
+          "medium": "Watercolour",
+          "purpose": "student",
+          "theme": "water",
+          "isStudentWork": true
         },
         {
           "id": "w-3",
