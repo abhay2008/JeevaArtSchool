@@ -323,6 +323,18 @@
       "theme": "water",
       "items": [
         {
+          "id": "art-s0ctlt5",
+          "title": "Tiger swimming",
+          "headline": "",
+          "description": "Watercolor dry brush technique",
+          "image": "/uploads/1789754837422-1000025648.jpg",
+          "medium": "Watercolour",
+          "purpose": "student",
+          "theme": "water",
+          "isStudentWork": true,
+          "studentName": "Charu"
+        },
+        {
           "id": "w-1",
           "title": "Peonies",
           "description": "Crimson peonies",
@@ -540,6 +552,42 @@
       "theme": "student",
       "items": [
         {
+          "id": "art-mrappmm",
+          "title": "Ganesha workshop",
+          "headline": "",
+          "description": "Group photo of the workshop 2026",
+          "image": "/uploads/1789754841444-1000025649.jpg",
+          "medium": "Emerging artist",
+          "purpose": "student",
+          "theme": "student",
+          "isStudentWork": true,
+          "studentName": "Group"
+        },
+        {
+          "id": "art-s0ctlt5",
+          "title": "Tiger swimming",
+          "headline": "",
+          "description": "Watercolor dry brush technique",
+          "image": "/uploads/1789754837422-1000025648.jpg",
+          "medium": "Watercolour",
+          "purpose": "student",
+          "theme": "water",
+          "isStudentWork": true,
+          "studentName": "Charu"
+        },
+        {
+          "id": "art-cuj4xvc",
+          "title": "Ganesha workshop",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1789754834127-1000025658.jpg",
+          "medium": "Emerging artist",
+          "purpose": "student",
+          "theme": "student",
+          "isStudentWork": true,
+          "studentName": "Vedha"
+        },
+        {
           "id": "art-42sq61f",
           "title": "Ganesha workshop",
           "headline": "",
@@ -644,6 +692,42 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-mrappmm",
+      "title": "Ganesha workshop",
+      "headline": "",
+      "description": "Group photo of the workshop 2026",
+      "image": "/uploads/1789754841444-1000025649.jpg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student",
+      "isStudentWork": true,
+      "studentName": "Group"
+    },
+    {
+      "id": "art-s0ctlt5",
+      "title": "Tiger swimming",
+      "headline": "",
+      "description": "Watercolor dry brush technique",
+      "image": "/uploads/1789754837422-1000025648.jpg",
+      "medium": "Watercolour",
+      "purpose": "student",
+      "theme": "water",
+      "isStudentWork": true,
+      "studentName": "Charu"
+    },
+    {
+      "id": "art-cuj4xvc",
+      "title": "Ganesha workshop",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1789754834127-1000025658.jpg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student",
+      "isStudentWork": true,
+      "studentName": "Vedha"
+    },
     {
       "id": "art-42sq61f",
       "title": "Ganesha workshop",
