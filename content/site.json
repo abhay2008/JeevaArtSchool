@@ -540,6 +540,18 @@
       "theme": "student",
       "items": [
         {
+          "id": "art-42sq61f",
+          "title": "Ganesha workshop",
+          "headline": "",
+          "description": "Eco friendly ganesha",
+          "image": "/uploads/1789753719095-IMG-20260914-WA0026.jpg",
+          "medium": "Emerging artist",
+          "purpose": "student",
+          "theme": "student",
+          "isStudentWork": true,
+          "studentName": "Hetwi and mukund"
+        },
+        {
           "id": "art-0fvy6w1",
           "title": "Fishes & coral reef",
           "headline": "",
@@ -632,6 +644,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-42sq61f",
+      "title": "Ganesha workshop",
+      "headline": "",
+      "description": "Eco friendly ganesha",
+      "image": "/uploads/1789753719095-IMG-20260914-WA0026.jpg",
+      "medium": "Emerging artist",
+      "purpose": "student",
+      "theme": "student",
+      "isStudentWork": true,
+      "studentName": "Hetwi and mukund"
+    },
     {
       "id": "tanjore-lakshmi",
       "title": "Goddess Lakshmi",
@@ -736,7 +760,7 @@
     },
     {
       "id": "pencil-oldman",
-      "title": "Old Man",
+      "title": "An Old Man",
       "headline": "Pencil shading",
       "description": "Empathetic aged character portrait emphasizing cross-hatching and contour depth.",
       "image": "/uploads/pencil2.jpeg",
