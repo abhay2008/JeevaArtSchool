@@ -481,6 +481,18 @@
       "theme": "pencil",
       "items": [
         {
+          "id": "art-xloa9xk",
+          "title": "Pen drawing",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1789839391531-1000407564.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Jeevakumari"
+        },
+        {
           "id": "art-ahl0x2j",
           "title": "Colour pencil",
           "headline": "",
@@ -563,6 +575,18 @@
       "subtitle": "Work by students of Jeeva Art School",
       "theme": "student",
       "items": [
+        {
+          "id": "art-xloa9xk",
+          "title": "Pen drawing",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1789839391531-1000407564.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Jeevakumari"
+        },
         {
           "id": "art-ahl0x2j",
           "title": "Colour pencil",
@@ -716,6 +740,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-xloa9xk",
+      "title": "Pen drawing",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1789839391531-1000407564.jpg",
+      "medium": "Pencil shading",
+      "purpose": "student",
+      "theme": "pencil",
+      "isStudentWork": true,
+      "studentName": "Jeevakumari"
+    },
     {
       "id": "art-ahl0x2j",
       "title": "Colour pencil",
