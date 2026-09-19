@@ -481,6 +481,18 @@
       "theme": "pencil",
       "items": [
         {
+          "id": "art-ahl0x2j",
+          "title": "Colour pencil",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1789839230679-1000468291.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Samiksha"
+        },
+        {
           "id": "p-1",
           "title": "A big elephant",
           "description": "Pencil shading of an elephant",
@@ -551,6 +563,18 @@
       "subtitle": "Work by students of Jeeva Art School",
       "theme": "student",
       "items": [
+        {
+          "id": "art-ahl0x2j",
+          "title": "Colour pencil",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1789839230679-1000468291.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Samiksha"
+        },
         {
           "id": "art-mrappmm",
           "title": "Ganesha workshop",
@@ -692,6 +716,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-ahl0x2j",
+      "title": "Colour pencil",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1789839230679-1000468291.jpg",
+      "medium": "Pencil shading",
+      "purpose": "student",
+      "theme": "pencil",
+      "isStudentWork": true,
+      "studentName": "Samiksha"
+    },
     {
       "id": "art-mrappmm",
       "title": "Ganesha workshop",
