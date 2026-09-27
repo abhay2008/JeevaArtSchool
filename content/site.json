@@ -323,6 +323,18 @@
       "theme": "water",
       "items": [
         {
+          "id": "art-vfafd1x",
+          "title": "Kedarnath",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1790530107253-1000430086.jpg",
+          "medium": "Watercolour",
+          "purpose": "student",
+          "theme": "water",
+          "isStudentWork": true,
+          "studentName": "Shalini"
+        },
+        {
           "id": "art-af9xh4e",
           "title": "Himalayan mountain ranges",
           "headline": "",
@@ -624,6 +636,18 @@
       "theme": "student",
       "items": [
         {
+          "id": "art-vfafd1x",
+          "title": "Kedarnath",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1790530107253-1000430086.jpg",
+          "medium": "Watercolour",
+          "purpose": "student",
+          "theme": "water",
+          "isStudentWork": true,
+          "studentName": "Shalini"
+        },
+        {
           "id": "art-4upy6a2",
           "title": "Beautiful swan in english land",
           "headline": "",
@@ -836,6 +860,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-vfafd1x",
+      "title": "Kedarnath",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1790530107253-1000430086.jpg",
+      "medium": "Watercolour",
+      "purpose": "student",
+      "theme": "water",
+      "isStudentWork": true,
+      "studentName": "Shalini"
+    },
     {
       "id": "art-4upy6a2",
       "title": "Beautiful swan in english land",
