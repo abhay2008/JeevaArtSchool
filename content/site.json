@@ -529,6 +529,18 @@
       "theme": "pencil",
       "items": [
         {
+          "id": "art-j9u8bsz",
+          "title": "Charcoal painting",
+          "headline": "",
+          "description": "Happy little girl",
+          "image": "/uploads/1790530256797-1000400627.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Jeeva Kumari"
+        },
+        {
           "id": "art-8pr2wah",
           "title": "Colour pencil",
           "headline": "",
@@ -635,6 +647,18 @@
       "subtitle": "Work by students of Jeeva Art School",
       "theme": "student",
       "items": [
+        {
+          "id": "art-j9u8bsz",
+          "title": "Charcoal painting",
+          "headline": "",
+          "description": "Happy little girl",
+          "image": "/uploads/1790530256797-1000400627.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Jeeva Kumari"
+        },
         {
           "id": "art-vfafd1x",
           "title": "Kedarnath",
@@ -860,6 +884,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-j9u8bsz",
+      "title": "Charcoal painting",
+      "headline": "",
+      "description": "Happy little girl",
+      "image": "/uploads/1790530256797-1000400627.jpg",
+      "medium": "Pencil shading",
+      "purpose": "student",
+      "theme": "pencil",
+      "isStudentWork": true,
+      "studentName": "Jeeva Kumari"
+    },
     {
       "id": "art-vfafd1x",
       "title": "Kedarnath",
