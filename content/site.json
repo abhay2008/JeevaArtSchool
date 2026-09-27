@@ -505,6 +505,18 @@
       "theme": "pencil",
       "items": [
         {
+          "id": "art-8pr2wah",
+          "title": "Colour pencil",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1790529863833-1000468291.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Samiksha"
+        },
+        {
           "id": "art-xloa9xk",
           "title": "Pen drawing",
           "headline": "",
@@ -599,6 +611,18 @@
       "subtitle": "Work by students of Jeeva Art School",
       "theme": "student",
       "items": [
+        {
+          "id": "art-8pr2wah",
+          "title": "Colour pencil",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1790529863833-1000468291.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Samiksha"
+        },
         {
           "id": "art-af9xh4e",
           "title": "Himalayan mountain ranges",
@@ -788,6 +812,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-8pr2wah",
+      "title": "Colour pencil",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1790529863833-1000468291.jpg",
+      "medium": "Pencil shading",
+      "purpose": "student",
+      "theme": "pencil",
+      "isStudentWork": true,
+      "studentName": "Samiksha"
+    },
     {
       "id": "art-af9xh4e",
       "title": "Himalayan mountain ranges",
