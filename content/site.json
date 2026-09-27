@@ -444,6 +444,18 @@
       "theme": "oil",
       "items": [
         {
+          "id": "art-4upy6a2",
+          "title": "Beautiful swan in english land",
+          "headline": "",
+          "description": "Oil painting",
+          "image": "/uploads/1790530017596-1000447411.jpg",
+          "medium": "Oil painting",
+          "purpose": "student",
+          "theme": "oil",
+          "isStudentWork": true,
+          "studentName": "Charu nethrs"
+        },
+        {
           "id": "o-1",
           "title": "Smooth mountains",
           "description": "A lake with mountains beyond",
@@ -611,6 +623,18 @@
       "subtitle": "Work by students of Jeeva Art School",
       "theme": "student",
       "items": [
+        {
+          "id": "art-4upy6a2",
+          "title": "Beautiful swan in english land",
+          "headline": "",
+          "description": "Oil painting",
+          "image": "/uploads/1790530017596-1000447411.jpg",
+          "medium": "Oil painting",
+          "purpose": "student",
+          "theme": "oil",
+          "isStudentWork": true,
+          "studentName": "Charu nethrs"
+        },
         {
           "id": "art-8pr2wah",
           "title": "Colour pencil",
@@ -812,6 +836,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-4upy6a2",
+      "title": "Beautiful swan in english land",
+      "headline": "",
+      "description": "Oil painting",
+      "image": "/uploads/1790530017596-1000447411.jpg",
+      "medium": "Oil painting",
+      "purpose": "student",
+      "theme": "oil",
+      "isStudentWork": true,
+      "studentName": "Charu nethrs"
+    },
     {
       "id": "art-8pr2wah",
       "title": "Colour pencil",
