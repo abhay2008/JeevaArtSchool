@@ -230,3 +230,7 @@ On platforms like Vercel, serverless lambdas have an **ephemeral and read-only f
 ## 📄 License
 
 Proprietary — All rights reserved © Jeeva Art School, Bengaluru.
+
+## Developer
+
+**Abhay Kashyap** — Undergraduate in Electronics & Communication Engineering (ECE), B.M.S. College of Engineering (BMSCE).
