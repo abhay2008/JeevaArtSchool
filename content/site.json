@@ -262,6 +262,18 @@
       "theme": "acrylic",
       "items": [
         {
+          "id": "art-ftvrni9",
+          "title": "Wall painting",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1795369193223-1000477419.jpg",
+          "medium": "Acrylic painting",
+          "purpose": "student",
+          "theme": "acrylic",
+          "isStudentWork": true,
+          "studentName": "Samiksha"
+        },
+        {
           "id": "art-wreytxe",
           "title": "Underwater sealife",
           "headline": "",
@@ -684,6 +696,18 @@
       "theme": "student",
       "items": [
         {
+          "id": "art-ftvrni9",
+          "title": "Wall painting",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1795369193223-1000477419.jpg",
+          "medium": "Acrylic painting",
+          "purpose": "student",
+          "theme": "acrylic",
+          "isStudentWork": true,
+          "studentName": "Samiksha"
+        },
+        {
           "id": "art-wreytxe",
           "title": "Underwater sealife",
           "headline": "",
@@ -956,6 +980,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-ftvrni9",
+      "title": "Wall painting",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1795369193223-1000477419.jpg",
+      "medium": "Acrylic painting",
+      "purpose": "student",
+      "theme": "acrylic",
+      "isStudentWork": true,
+      "studentName": "Samiksha"
+    },
     {
       "id": "art-wreytxe",
       "title": "Underwater sealife",
