@@ -262,6 +262,18 @@
       "theme": "acrylic",
       "items": [
         {
+          "id": "art-wreytxe",
+          "title": "Underwater sealife",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1795368989056-1000503122.jpg",
+          "medium": "Acrylic painting",
+          "purpose": "student",
+          "theme": "acrylic",
+          "isStudentWork": true,
+          "studentName": "Varsha"
+        },
+        {
           "id": "ac-1",
           "title": "A forest scenery",
           "description": "A forest lake with animals and trees",
@@ -672,6 +684,18 @@
       "theme": "student",
       "items": [
         {
+          "id": "art-wreytxe",
+          "title": "Underwater sealife",
+          "headline": "",
+          "description": "",
+          "image": "/uploads/1795368989056-1000503122.jpg",
+          "medium": "Acrylic painting",
+          "purpose": "student",
+          "theme": "acrylic",
+          "isStudentWork": true,
+          "studentName": "Varsha"
+        },
+        {
           "id": "art-lco1q9n",
           "title": "Charcoal painting",
           "headline": "",
@@ -932,6 +956,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-wreytxe",
+      "title": "Underwater sealife",
+      "headline": "",
+      "description": "",
+      "image": "/uploads/1795368989056-1000503122.jpg",
+      "medium": "Acrylic painting",
+      "purpose": "student",
+      "theme": "acrylic",
+      "isStudentWork": true,
+      "studentName": "Varsha"
+    },
     {
       "id": "art-lco1q9n",
       "title": "Charcoal painting",
