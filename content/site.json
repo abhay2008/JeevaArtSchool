@@ -541,6 +541,18 @@
       "theme": "pencil",
       "items": [
         {
+          "id": "art-lco1q9n",
+          "title": "Charcoal painting",
+          "headline": "",
+          "description": "Hetwi charcoal painting of deer",
+          "image": "/uploads/1795368818184-1000504791.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Hetwi"
+        },
+        {
           "id": "art-j9u8bsz",
           "title": "Charcoal painting",
           "headline": "",
@@ -659,6 +671,18 @@
       "subtitle": "Work by students of Jeeva Art School",
       "theme": "student",
       "items": [
+        {
+          "id": "art-lco1q9n",
+          "title": "Charcoal painting",
+          "headline": "",
+          "description": "Hetwi charcoal painting of deer",
+          "image": "/uploads/1795368818184-1000504791.jpg",
+          "medium": "Pencil shading",
+          "purpose": "student",
+          "theme": "pencil",
+          "isStudentWork": true,
+          "studentName": "Hetwi"
+        },
         {
           "id": "art-y3lbskn",
           "title": "Green apples",
@@ -908,6 +932,18 @@
     }
   ],
   "showcase": [
+    {
+      "id": "art-lco1q9n",
+      "title": "Charcoal painting",
+      "headline": "",
+      "description": "Hetwi charcoal painting of deer",
+      "image": "/uploads/1795368818184-1000504791.jpg",
+      "medium": "Pencil shading",
+      "purpose": "student",
+      "theme": "pencil",
+      "isStudentWork": true,
+      "studentName": "Hetwi"
+    },
     {
       "id": "art-y3lbskn",
       "title": "Green apples",
